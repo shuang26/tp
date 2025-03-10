@@ -287,14 +287,39 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                                                                               | So that I can…​                                                        |
+|----------|--------------------------------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| `* * *`  | potential user exploring the product       | see the instruction guide                                                                  | easily know how the app works                                          |
+| `* * *`  | daycare teacher                            | view the students' and parents' contacts                                                   | disseminate information to them                                        |
+| `* * *`  | daycare teacher                            | add student details to the system                                                          | keep records up to date as children enrol or leave                     |
+| `* * *`  | daycare teacher                            | remove student details from the system                                                     | keep records up to date as children enrol or leave                     |
+| `* * *`  | forgetful teacher                          | search for contacts by phone number                                                        | quickly identify who is calling/who to call                            |
+| `* * *`  | daycare teacher                            | mark students as present                                                                   | efficiently take attendance during busy mornings                       |
+| `* *`    | daycare teacher                            | quickly search for a child's emergency contact details                                     | immediately inform parents in case of emergencies                      |
+| `* *`    | daycare teacher                            | generate a summary of daily/monthly attendance                                             | track attendance accurately                                            |
+| `* *`    | new user                                   | copy-paste the parents' contacts from the app                                              | easily send an email to all parents                                    |
+| `* *`    | forgetful user                             | filter the students in my class by subjects                                                | plan the class for the day better                                      |
+| `* *`    | daycare teacher                            | view all classes scheduled for the day                                                     | prepare for my daily routine                                           |
+| `* *`    | daycare teacher                            | make a note of my student (e.g., behaviour, meals, incidents)                              | keep track of important details                                        |
+| `* *`    | daycare teacher                            | edit student details from the system                                                       | keep records up to date as children enrol or leave                     |
+| `* *`    | daycare teacher                            | export student details                                                                     | transfer student details to other systems                              |
+| `* *`    | daycare teacher                            | export parent details                                                                      | transfer parent details to other systems                               |
+| `* *`    | daycare teacher                            | filter students by age group                                                               | access information for age-based activities                            |
+| `* *`    | daycare teacher                            | create a custom group for students                                                         | organise activities for special occasions                              |
+| `* *`    | daycare teacher                            | flag important information (e.g. medical conditions/allergies) about a student             | quickly access important details in times of crisis                    |
+| `* *`    | daycare teacher                            | access an audit log of student information updates                                         | track when and what information was modified                           |
+| `* *`    | daycare teacher                            | record students' absence with their reasons                                                | maintain accurate records and organise makeup lessons                  |
+| `* *`    | daycare teacher                            | see which students share the same emergency contact                                        | coordinate communication for siblings in the class                     |
+| `* *`    | daycare teacher                            | view basic student information (age, name, class) without accessing their complete records | quickly identify students                                              |
+| `* *`    | daycare teacher                            | receive alerts when a student's information is updated                                     | stay informed about important changes                                  |
+| `* *`    | daycare teacher                            | undo previous commands                                                                     | revert any errors                                                      |
+| `*`      | daycare teacher                            | schedule and send pre-set messages to parents                                              | remind them about upcoming events or tasks effortlessly                |
+| `*`      | daycare teacher                            | receive automated alerts if a child is absent for multiple days                            | follow up with parents if needed                                       |
+| `*`      | daycare teacher                            | set reminders for student-specific events (e.g., medication time)                          | avoid missing important occasions                                      |
+| `*`      | expert user                                | sort students' records by various criteria (e.g., name)                                    | find information more efficiently                                      |
+| `*`      | forgetful user                             | set a preferred name for each student                                                      | remember their names and address them properly                         |
+| `*`      | daycare teacher                            | see attendance trends over a certain period                                                | identify students who have been missing classes                        |
+| `*`      | daycare teacher                            | print a list of students with their emergency contacts as a PDF                            | have a copy for quick reference in case of a power outage              |
 
 *{More to be added}*
 
