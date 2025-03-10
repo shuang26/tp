@@ -2,8 +2,10 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -16,6 +18,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Person;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -34,6 +37,7 @@ public class MainWindow extends UiPart<Stage> {
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private FindWindow findWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -66,6 +70,7 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+        findWindow = new FindWindow();
     }
 
     public Stage getPrimaryStage() {
@@ -151,6 +156,25 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.show();
     }
 
+    @FXML
+    public void handleFind(ObservableList<Person> personList) {
+        if (personList.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Student Not Found");
+            alert.setHeaderText(null);
+            alert.setContentText("No student with the given student ID!");
+            alert.showAndWait();
+            return;
+        }
+        
+        findWindow.fillInnerParts(logic.getFilteredPersonList());
+        if (!findWindow.isShowing()) {
+            findWindow.show();
+        } else {
+            findWindow.focus();
+        }
+    }
+
     /**
      * Closes the application.
      */
@@ -161,6 +185,7 @@ public class MainWindow extends UiPart<Stage> {
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();
+        findWindow.hide();
     }
 
     public PersonListPanel getPersonListPanel() {
@@ -180,6 +205,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
+            }
+
+            if (commandResult.isShowFind()) {
+                handleFind(logic.getFilteredPersonList());
             }
 
             if (commandResult.isExit()) {

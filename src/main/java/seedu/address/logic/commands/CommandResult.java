@@ -19,13 +19,17 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** A separate find window should open displaying the corresponding student the user is finding */
+    private final boolean showFind;
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean showFind) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
+        this.showFind = showFind;
     }
 
     /**
@@ -33,7 +37,11 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false);
+        this(feedbackToUser, false, false, false);
+    }
+
+    public CommandResult(String feedbackToUser, boolean showFind) {
+        this(feedbackToUser, false, false, showFind);
     }
 
     public String getFeedbackToUser() {
@@ -44,6 +52,9 @@ public class CommandResult {
         return showHelp;
     }
 
+    public boolean isShowFind() {
+        return showFind;
+    }
     public boolean isExit() {
         return exit;
     }
