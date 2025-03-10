@@ -8,6 +8,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.StudentId;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -16,12 +17,16 @@ import seedu.address.model.util.SampleDataUtil;
  */
 public class PersonBuilder {
 
-    public static final String DEFAULT_NAME = "Amy Bee";
+    public static final String DEFAULT_STUDENT_NAME = "Amy Cena";
+    public static final String DEFAULT_PARENT_NAME = "John Cena";
+    public static final String DEFAULT_STUDENT_ID = "A01A";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
-    private Name name;
+    private Name studentName;
+    private Name parentName;
+    private StudentId studentId;
     private Phone phone;
     private Email email;
     private Address address;
@@ -31,7 +36,9 @@ public class PersonBuilder {
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
-        name = new Name(DEFAULT_NAME);
+        studentName = new Name(DEFAULT_STUDENT_NAME);
+        parentName = new Name(DEFAULT_PARENT_NAME);
+        studentId = new StudentId(DEFAULT_STUDENT_ID);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
@@ -42,7 +49,9 @@ public class PersonBuilder {
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
     public PersonBuilder(Person personToCopy) {
-        name = personToCopy.getName();
+        studentName = personToCopy.getStudentName();
+        parentName = personToCopy.getParentName();
+        studentId = personToCopy.getStudentId();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
@@ -50,10 +59,26 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code Person} that we are building.
+     * Sets the {@code Student Name} of the {@code Person} that we are building.
      */
-    public PersonBuilder withName(String name) {
-        this.name = new Name(name);
+    public PersonBuilder withSName(String name) {
+        this.studentName = new Name(name);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Parent Name} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withPName(String name) {
+        this.parentName = new Name(name);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Parent Name} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withSId(String id) {
+        this.studentId = new StudentId(id);
         return this;
     }
 
@@ -90,7 +115,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, tags);
+        return new Person(studentName, parentName, studentId, phone, email, address, tags);
     }
 
 }
