@@ -156,7 +156,11 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.show();
     }
 
-    @FXML
+    /**
+     * Opens a new find window when a student is found.
+     *
+     * @param personList a list of person.
+     */
     public void handleFind(ObservableList<Person> personList) {
         if (personList.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -166,7 +170,7 @@ public class MainWindow extends UiPart<Stage> {
             alert.showAndWait();
             return;
         }
-        
+
         findWindow.fillInnerParts(logic.getFilteredPersonList());
         if (!findWindow.isShowing()) {
             findWindow.show();
