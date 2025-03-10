@@ -17,7 +17,7 @@ import seedu.address.model.tag.Tag;
 public class Person {
 
     // Identity fields
-    private final Name name;
+    private final Name studentName;
     private final Phone phone;
     private final Email email;
 
@@ -28,19 +28,19 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
-        this.name = name;
+    public Person(Name studentName, Phone phone, Email email, Address address, Set<Tag> tags) {
+        requireAllNonNull(studentName, phone, email, address, tags);
+        this.studentName = studentName;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
     }
 
-    public Name getName() {
-        return name;
+    public Name getStudentName() {
+        return studentName;
     }
-
+    
     public Phone getPhone() {
         return phone;
     }
@@ -71,7 +71,7 @@ public class Person {
         }
 
         return otherPerson != null
-                && otherPerson.getName().equals(getName());
+                && otherPerson.getStudentName().equals(getStudentName()); // placeholder change to getId later
     }
 
     /**
@@ -90,7 +90,7 @@ public class Person {
         }
 
         Person otherPerson = (Person) other;
-        return name.equals(otherPerson.name)
+        return studentName.equals(otherPerson.studentName)
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && address.equals(otherPerson.address)
@@ -100,13 +100,13 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(studentName, phone, email, address, tags);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("name", name)
+                .add("name", studentName)
                 .add("phone", phone)
                 .add("email", email)
                 .add("address", address)
