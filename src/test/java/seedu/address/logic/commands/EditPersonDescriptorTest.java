@@ -61,8 +61,8 @@ public class EditPersonDescriptorTest {
     public void toStringMethod() {
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
         String expected = EditPersonDescriptor.class.getCanonicalName() + "{studentName="
-                + editPersonDescriptor.getSName().orElse(null) + "{parentName="
-                + editPersonDescriptor.getPName().orElse(null) + "{studentId="
+                + editPersonDescriptor.getSName().orElse(null) + ", parentName="
+                + editPersonDescriptor.getPName().orElse(null) + ", studentId="
                 + editPersonDescriptor.getStudentId().orElse(null) + ", phone="
                 + editPersonDescriptor.getPhone().orElse(null) + ", email="
                 + editPersonDescriptor.getEmail().orElse(null) + ", address="

@@ -24,7 +24,10 @@ import seedu.address.model.tag.Tag;
  * Parses input arguments and creates a new AddCommand object
  */
 public class AddCommandParser implements Parser<AddCommand> {
-
+    private static int tenId = 0;
+    private static int lastId = 0;
+    private static char lastLetter = 'A';
+    private String id = "A" + tenId + lastId++ + lastLetter;
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.
@@ -46,7 +49,15 @@ public class AddCommandParser implements Parser<AddCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, new Name("temp"), new StudentId("A08B"), phone, email, address, tagList);
+        if (lastId == 9) {
+            if (tenId == 9) {
+                tenId = 0;
+            }
+            lastId = 0;
+            tenId++;
+            lastLetter++;
+        }
+        Person person = new Person(name, new Name("temp"), new StudentId(id), phone, email, address, tagList);
 
         return new AddCommand(person);
     }

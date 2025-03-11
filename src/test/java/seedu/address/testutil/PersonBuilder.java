@@ -18,8 +18,8 @@ import seedu.address.model.util.SampleDataUtil;
 public class PersonBuilder {
 
     public static final String DEFAULT_STUDENT_NAME = "Amy Cena";
-    public static final String DEFAULT_PARENT_NAME = "John Cena";
-    public static final String DEFAULT_STUDENT_ID = "A01A";
+    public static final String DEFAULT_PARENT_NAME = "Peter Lee";
+    public static final String DEFAULT_STUDENT_ID = "A98Z";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
