@@ -38,7 +38,7 @@
     <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
         <Circle fx:id="attendanceIcon" radius="25">
             <HBox.margin>
-                <Insets right="15"/> 
+                <Insets right="15"/>
             </HBox.margin>
         </Circle>
     </HBox>
