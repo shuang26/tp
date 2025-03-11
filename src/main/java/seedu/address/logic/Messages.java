@@ -37,6 +37,10 @@ public class Messages {
     public static String format(Person person) {
         final StringBuilder builder = new StringBuilder();
         builder.append(person.getStudentName())
+                .append(": Parent: ") // add parent field
+                .append(person.getParentName())
+                .append("; Student ID:") // add student ID field
+                .append(person.getStudentId())
                 .append("; Phone: ")
                 .append(person.getPhone())
                 .append("; Email: ")
