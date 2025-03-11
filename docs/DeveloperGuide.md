@@ -331,70 +331,70 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User enters the add command with student details. 
-2.  System validates student details. 
-3.  System adds the new student record. 
+1.  User enters the add command with student details.
+2.  System validates student details.
+3.  System adds the new student record.
 4.  System confirms successful addition.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid student ID, 
+* 2a. System detects an invalid student ID,
   * 2a1. System displays “Please enter a valid student ID”
-    
+
     Use case ends.
 
 * 2b. System detects an invalid contact number
-  * 2b1. System displays “Please enter a valid contact number” 
-   
+  * 2b1. System displays “Please enter a valid contact number”
+
     Use case ends.
 
 * 2c. System detects a duplicate student ID
   * 2c1. System displays “Please enter a student ID that has not been assigned to another  student”
-   
+
     Use case ends.
 
 * 2d. System detects an incorrect command format
   * 2d1. System displays “Command should be in the format: “add sn/StudentName pn/ParentName p/ParentPhoneNumber id/StudentID”
-   
+
     Use case ends.
 
 * 2e. System detects an invalid command
   * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
-    
+
     Use case ends.
 
 **Use case: UC2 - View the Instruction Guide**
 
 **MSS**
 
-1. User enters the command help. 
+1. User enters the command help.
 2. System displays a list of all commands, their respective parameters, and an example of usage.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid command 
-  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands” 
-  
+* 2a. System detects an invalid command
+  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+
     Use case ends.
 
 **Use case: UC3 - Display All Student Records**
 
 **MSS**
 
-1. User enters the command list. 
+1. User enters the command list.
 2. System displays a list of all students.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid command 
-  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands” 
-  
+* 2a. System detects an invalid command
+  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+
     Use case ends.
 
 
@@ -403,27 +403,27 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User enters the command remove <studentID>
-2. System verifies that the student ID exists. 
-3. System removes the student record. 
-4. System confirms successful removal. 
-   
+2. System verifies that the student ID exists.
+3. System removes the student record.
+4. System confirms successful removal.
+
     Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid student ID 
+* 2a. System detects an invalid student ID
   * 2a1. System displays “Please enter a valid student ID”
-  
+
     Use case ends.
 
-* 2b. System detects an incorrect command format 
+* 2b. System detects an incorrect command format
   * 2b1. System displays “Command should be in the format: “remove <studentId>””
-  
+
     Use case ends.
 
-* 2c. System detects an invalid command 
+* 2c. System detects an invalid command
   * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
-  
+
     Use case ends.
 
 
@@ -431,54 +431,54 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User enters command view <studentID>. 
-2. System verifies that the student ID exists. 
-3. System retrieves the student’s details. 
+1. User enters command view <studentID>.
+2. System verifies that the student ID exists.
+3. System retrieves the student’s details.
 4. System displays the student’s information.
 
    Use case ends.
 
-* 2a. System detects an invalid student ID 
+* 2a. System detects an invalid student ID
   * 2a1. System displays “Please enter a valid student ID”
-  
+
     Use case ends.
 
-* 2b. System detects an incorrect command format 
+* 2b. System detects an incorrect command format
   * 2b1. System displays “Command should be in the format: “remove <studentId>””
-  
+
     Use case ends.
 
-* 2c. System detects an invalid command 
+* 2c. System detects an invalid command
   * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
-  
+
     Use case ends.
 
 **Use case: UC6 - Mark Student Attendance**
 
 **MSS**
 
-1. User enters the command mark <studentID>. 
-2. System verifies that the student exists. 
-3. System updates the attendance record for that student. 
-4. System confirms that the student has been marked present. 
-    
+1. User enters the command mark <studentID>.
+2. System verifies that the student exists.
+3. System updates the attendance record for that student.
+4. System confirms that the student has been marked present.
+
     Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid student ID 
+* 2a. System detects an invalid student ID
   * 2a1. System displays “Please enter a valid student ID”.
-  
+
     Use case ends.
 
-* 2b. System detects an incorrect command format 
+* 2b. System detects an incorrect command format
   * 2b1. System displays “Command should be in the format: “remove <studentId>””
 
     Use case ends.
 
-* 2c. System detects an invalid command 
+* 2c. System detects an invalid command
   * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
-  
+
     Use case ends.
 
 
@@ -490,8 +490,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4.  System does not take more than 1s to load all data from files when launching.
 5.  All commands execute in less than 1s, including saving of data to files.
 6.  Error messages should offer support to user (help user get the right commands).
-7.  Commands should be intuitive and easy to remember. 
-8.  Data should be saved after each change-causing command. 
+7.  Commands should be intuitive and easy to remember.
+8.  Data should be saved after each change-causing command.
 9.  The app should not require complex installation steps.
 10. It should be a lightweight application (<100MB) and not require additional dependencies beyond Java.
 
@@ -503,7 +503,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Daycare Teacher**: The primary user of the CareBook application, responsible for managing student records and attendance.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Private contact detail**: A contact detail that is not meant to be shared with others
-* **Student Record**: A set of data representing a student's personal information, including details like student ID, name, parent contact, and attendance. 
+* **Student Record**: A set of data representing a student's personal information, including details like student ID, name, parent contact, and attendance.
 * **Validation**: The system’s process of checking that entered data (e.g., Student ID, ParentPhoneNumber) meets predefined rules before accepting it.
 --------------------------------------------------------------------------------------------------------------------
 

@@ -8,6 +8,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
 
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
@@ -33,4 +35,11 @@
       <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
     </VBox>
   </GridPane>
+    <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+        <Circle fx:id="attendanceIcon" radius="25">
+            <HBox.margin>
+                <Insets right="15"/>
+            </HBox.margin>
+        </Circle>
+    </HBox>
 </HBox>
