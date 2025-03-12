@@ -274,72 +274,237 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* daycare teacher
+* managing daily rosters of 30 to 40 students (aged 1 to 12)
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
-
+**Value proposition**: CareBook helps daycare teachers manage classroom and parent communication by providing instant CLI access to students’, parents’, colleagues’ contacts and streamlining repetitive tasks like daily attendance and maintaining student records.
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                                                                               | So that I can…​                                                        |
+|----------|--------------------------------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| `* * *`  | potential user exploring the product       | see the instruction guide                                                                  | easily know how the app works                                          |
+| `* * *`  | daycare teacher                            | view the students' and parents' contacts                                                   | disseminate information to them                                        |
+| `* * *`  | daycare teacher                            | add student details to the system                                                          | keep records up to date as children enrol or leave                     |
+| `* * *`  | daycare teacher                            | remove student details from the system                                                     | keep records up to date as children enrol or leave                     |
+| `* * *`  | forgetful teacher                          | search for contacts by phone number                                                        | quickly identify who is calling/who to call                            |
+| `* * *`  | daycare teacher                            | mark students as present                                                                   | efficiently take attendance during busy mornings                       |
+| `* *`    | daycare teacher                            | quickly search for a child's emergency contact details                                     | immediately inform parents in case of emergencies                      |
+| `* *`    | daycare teacher                            | generate a summary of daily/monthly attendance                                             | track attendance accurately                                            |
+| `* *`    | new user                                   | copy-paste the parents' contacts from the app                                              | easily send an email to all parents                                    |
+| `* *`    | forgetful user                             | filter the students in my class by subjects                                                | plan the class for the day better                                      |
+| `* *`    | daycare teacher                            | view all classes scheduled for the day                                                     | prepare for my daily routine                                           |
+| `* *`    | daycare teacher                            | make a note of my student (e.g., behaviour, meals, incidents)                              | keep track of important details                                        |
+| `* *`    | daycare teacher                            | edit student details from the system                                                       | keep records up to date as children enrol or leave                     |
+| `* *`    | daycare teacher                            | export student details                                                                     | transfer student details to other systems                              |
+| `* *`    | daycare teacher                            | export parent details                                                                      | transfer parent details to other systems                               |
+| `* *`    | daycare teacher                            | filter students by age group                                                               | access information for age-based activities                            |
+| `* *`    | daycare teacher                            | create a custom group for students                                                         | organise activities for special occasions                              |
+| `* *`    | daycare teacher                            | flag important information (e.g. medical conditions/allergies) about a student             | quickly access important details in times of crisis                    |
+| `* *`    | daycare teacher                            | access an audit log of student information updates                                         | track when and what information was modified                           |
+| `* *`    | daycare teacher                            | record students' absence with their reasons                                                | maintain accurate records and organise makeup lessons                  |
+| `* *`    | daycare teacher                            | see which students share the same emergency contact                                        | coordinate communication for siblings in the class                     |
+| `* *`    | daycare teacher                            | view basic student information (age, name, class) without accessing their complete records | quickly identify students                                              |
+| `* *`    | daycare teacher                            | receive alerts when a student's information is updated                                     | stay informed about important changes                                  |
+| `* *`    | daycare teacher                            | undo previous commands                                                                     | revert any errors                                                      |
+| `*`      | daycare teacher                            | schedule and send pre-set messages to parents                                              | remind them about upcoming events or tasks effortlessly                |
+| `*`      | daycare teacher                            | receive automated alerts if a child is absent for multiple days                            | follow up with parents if needed                                       |
+| `*`      | daycare teacher                            | set reminders for student-specific events (e.g., medication time)                          | avoid missing important occasions                                      |
+| `*`      | expert user                                | sort students' records by various criteria (e.g., name)                                    | find information more efficiently                                      |
+| `*`      | forgetful user                             | set a preferred name for each student                                                      | remember their names and address them properly                         |
+| `*`      | daycare teacher                            | see attendance trends over a certain period                                                | identify students who have been missing classes                        |
+| `*`      | daycare teacher                            | print a list of students with their emergency contacts as a PDF                            | have a copy for quick reference in case of a power outage              |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `CareBook` and the **Actor** is the `Daycare Teacher`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: UC1 - Add a New Student Record**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User enters the add command with student details.
+2.  System validates student details.
+3.  System adds the new student record.
+4.  System confirms successful addition.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. System detects an invalid student ID,
+  * 2a1. System displays “Please enter a valid student ID”
 
-  Use case ends.
+    Use case ends.
 
-* 3a. The given index is invalid.
+* 2b. System detects an invalid contact number
+  * 2b1. System displays “Please enter a valid contact number”
 
-    * 3a1. AddressBook shows an error message.
+    Use case ends.
 
-      Use case resumes at step 2.
+* 2c. System detects a duplicate student ID
+  * 2c1. System displays “Please enter a student ID that has not been assigned to another  student”
 
-*{More to be added}*
+    Use case ends.
+
+* 2d. System detects an incorrect command format
+  * 2d1. System displays “Command should be in the format: “add sn/StudentName pn/ParentName p/ParentPhoneNumber id/StudentID”
+
+    Use case ends.
+
+* 2e. System detects an invalid command
+  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+
+    Use case ends.
+
+**Use case: UC2 - View the Instruction Guide**
+
+**MSS**
+
+1. User enters the command help.
+2. System displays a list of all commands, their respective parameters, and an example of usage.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. System detects an invalid command
+  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+
+    Use case ends.
+
+**Use case: UC3 - Display All Student Records**
+
+**MSS**
+
+1. User enters the command list.
+2. System displays a list of all students.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. System detects an invalid command
+  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+
+    Use case ends.
+
+
+**Use case: UC4 - Remove a Student Record**
+
+**MSS**
+
+1. User enters the command remove <studentID>
+2. System verifies that the student ID exists.
+3. System removes the student record.
+4. System confirms successful removal.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. System detects an invalid student ID
+  * 2a1. System displays “Please enter a valid student ID”
+
+    Use case ends.
+
+* 2b. System detects an incorrect command format
+  * 2b1. System displays “Command should be in the format: “remove <studentId>””
+
+    Use case ends.
+
+* 2c. System detects an invalid command
+  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
+
+    Use case ends.
+
+
+**Use case: UC5 - View Details of a Specific Student**
+
+**MSS**
+
+1. User enters command view <studentID>.
+2. System verifies that the student ID exists.
+3. System retrieves the student’s details.
+4. System displays the student’s information.
+
+   Use case ends.
+
+* 2a. System detects an invalid student ID
+  * 2a1. System displays “Please enter a valid student ID”
+
+    Use case ends.
+
+* 2b. System detects an incorrect command format
+  * 2b1. System displays “Command should be in the format: “remove <studentId>””
+
+    Use case ends.
+
+* 2c. System detects an invalid command
+  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
+
+    Use case ends.
+
+**Use case: UC6 - Mark Student Attendance**
+
+**MSS**
+
+1. User enters the command mark <studentID>.
+2. System verifies that the student exists.
+3. System updates the attendance record for that student.
+4. System confirms that the student has been marked present.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. System detects an invalid student ID
+  * 2a1. System displays “Please enter a valid student ID”.
+
+    Use case ends.
+
+* 2b. System detects an incorrect command format
+  * 2b1. System displays “Command should be in the format: “remove <studentId>””
+
+    Use case ends.
+
+* 2c. System detects an invalid command
+  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
+
+    Use case ends.
+
 
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  System does not take more than 1s to load all data from files when launching.
+5.  All commands execute in less than 1s, including saving of data to files.
+6.  Error messages should offer support to user (help user get the right commands).
+7.  Commands should be intuitive and easy to remember.
+8.  Data should be saved after each change-causing command.
+9.  The app should not require complex installation steps.
+10. It should be a lightweight application (<100MB) and not require additional dependencies beyond Java.
 
-*{More to be added}*
 
 ### Glossary
 
+* **Command**: An instruction entered by the Daycare Teacher into the CareBook system to perform a specific action (e.g., "add", "remove", "view", "list", "mark", "help").
+* **Command Format**: The required structure and syntax for a command, including any necessary parameters (e.g., "add sn/StudentName pn/ParentName p/ParentPhoneNumber id/StudentID" for adding a student).
+* **Daycare Teacher**: The primary user of the CareBook application, responsible for managing student records and attendance.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Private contact detail**: A contact detail that is not meant to be shared with others
-
+* **Student Record**: A set of data representing a student's personal information, including details like student ID, name, parent contact, and attendance.
+* **Validation**: The system’s process of checking that entered data (e.g., Student ID, ParentPhoneNumber) meets predefined rules before accepting it.
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**
