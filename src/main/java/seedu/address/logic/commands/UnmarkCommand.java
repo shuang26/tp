@@ -22,6 +22,10 @@ public class UnmarkCommand extends Command {
 
     private final String id;
 
+    /**
+     * Initialises UnmarkCommand with given student id.
+     * @param id ID of student to unmark attendance.
+     */
     public UnmarkCommand(String id) {
         requireAllNonNull(id);
 
