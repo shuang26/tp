@@ -18,7 +18,7 @@ public class MarkCommandParser implements Parser<MarkCommand> {
 
         String id = argMultimap.getPreamble();
 
-        if (id.isBlank()){
+        if (id.isBlank()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, MarkCommand.MESSAGE_USAGE));
         }
 
