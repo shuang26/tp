@@ -22,6 +22,7 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.MarkCommand;
 import seedu.address.logic.commands.UnmarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
@@ -90,10 +91,17 @@ public class AddressBookParserTest {
     }
 
     @Test
-    public void parseCommand_mark() throws Exception {
+    public void parseCommand_unmark() throws Exception {
         UnmarkCommand command = (UnmarkCommand) parser.parseCommand(
                 UnmarkCommand.COMMAND_WORD + " " + "A01A");
         assertEquals(new UnmarkCommand("A01A"), command);
+    }
+
+    @Test
+    public void parseCommand_mark() throws Exception {
+        MarkCommand command = (MarkCommand) parser.parseCommand(
+                MarkCommand.COMMAND_WORD + " " + "A01A");
+        assertEquals(new MarkCommand("A01A"), command);
     }
 
     @Test
