@@ -1,14 +1,18 @@
 package seedu.address.logic.commands;
 
-import seedu.address.model.Model;
-import seedu.address.logic.commands.exceptions.CommandException;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.Model;
+
+/**
+ * Marks a student identified using their student id as present.
+ */
 public class MarkCommand extends Command {
     public static final String COMMAND_WORD = "mark";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Marks the student identified as present by the "
-            + "student id.\nParameters: [STUDENT_ID]\n"
+            + "student id as present.\nParameters: [STUDENT_ID]\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
     public static final String MESSAGE_NOT_IMPLEMENTED_YET =
@@ -18,6 +22,10 @@ public class MarkCommand extends Command {
 
     private final String id;
 
+    /**
+     * Initialises MarkCommand with given student id.
+     * @param id ID of student to mark attendance.
+     */
     public MarkCommand(String id) {
         requireAllNonNull(id);
 
