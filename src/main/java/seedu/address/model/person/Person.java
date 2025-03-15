@@ -17,10 +17,11 @@ import seedu.address.model.tag.Tag;
 public class Person {
 
     // Identity fields
-    private final Name name;
+    private final Name studentName;
+    private final Name parentName;
     private final Phone phone;
     private final Email email;
-
+    private final StudentId studentId;
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
@@ -28,17 +29,28 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
-        this.name = name;
+    public Person(Name studentName, Name parentName, StudentId studentId,
+                  Phone phone, Email email, Address address, Set<Tag> tags) {
+        requireAllNonNull(studentName, parentName, studentId, phone, email, address, tags);
+        this.studentName = studentName;
+        this.parentName = parentName;
+        this.studentId = studentId;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
     }
 
-    public Name getName() {
-        return name;
+    public Name getStudentName() {
+        return studentName;
+    }
+
+    public Name getParentName() {
+        return parentName;
+    }
+
+    public StudentId getStudentId() {
+        return studentId;
     }
 
     public Phone getPhone() {
@@ -71,7 +83,7 @@ public class Person {
         }
 
         return otherPerson != null
-                && otherPerson.getName().equals(getName());
+                && otherPerson.getStudentId().equals(getStudentId());
     }
 
     /**
@@ -90,7 +102,9 @@ public class Person {
         }
 
         Person otherPerson = (Person) other;
-        return name.equals(otherPerson.name)
+        return studentName.equals(otherPerson.studentName)
+                && parentName.equals(otherPerson.parentName)
+                && studentId.equals(otherPerson.studentId)
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && address.equals(otherPerson.address)
@@ -100,13 +114,15 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(studentName, parentName, studentId, phone, email, address, tags);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("name", name)
+                .add("name", studentName)
+                .add("parentName", parentName)
+                .add("studentId", studentId)
                 .add("phone", phone)
                 .add("email", email)
                 .add("address", address)
