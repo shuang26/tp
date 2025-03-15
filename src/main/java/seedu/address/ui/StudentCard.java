@@ -42,7 +42,7 @@ public class StudentCard extends UiPart<Region> {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
+        name.setText(person.getStudentName().fullName);
         attendanceIcon.setFill(Color.GREEN);
     }
 }
