@@ -21,7 +21,7 @@ public class FindWindow extends UiPart<Stage> {
     private VBox personListPanelPlaceholder;
 
     // This PersonListPanel will display the PersonCards (the result).
-    private PersonListPanel personListPanel;
+    private StudentFindWindowListPanel personListPanel;
 
     /**
      * Creates a new FindWindow with the given Stage.
@@ -48,7 +48,7 @@ public class FindWindow extends UiPart<Stage> {
      * @param personList
      */
     public void fillInnerParts(ObservableList<Person> personList) {
-        personListPanel = new PersonListPanel(personList);
+        personListPanel = new StudentFindWindowListPanel(personList);
         personListPanelPlaceholder.getChildren().clear();
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
     }
