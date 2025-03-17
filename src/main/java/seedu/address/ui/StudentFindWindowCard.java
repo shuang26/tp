@@ -1,10 +1,7 @@
 package seedu.address.ui;
 
-import java.util.Comparator;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
@@ -46,8 +43,6 @@ public class StudentFindWindowCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
-    private FlowPane tags;
-    @FXML
     private Circle attendanceIcon;
 
     /**
@@ -63,9 +58,6 @@ public class StudentFindWindowCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
-        person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        attendanceIcon.setFill(Color.GREEN);
+        attendanceIcon.setFill(person.isPresent() ? Color.GREEN : Color.RED);
     }
 }
