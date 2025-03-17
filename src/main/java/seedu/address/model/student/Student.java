@@ -18,6 +18,7 @@ public class Student {
     private final Name parentName;
     private final Phone phone;
     private final Email email;
+    private Attendance attendance = new Attendance();
 
     // Data fields
     private final Address address;
@@ -56,6 +57,18 @@ public class Student {
 
     public Address getAddress() {
         return address;
+    }
+
+    public boolean isPresent() {
+        return this.attendance.isPresent();
+    }
+
+    public void setPresent() {
+        this.attendance.setPresent();
+    }
+
+    public void setAbsent() {
+        this.attendance.setAbsent();
     }
 
     /**

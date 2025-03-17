@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.student.Attendance;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -22,6 +23,7 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final StudentId studentId;
+    private Attendance attendance = new Attendance();
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
@@ -63,6 +65,18 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public boolean isPresent() {
+        return this.attendance.isPresent();
+    }
+
+    public void setPresent() {
+        this.attendance.setPresent();
+    }
+
+    public void setAbsent() {
+        this.attendance.setAbsent();
     }
 
     /**

@@ -63,5 +63,4 @@ public class StudentId {
     public int hashCode() {
         return studentId.hashCode();
     }
-
 }

@@ -33,6 +33,8 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
+    private Label studentId;
+    @FXML
     private Circle attendanceIcon;
 
     /**
@@ -43,6 +45,7 @@ public class StudentCard extends UiPart<Region> {
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getStudentName().fullName);
-        attendanceIcon.setFill(Color.GREEN);
+        studentId.setText(person.getStudentId().toString());
+        attendanceIcon.setFill(person.isPresent() ? Color.GREEN : Color.RED);
     }
 }
