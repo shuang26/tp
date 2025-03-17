@@ -11,7 +11,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.StudentId;
 
 /**
- * Deletes a person identified using their student ID from the address book.
+ * Deletes a person identified using their student ID from CareBook.
  */
 public class DeleteStudentCommand extends Command {
 
@@ -38,7 +38,6 @@ public class DeleteStudentCommand extends Command {
 
         Person studentToDelete = null;
         for (Person student : lastShownList) {
-            // Assumes that Person has a getStudentId() method.
             if (student.getStudentId().equals(targetStudentId)) {
                 studentToDelete = student;
                 break;
