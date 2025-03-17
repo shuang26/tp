@@ -13,8 +13,8 @@ import seedu.address.model.person.StudentIdEqualsPredicate;
 public class FindStudentCommandParser implements Parser<FindStudentCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the FindCommand
-     * and returns a FindCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the FindStudentCommand
+     * and returns a FindStudentCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public FindStudentCommand parse(String args) throws ParseException {
@@ -28,7 +28,7 @@ public class FindStudentCommandParser implements Parser<FindStudentCommand> {
             StudentId studentId = new StudentId(trimmedArgs);
             return new FindStudentCommand(new StudentIdEqualsPredicate(studentId));
         } catch (IllegalArgumentException e) {
-            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS + "\n " + FindStudentCommand.MESSAGE_USAGE);
+            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS + "\n" + FindStudentCommand.MESSAGE_USAGE);
         }
     }
 

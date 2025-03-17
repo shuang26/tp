@@ -12,7 +12,7 @@ import seedu.address.model.person.StudentId;
 public class DeleteStudentCommandParser implements Parser<DeleteStudentCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the DeletStudentCommand
+     * Parses the given {@code String} of arguments in the context of the DeleteStudentCommand
      * and returns a DeleteStudentCommand object for execution.
      * @throws ParseException if the user input does not conform to the expected format.
      */
@@ -25,7 +25,7 @@ public class DeleteStudentCommandParser implements Parser<DeleteStudentCommand> 
             StudentId studentId = new StudentId(trimmedArgs);
             return new DeleteStudentCommand(studentId);
         } catch (IllegalArgumentException e) {
-            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS + "\n " + DeleteStudentCommand.MESSAGE_USAGE);
+            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS + "\n" + DeleteStudentCommand.MESSAGE_USAGE);
         }
     }
 }

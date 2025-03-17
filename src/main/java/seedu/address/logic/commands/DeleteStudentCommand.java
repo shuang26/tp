@@ -5,13 +5,14 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.StudentId;
 
 /**
- * Deletes a person identified using their student ID from CareBook.
+ * Deletes a student identified using their student ID from CareBook.
  */
 public class DeleteStudentCommand extends Command {
 
@@ -22,7 +23,7 @@ public class DeleteStudentCommand extends Command {
             + "Parameters: STUDENT_ID (must be in uppercase)\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Student: %1$s";
+    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Student: %1$s ";
     public static final String MESSAGE_STUDENT_ID_NOT_FOUND = "No student with student ID: %1$s found.";
 
     private final StudentId targetStudentId;
@@ -48,7 +49,7 @@ public class DeleteStudentCommand extends Command {
         }
 
         model.deletePerson(studentToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, studentToDelete));
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, Messages.format(studentToDelete)));
     }
 
     @Override
