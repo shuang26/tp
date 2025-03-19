@@ -88,7 +88,7 @@ public class UniqueStudentList implements Iterable<Student> {
      * Replaces the contents of this list with {@code persons}.
      * {@code persons} must not contain duplicate persons.
      */
-    public void setPersons(List<Student> persons) {
+    public void setStudents(List<Student> persons) {
         requireAllNonNull(persons);
         if (!personsAreUnique(persons)) {
             throw new DuplicatePersonException();
