@@ -1,9 +1,17 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_UNMARKED;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
+
+import java.util.List;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.student.Student;
+import seedu.address.model.student.StudentId;
+import seedu.address.model.student.StudentIdEqualsPredicate;
 
 /**
  * Marks a student identified using their student id as absent.
@@ -34,7 +42,21 @@ public class UnmarkCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        throw new CommandException(MESSAGE_NOT_IMPLEMENTED_YET);
+        requireNonNull(model);
+
+        model.updateFilteredStudentList(new StudentIdEqualsPredicate(new StudentId(id)));
+        List<Student> students = model.getFilteredStudentList();
+
+        if (students.isEmpty()) {
+            model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+            throw new CommandException("Requested student was not found in the student list.");
+        }
+
+        Student studentToMark = students.get(0);
+        studentToMark.setAbsent();
+
+        model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+        return new CommandResult(String.format(MESSAGE_STUDENT_ATTENDANCE_UNMARKED, id));
     }
 
     @Override
