@@ -1,9 +1,18 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_MARKED;
+
+import java.util.List;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.StudentId;
+import seedu.address.model.person.StudentIdEqualsPredicate;
 
 /**
  * Marks a student identified using their student id as present.
@@ -34,7 +43,21 @@ public class MarkCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        throw new CommandException(MESSAGE_NOT_IMPLEMENTED_YET);
+        requireNonNull(model);
+
+        model.updateFilteredPersonList(new StudentIdEqualsPredicate(new StudentId(id)));
+        List<Person> students = model.getFilteredPersonList();
+
+        if (students.isEmpty()){
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+            throw new CommandException("Requested student was not found in the student list.");
+        }
+
+        Person studentToMark = students.get(0);
+        studentToMark.setPresent();
+
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        return new CommandResult(String.format(MESSAGE_STUDENT_ATTENDANCE_MARKED, id));
     }
 
     @Override
