@@ -21,18 +21,18 @@ public class UnmarkCommandTest {
 
     @Test
     public void execute() {
-        final String test_id = "A01A";
+        final String testId = "A01A";
 
-        assertCommandFailure(new UnmarkCommand(test_id), model, MESSAGE_NOT_IMPLEMENTED_YET);
+        assertCommandFailure(new UnmarkCommand(testId), model, MESSAGE_NOT_IMPLEMENTED_YET);
     }
 
     @Test
     public void equals() {
-        final String test_id = "A01A";
-        final UnmarkCommand standardCommand = new UnmarkCommand(test_id);
+        final String testId = "A01A";
+        final UnmarkCommand standardCommand = new UnmarkCommand(testId);
 
         // same value -> returns true
-        UnmarkCommand commandWithSameValue = new UnmarkCommand(test_id);
+        UnmarkCommand commandWithSameValue = new UnmarkCommand(testId);
         assertTrue(standardCommand.equals(commandWithSameValue));
 
         // same object -> returns true
