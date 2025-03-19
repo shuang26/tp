@@ -3,7 +3,6 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.logic.commands.MarkCommand.MESSAGE_NOT_IMPLEMENTED_YET;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
@@ -22,18 +21,18 @@ public class MarkCommandTest {
 
     @Test
     public void execute() {
-        final String test_id = "A01A";
+        final String testId = "A01A";
 
-        assertCommandFailure(new MarkCommand(test_id), model, MESSAGE_NOT_IMPLEMENTED_YET);
+        assertCommandFailure(new MarkCommand(testId), model, "Requested student was not found in the student list.");
     }
 
     @Test
     public void equals() {
-        final String test_id = "A01A";
-        final MarkCommand standardCommand = new MarkCommand(test_id);
+        final String testId = "A01A";
+        final MarkCommand standardCommand = new MarkCommand(testId);
 
         // same value -> returns true
-        MarkCommand commandWithSameValue = new MarkCommand(test_id);
+        MarkCommand commandWithSameValue = new MarkCommand(testId);
         assertTrue(standardCommand.equals(commandWithSameValue));
 
         // same object -> returns true
