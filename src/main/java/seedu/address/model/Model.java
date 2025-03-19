@@ -68,6 +68,12 @@ public interface Model {
     void deletePerson(Person target);
 
     /**
+     * Deletes the given student.
+     * The person must exist in the address book.
+     */
+    void deleteStudent(Student target);
+
+    /**
      * Adds the given person.
      * {@code person} must not already exist in the address book.
      */
