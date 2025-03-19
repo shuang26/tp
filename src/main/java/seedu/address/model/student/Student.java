@@ -18,7 +18,7 @@ public class Student {
     private final Name parentName;
     private final Phone phone;
     private final Email email;
-    private Attendance attendance = new Attendance();
+    private Attendance attendance;
 
     // Data fields
     private final Address address;
@@ -26,15 +26,18 @@ public class Student {
     /**
      * Every field must be present and not null.
      */
-    public Student(Name studentName, StudentId studentId, Name parentName, Phone phone, Email email, Address address) {
-        requireAllNonNull(studentName, studentId, parentName, phone, email, address);
+    public Student(Name studentName, StudentId studentId, Name parentName, Phone phone, Email email, Address address,
+                   Attendance attendance) {
+        requireAllNonNull(studentName, studentId, parentName, phone, email, address, attendance);
         this.studentName = studentName;
         this.studentId = studentId;
         this.parentName = parentName;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.attendance = attendance;
     }
+
 
     public Name getStudentName() {
         return studentName;
@@ -49,6 +52,10 @@ public class Student {
 
     public Phone getPhone() {
         return phone;
+    }
+
+    public Attendance getAttendance() {
+        return attendance;
     }
 
     public Email getEmail() {

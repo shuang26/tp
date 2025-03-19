@@ -23,7 +23,7 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final StudentId studentId;
-    private Attendance attendance = new Attendance();
+    private Attendance attendance;
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();

@@ -5,7 +5,11 @@ package seedu.address.model.student;
  */
 public class Attendance {
     // initialize to false
-    private boolean attendance = false;
+    private boolean attendance;
+
+    public Attendance(boolean attendance) {
+        this.attendance = attendance;
+    }
 
     public boolean isPresent() {
         return this.attendance;
@@ -17,5 +21,9 @@ public class Attendance {
 
     public void setAbsent() {
         this.attendance = false;
+    }
+
+    public boolean getAttendance() {
+        return this.attendance;
     }
 }

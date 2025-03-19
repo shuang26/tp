@@ -3,15 +3,15 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_MARKED;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 import java.util.List;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.StudentId;
-import seedu.address.model.person.StudentIdEqualsPredicate;
+import seedu.address.model.student.Student;
+import seedu.address.model.student.StudentId;
+import seedu.address.model.student.StudentIdEqualsPredicate;
 
 /**
  * Marks a student identified using their student id as present.
@@ -44,18 +44,18 @@ public class MarkCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        model.updateFilteredPersonList(new StudentIdEqualsPredicate(new StudentId(id)));
-        List<Person> students = model.getFilteredPersonList();
+        model.updateFilteredStudentList(new StudentIdEqualsPredicate(new StudentId(id)));
+        List<Student> students = model.getFilteredStudentList();
 
         if (students.isEmpty()) {
-            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+            model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
             throw new CommandException("Requested student was not found in the student list.");
         }
 
-        Person studentToMark = students.get(0);
+        Student studentToMark = students.get(0);
         studentToMark.setPresent();
 
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
         return new CommandResult(String.format(MESSAGE_STUDENT_ATTENDANCE_MARKED, id));
     }
 

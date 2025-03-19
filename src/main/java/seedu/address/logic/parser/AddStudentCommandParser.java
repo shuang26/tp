@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.AddStudentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Address;
+import seedu.address.model.student.Attendance;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
@@ -49,7 +50,7 @@ public class AddStudentCommandParser implements Parser<AddStudentCommand> {
         Email email = ParserStudentUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserStudentUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
 
-        Student student = new Student(studetName, studentId, parentName, phone, email, address);
+        Student student = new Student(studetName, studentId, parentName, phone, email, address, new Attendance(false));
 
         return new AddStudentCommand(student);
     }

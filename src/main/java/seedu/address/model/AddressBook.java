@@ -53,14 +53,19 @@ public class AddressBook implements ReadOnlyAddressBook {
         this.persons.setPersons(persons);
     }
 
+    public void setStudents(List<Student> persons) {
+        this.students.setStudents(persons);
+    }
+
     /**
      * Resets the existing data of this {@code AddressBook} with {@code newData}.
      */
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
+        setStudents(newData.getStudentList());
     }
+
 
     //// person-level operations
 
@@ -79,7 +84,6 @@ public class AddressBook implements ReadOnlyAddressBook {
         requireNonNull(student);
         return students.contains(student);
     }
-
 
     /**
      * Adds a person to the address book.
