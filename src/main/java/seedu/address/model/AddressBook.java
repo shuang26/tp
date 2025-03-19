@@ -112,6 +112,14 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
+    /**
+     * Removes {@code key} from this {@code AddressBook}.
+     * {@code key} must exist in the address book.
+     */
+    public void removeStudent(Student key) {
+        students.remove(key);
+    }
+
     //// util methods
 
     @Override
@@ -127,6 +135,12 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     @Override
+    public ObservableList<Student> getStudentList() {
+        return students.asUnmodifiableObservableList();
+    }
+
+    /*
+    @Override
     public boolean equals(Object other) {
         if (other == this) {
             return true;
@@ -140,9 +154,32 @@ public class AddressBook implements ReadOnlyAddressBook {
         AddressBook otherAddressBook = (AddressBook) other;
         return persons.equals(otherAddressBook.persons);
     }
+    */
 
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof AddressBook)) {
+            return false;
+        }
+
+        AddressBook otherAddressBook = (AddressBook) other;
+        return students.equals(otherAddressBook.students);
+    }
+
+    /*
     @Override
     public int hashCode() {
         return persons.hashCode();
+    }
+    */
+
+    @Override
+    public int hashCode() {
+        return students.hashCode();
     }
 }

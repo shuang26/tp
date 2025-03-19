@@ -8,8 +8,8 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.StudentId;
+import seedu.address.model.student.Student;
+import seedu.address.model.student.StudentId;
 
 /**
  * Deletes a student identified using their student ID from CareBook.
@@ -35,10 +35,10 @@ public class DeleteStudentCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
+        List<Student> lastShownList = model.getFilteredStudentList();
 
-        Person studentToDelete = null;
-        for (Person student : lastShownList) {
+        Student studentToDelete = null;
+        for (Student student : lastShownList) {
             if (student.getStudentId().equals(targetStudentId)) {
                 studentToDelete = student;
                 break;
@@ -48,7 +48,7 @@ public class DeleteStudentCommand extends Command {
             throw new CommandException(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, targetStudentId));
         }
 
-        model.deletePerson(studentToDelete);
+        model.deleteStudent(studentToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, Messages.format(studentToDelete)));
     }
 

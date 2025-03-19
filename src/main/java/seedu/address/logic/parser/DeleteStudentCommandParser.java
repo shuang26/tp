@@ -4,7 +4,7 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.DeleteStudentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.StudentId;
+import seedu.address.model.student.StudentId;
 
 /**
  * Parses input arguments and creates a new DeleteStudentCommand object.
