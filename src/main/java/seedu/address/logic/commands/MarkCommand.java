@@ -2,14 +2,13 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_MARKED;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.StudentId;
 import seedu.address.model.person.StudentIdEqualsPredicate;
@@ -48,7 +47,7 @@ public class MarkCommand extends Command {
         model.updateFilteredPersonList(new StudentIdEqualsPredicate(new StudentId(id)));
         List<Person> students = model.getFilteredPersonList();
 
-        if (students.isEmpty()){
+        if (students.isEmpty()) {
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
             throw new CommandException("Requested student was not found in the student list.");
         }
