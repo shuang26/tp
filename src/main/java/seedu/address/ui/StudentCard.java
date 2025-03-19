@@ -6,7 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import seedu.address.model.person.Person;
+import seedu.address.model.student.Student;
 
 
 /**
@@ -24,7 +24,7 @@ public class StudentCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
-    public final Person person;
+    public final Student student;
 
     @FXML
     private HBox cardPane;
@@ -40,12 +40,12 @@ public class StudentCard extends UiPart<Region> {
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
-    public StudentCard(Person person, int displayedIndex) {
+    public StudentCard(Student student, int displayedIndex) {
         super(FXML);
-        this.person = person;
+        this.student = student;
         id.setText(displayedIndex + ". ");
-        name.setText(person.getStudentName().fullName);
-        studentId.setText(person.getStudentId().toString());
-        attendanceIcon.setFill(person.isPresent() ? Color.GREEN : Color.RED);
+        name.setText(student.getStudentName().fullName);
+        studentId.setText(student.getStudentId().toString());
+        attendanceIcon.setFill(student.isPresent() ? Color.GREEN : Color.RED);
     }
 }

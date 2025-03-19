@@ -18,7 +18,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Person;
+import seedu.address.model.student.Student;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -115,7 +115,7 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        studentListPanel = new StudentListPanel(logic.getFilteredPersonList());
+        studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
         personListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
@@ -159,10 +159,10 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Opens a new find window when a student is found.
      *
-     * @param personList a list of person.
+     * @param studentList a list of students.
      */
-    public void handleFind(ObservableList<Person> personList) {
-        if (personList.isEmpty()) {
+    public void handleFind(ObservableList<Student> studentList) {
+        if (studentList.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Student Not Found");
             alert.setHeaderText(null);
@@ -171,7 +171,7 @@ public class MainWindow extends UiPart<Stage> {
             return;
         }
 
-        findWindow.fillInnerParts(logic.getFilteredPersonList());
+        findWindow.fillInnerParts(logic.getFilteredStudentList());
         if (!findWindow.isShowing()) {
             findWindow.show();
         } else {
@@ -212,7 +212,7 @@ public class MainWindow extends UiPart<Stage> {
             }
 
             if (commandResult.isShowFind()) {
-                handleFind(logic.getFilteredPersonList());
+                handleFind(logic.getFilteredStudentList());
             }
 
             if (commandResult.isExit()) {

@@ -6,7 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import seedu.address.model.person.Person;
+import seedu.address.model.student.Student;
 
 
 /**
@@ -24,7 +24,7 @@ public class StudentFindWindowCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
-    public final Person person;
+    public final Student student;
 
     @FXML
     private HBox cardPane;
@@ -48,16 +48,16 @@ public class StudentFindWindowCard extends UiPart<Region> {
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
-    public StudentFindWindowCard(Person person, int displayedIndex) {
+    public StudentFindWindowCard(Student student, int displayedIndex) {
         super(FXML);
-        this.person = person;
+        this.student = student;
         id.setText(displayedIndex + ". ");
-        name.setText(person.getStudentName().fullName);
-        parentName.setText(person.getParentName().fullName);
-        studentId.setText(person.getStudentId().studentId);
-        phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
-        attendanceIcon.setFill(person.isPresent() ? Color.GREEN : Color.RED);
+        name.setText(student.getStudentName().fullName);
+        parentName.setText(student.getParentName().fullName);
+        studentId.setText(student.getStudentId().studentId);
+        phone.setText(student.getPhone().value);
+        address.setText(student.getAddress().value);
+        email.setText(student.getEmail().value);
+        attendanceIcon.setFill(student.isPresent() ? Color.GREEN : Color.RED);
     }
 }
