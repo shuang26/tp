@@ -71,6 +71,8 @@ public class EditCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        throw new CommandException("Not implemented yet!");
+        /*
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
@@ -88,7 +90,9 @@ public class EditCommand extends Command {
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
+    */
     }
+
 
     /**
      * Creates and returns a {@code Person} with the details of {@code personToEdit}
