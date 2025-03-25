@@ -66,8 +66,8 @@ public class Student {
         return address;
     }
 
-    public boolean isPresent() {
-        return this.attendance.isPresent();
+    public boolean getIsPresentToday() {
+        return this.attendance.getIsPresentToday();
     }
 
     public void setPresent() {
@@ -112,13 +112,14 @@ public class Student {
                 && parentName.equals(otherPerson.parentName)
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
-                && address.equals(otherPerson.address);
+                && address.equals(otherPerson.address)
+                && attendance.equals(otherPerson.attendance);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(studentName, studentId, parentName, phone, email, address);
+        return Objects.hash(studentName, studentId, parentName, phone, email, address, attendance);
     }
 
     @Override
@@ -130,6 +131,7 @@ public class Student {
                 .add("phone", phone)
                 .add("email", email)
                 .add("address", address)
+                .add("attendance", attendance)
                 .toString();
     }
 

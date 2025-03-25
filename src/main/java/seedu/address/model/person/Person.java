@@ -68,7 +68,7 @@ public class Person {
     }
 
     public boolean isPresent() {
-        return this.attendance.isPresent();
+        return this.attendance.getIsPresentToday();
     }
 
     public void setPresent() {

@@ -58,6 +58,6 @@ public class StudentFindWindowCard extends UiPart<Region> {
         phone.setText(student.getPhone().value);
         address.setText(student.getAddress().value);
         email.setText(student.getEmail().value);
-        attendanceIcon.setFill(student.isPresent() ? Color.PALEGREEN : Color.LIGHTGRAY);
+        attendanceIcon.setFill(student.getIsPresentToday() ? Color.PALEGREEN : Color.LIGHTGRAY);
     }
 }
