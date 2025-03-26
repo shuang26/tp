@@ -5,6 +5,7 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.UnmarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.student.StudentId;
 
 /**
  * Parses input arguments and creates a new UnmarkCommand object
@@ -22,7 +23,12 @@ public class UnmarkCommandParser implements Parser<UnmarkCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UnmarkCommand.MESSAGE_USAGE));
         }
 
-        return new UnmarkCommand(id);
+        try {
+            StudentId studentId = new StudentId(id);
+            return new UnmarkCommand(studentId);
+        } catch (IllegalArgumentException e) {
+            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS + "\n" + UnmarkCommand.MESSAGE_USAGE);
+        }
     }
 
 }

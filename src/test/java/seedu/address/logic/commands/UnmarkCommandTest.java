@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.student.StudentId;
 
 /**
  * Contains tests for
@@ -20,7 +21,7 @@ public class UnmarkCommandTest {
 
     @Test
     public void execute() {
-        final String testId = "A01A";
+        final StudentId testId = new StudentId("A01A");
 
         assertCommandFailure(new UnmarkCommand(testId), model,
                 "Requested student was not found in the student list.");
@@ -28,7 +29,7 @@ public class UnmarkCommandTest {
 
     @Test
     public void equals() {
-        final String testId = "A01A";
+        final StudentId testId = new StudentId("A01A");
         final UnmarkCommand standardCommand = new UnmarkCommand(testId);
 
         // same value -> returns true
@@ -45,7 +46,7 @@ public class UnmarkCommandTest {
         assertFalse(standardCommand.equals(new ClearCommand()));
 
         // different id -> returns false
-        assertFalse(standardCommand.equals(new UnmarkCommand("A01B")));
+        assertFalse(standardCommand.equals(new UnmarkCommand(new StudentId("A01B"))));
 
     }
 }
