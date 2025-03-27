@@ -1,5 +1,6 @@
 package seedu.address.storage;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -31,7 +32,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String address;
-    private final boolean attendance;
+    private final List<LocalDate> attendance;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -42,14 +43,14 @@ class JsonAdaptedPerson {
                              @JsonProperty("studentId") String studentId, @JsonProperty("phone") String phone,
                              @JsonProperty("email") String email, @JsonProperty("address") String address,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags,
-                             @JsonProperty("attendance") String attendance) {
+                             @JsonProperty("attendance") List<LocalDate> attendance) {
         this.studentName = studentName;
         this.parentName = parentName;
         this.studentId = studentId;
         this.phone = phone;
         this.email = email;
         this.address = address;
-        this.attendance = Boolean.parseBoolean(attendance);
+        this.attendance = attendance;
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -65,7 +66,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
-        attendance = source.getAttendance().getAttendance();
+        attendance = source.getAttendance().getAttendance().stream().toList();
     }
 
     /**
@@ -128,7 +129,7 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
-        final Attendance modelAttendance = new Attendance(attendance);
+        final Attendance modelAttendance = new Attendance(new HashSet<>(attendance));
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Student(modelStudentName, modelStudentId, modelParentName,

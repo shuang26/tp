@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.student.StudentId;
 
 
 /**
@@ -21,14 +22,14 @@ public class MarkCommandTest {
 
     @Test
     public void execute() {
-        final String testId = "A01A";
+        final StudentId testId = new StudentId("A01A");
 
         assertCommandFailure(new MarkCommand(testId), model, "Requested student was not found in the student list.");
     }
 
     @Test
     public void equals() {
-        final String testId = "A01A";
+        final StudentId testId = new StudentId("A01A");
         final MarkCommand standardCommand = new MarkCommand(testId);
 
         // same value -> returns true
@@ -45,7 +46,7 @@ public class MarkCommandTest {
         assertFalse(standardCommand.equals(new ClearCommand()));
 
         // different id -> returns false
-        assertFalse(standardCommand.equals(new MarkCommand("A01B")));
+        assertFalse(standardCommand.equals(new MarkCommand(new StudentId("A01B"))));
 
     }
 }
