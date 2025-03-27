@@ -8,6 +8,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PARENT_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NAME;
 
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddStudentCommand;
@@ -50,7 +52,8 @@ public class AddStudentCommandParser implements Parser<AddStudentCommand> {
         Email email = ParserStudentUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserStudentUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
 
-        Student student = new Student(studetName, studentId, parentName, phone, email, address, new Attendance(false));
+        Student student = new Student(studetName, studentId, parentName, phone, email, address,
+                new Attendance(new HashSet<LocalDate>()));
 
         return new AddStudentCommand(student);
     }
