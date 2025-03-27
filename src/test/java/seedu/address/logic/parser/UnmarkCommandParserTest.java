@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.UnmarkCommand;
+import seedu.address.model.student.StudentId;
 
 /**
  * Contains tests for
@@ -19,8 +20,8 @@ public class UnmarkCommandParserTest {
     public void parse_idSpecified_success() {
         // have id
 
-        String studentId = "A01A";
-        assertParseSuccess(parser, studentId, new UnmarkCommand(studentId));
+        StudentId studentId = new StudentId("A01A");
+        assertParseSuccess(parser, studentId.toString(), new UnmarkCommand(studentId));
     }
 
     @Test
