@@ -28,7 +28,7 @@ public class StudentIdEqualsPredicate implements Predicate<Student> {
             return false;
         }
         StudentIdEqualsPredicate otherPredicate = (StudentIdEqualsPredicate) other;
-        return studentId.equals(otherPredicate.studentId.toString());
+        return studentId.toString().equals(otherPredicate.studentId.toString());
     }
 
     @Override
