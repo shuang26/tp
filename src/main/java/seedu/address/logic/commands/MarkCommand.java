@@ -43,6 +43,7 @@ public class MarkCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+        assert (id != null);
 
         model.updateFilteredStudentList(new StudentIdEqualsPredicate(id));
         List<Student> students = model.getFilteredStudentList();
