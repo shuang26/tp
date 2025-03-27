@@ -18,14 +18,14 @@ public class UnmarkAllCommandTest {
 
     @Test
     public void execute() {
-        UnmarkAllCommand UnmarkAllCommand = new UnmarkAllCommand();
+        UnmarkAllCommand unmarkAllCommand = new UnmarkAllCommand();
         List<Student> students = model.getFilteredStudentList();
 
         for (Student student : students) {
             student.setAbsent();
         }
 
-        assertCommandFailure(UnmarkAllCommand, model, "No students found in the student list.");
+        assertCommandFailure(unmarkAllCommand, model, "No students found in the student list.");
     }
 }
 
