@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Represents a Person's attendance in the address book.
+ * Represents a Student's attendance in the address book.
  */
 public class Attendance {
     private boolean isPresentToday;
