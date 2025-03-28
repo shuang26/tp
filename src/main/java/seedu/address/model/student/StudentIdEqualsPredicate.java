@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 import seedu.address.commons.util.ToStringBuilder;
 
 /**
- * Tests that a {@code Person}'s student ID matches the provided student ID (no case sensitivity).
+ * Tests that a {@code Student}'s student ID matches the provided student ID (no case sensitivity).
  */
 public class StudentIdEqualsPredicate implements Predicate<Student> {
     private final StudentId studentId;
@@ -28,7 +28,7 @@ public class StudentIdEqualsPredicate implements Predicate<Student> {
             return false;
         }
         StudentIdEqualsPredicate otherPredicate = (StudentIdEqualsPredicate) other;
-        return studentId.equals(otherPredicate.studentId.toString());
+        return studentId.toString().equals(otherPredicate.studentId.toString());
     }
 
     @Override

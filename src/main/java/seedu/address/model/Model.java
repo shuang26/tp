@@ -74,7 +74,7 @@ public interface Model {
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
-    //void setStudent(Student target, Student editedPerson);
+    void setStudent(Student target, Student editedPerson);
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Student> getFilteredStudentList();

@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.MarkCommand;
+import seedu.address.model.student.StudentId;
 
 public class MarkCommandParserTest {
 
@@ -16,8 +17,8 @@ public class MarkCommandParserTest {
     public void parse_idSpecified_success() {
         // have id
 
-        String studentId = "A01A";
-        assertParseSuccess(parser, studentId, new MarkCommand(studentId));
+        StudentId studentId = new StudentId("A01A");
+        assertParseSuccess(parser, studentId.toString(), new MarkCommand(studentId));
     }
 
     @Test

@@ -28,13 +28,13 @@ public class MarkCommand extends Command {
 
     public static final String MESSAGE_ARGUMENTS = "Student ID: %1$s";
 
-    private final String id;
+    private final StudentId id;
 
     /**
      * Initialises MarkCommand with given student id.
      * @param id ID of student to mark attendance.
      */
-    public MarkCommand(String id) {
+    public MarkCommand(StudentId id) {
         requireAllNonNull(id);
 
         this.id = id;
@@ -43,8 +43,9 @@ public class MarkCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+        assert (id != null);
 
-        model.updateFilteredStudentList(new StudentIdEqualsPredicate(new StudentId(id)));
+        model.updateFilteredStudentList(new StudentIdEqualsPredicate(id));
         List<Student> students = model.getFilteredStudentList();
 
         if (students.isEmpty()) {

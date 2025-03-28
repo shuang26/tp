@@ -58,7 +58,7 @@ public class DeleteStudentCommand extends Command {
             return true;
         }
 
-        if (!(other instanceof DeleteCommand)) {
+        if (!(other instanceof DeleteStudentCommand)) {
             return false;
         }
 

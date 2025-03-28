@@ -104,6 +104,12 @@ public class ModelManager implements Model {
         updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
     }
 
+    @Override
+    public void setStudent(Student target, Student editedStudent) {
+        requireAllNonNull(target, editedStudent);
+
+        addressBook.setStudent(target, editedStudent);
+    }
     //=========== Filtered Person List Accessors =============================================================
 
     /**
