@@ -46,6 +46,6 @@ public class StudentCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(student.getStudentName().fullName);
         studentId.setText(student.getStudentId().toString());
-        attendanceIcon.setFill(student.isPresent() ? Color.PALEGREEN : Color.LIGHTGRAY);
+        attendanceIcon.setFill(student.getIsPresentToday() ? Color.PALEGREEN : Color.LIGHTGRAY);
     }
 }

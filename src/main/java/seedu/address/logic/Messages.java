@@ -25,6 +25,9 @@ public class Messages {
     public static final String MESSAGE_STUDENT_ATTENDANCE_MARKED = "Student %1$s marked as present!";
     public static final String MESSAGE_STUDENT_ATTENDANCE_UNMARKED = "Student %1$s marked as absent!";
 
+    public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED = "All students marked as absent!";
+    public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present!";
+
 
     /**
      * Returns an error message indicating the duplicate prefixes.
