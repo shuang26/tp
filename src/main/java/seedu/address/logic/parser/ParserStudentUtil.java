@@ -124,7 +124,8 @@ public class ParserStudentUtil {
             throw new ParseException(MESSAGE_MISSING_FILE_NAME);
         }
         // Generate timestamp so files with same name will not be overwritten when exported
-        String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        return new File(trimmedFileName + " (" + timeStamp + ")" + ".csv");
+        String timeStamp = LocalDateTime.now().format(
+                DateTimeFormatter.ofPattern("dd MMM yyyy 'at' HH'h' mm'm' ss's'"));
+        return new File(trimmedFileName + " (exported on " + timeStamp + ")" + ".csv");
     }
 }
