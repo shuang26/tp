@@ -50,7 +50,7 @@ The bulk of the app's work is done by the following four components:
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `A10A`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete A10A`.
 
 <puml src="diagrams/ArchitectureSequenceDiagram.puml" width="574" />
 
