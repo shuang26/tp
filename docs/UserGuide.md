@@ -47,6 +47,7 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
     - [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
     - [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
     - [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
+    - [Exporting attendance summary:](#exporting-attendance-summary) `export`
 - [FAQ](#faq)
 - [Command Summary](#command-summary)
 ***
@@ -219,6 +220,23 @@ Marks all students in CareBook as absent.
 
 **Additional Information:**
 * The command only works if there is at least one recorded student in CareBook.
+
+<p>&nbsp;</p>
+
+#### Exporting attendance summary
+Exports student ID, student name, parent’s email, and attendance history of students recorded in CareBook. 
+Attendance summary is exported to the current directory where CareBook application is stored in.
+
+**Command format:** `export <fileName>`
+
+**Additional Information:**
+
+* File name should only consist of alphanumeric characters and underscores (_). Special characters including 
+but not limited to * . / ‘ are invalid.
+
+**Examples**
+* `export attendance_sheet`
+* `export student_records`
 
 <p>&nbsp;</p>
 
