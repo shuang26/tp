@@ -253,18 +253,18 @@ Yes, CareBook **automatically saves** all changes after each command. No need to
 ***
 
 ## Command Summary
-| Action        | Command Format/Examples                                                                                                                                                                |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**       | `add <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>`<br/> e.g. add sn/Tom Hanks id/A10A pn/Henry Hanks p/99019232 e/henry@hotmail.com a/Bukit View 9  |
-| **Clear**     | `clear`                                                                                                                                                                                |
-| **Delete**    | `delete <StudentId>` <br/> e.g. delete A10A                                                                                                                                            |
-| **Edit**      | `edit <studentId> <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>` <br/> e.g. edit A10A p/91092222 e/henryhanks@hotmail.com |
-| **Exit**      | `exit`                                                                                                                                                                                 |
-| **Export** | `export <fileName>`<br/> e.g. export attendance_sheet                                                                                                                                  |
-| **Find**      | `find <StudentId>` <br/> e.g. find A10A                                                                                                                                                |
-| **Help**      | `help`                                                                                                                                                                                 |
-| **List**      | `list`                                                                                                                                                                                 |
-| **Mark**      | `mark <StudentId>` <br/> e.g. mark A10A                                                                                                                                                |
-| **Markall**   | `markall`                                                                                                                                                                              |
-| **Unmark**    | `unmark <StudentId>` <br/> e.g. mark A10A                                                                                                                                              |
-| **Unmarkall** | `unmarkall`                                                                                                                                                                            |
+| Action        | Command Format/Examples                                                                                                                                                               |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**       | `add <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>`<br/> e.g. add sn/Tom Hanks id/A10A pn/Henry Hanks p/99019232 e/henry@hotmail.com a/Bukit View 9 |
+| **Clear**     | `clear`                                                                                                                                                                               |
+| **Delete**    | `delete <StudentId>` <br/> e.g. delete A10A                                                                                                                                           |
+| **Edit**      | `edit <StudentId> <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>` <br/> e.g. edit A10A p/91092222 e/henryhanks@hotmail.com                           |
+| **Exit**      | `exit`                                                                                                                                                                                |
+| **Export** | `export <FileName>`<br/> e.g. export attendance_sheet                                                                                                                                 |
+| **Find**      | `find <StudentId>` <br/> e.g. find A10A                                                                                                                                               |
+| **Help**      | `help`                                                                                                                                                                                |
+| **List**      | `list`                                                                                                                                                                                |
+| **Mark**      | `mark <StudentId>` <br/> e.g. mark A10A                                                                                                                                               |
+| **Markall**   | `markall`                                                                                                                                                                             |
+| **Unmark**    | `unmark <StudentId>` <br/> e.g. mark A10A                                                                                                                                             |
+| **Unmarkall** | `unmarkall`                                                                                                                                                                           |
