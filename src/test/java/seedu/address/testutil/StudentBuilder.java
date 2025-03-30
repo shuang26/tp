@@ -70,7 +70,7 @@ public class StudentBuilder {
     /**
      * Sets the {@code Parent Name} of the {@code Person} that we are building.
      */
-    public StudentBuilder withPName(String name) {
+    public StudentBuilder withParentName(String name) {
         this.parentName = new Name(name);
         return this;
     }

@@ -33,6 +33,8 @@ public class AddCommandIntegrationTest {
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.addStudent(validStudent);
 
+        System.out.println(model.getAddressBook().getStudentList().toString());
+
         assertCommandSuccess(new AddStudentCommand(validStudent), model,
                 String.format(AddStudentCommand.MESSAGE_SUCCESS, Messages.format(validStudent)),
                 expectedModel);
