@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -12,6 +14,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.student.Student;
+import seedu.address.model.student.StudentId;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -110,6 +113,18 @@ public class ModelManager implements Model {
 
         addressBook.setStudent(target, editedStudent);
     }
+
+    @Override
+    public Student getStudentById(StudentId studentId, List<Student> studentList) {
+        requireNonNull(studentId);
+        requireNonNull(studentList);
+
+        return studentList.stream()
+                .filter(student -> student.getStudentId().equals(studentId))
+                .findFirst()
+                .orElseThrow(NoSuchElementException::new);
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**
