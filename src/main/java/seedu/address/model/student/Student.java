@@ -82,13 +82,13 @@ public class Student {
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
      */
-    public boolean isSamePerson(Student otherPerson) {
-        if (otherPerson == this) {
+    public boolean isSameStudent(Student otherStudent) {
+        if (otherStudent == this) {
             return true;
         }
 
-        return otherPerson != null
-                && otherPerson.getStudentId().equals(getStudentId());
+        return otherStudent != null
+                && otherStudent.getStudentId().equals(getStudentId());
     }
 
     /**
@@ -106,14 +106,14 @@ public class Student {
             return false;
         }
 
-        Student otherPerson = (Student) other;
-        return studentName.equals(otherPerson.studentName)
-                && studentId.equals(otherPerson.studentId)
-                && parentName.equals(otherPerson.parentName)
-                && phone.equals(otherPerson.phone)
-                && email.equals(otherPerson.email)
-                && address.equals(otherPerson.address)
-                && attendance.equals(otherPerson.attendance);
+        Student otherStudent = (Student) other;
+        return studentName.equals(otherStudent.studentName)
+                && studentId.equals(otherStudent.studentId)
+                && parentName.equals(otherStudent.parentName)
+                && phone.equals(otherStudent.phone)
+                && email.equals(otherStudent.email)
+                && address.equals(otherStudent.address)
+                && attendance.equals(otherStudent.attendance);
     }
 
     @Override

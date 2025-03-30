@@ -4,203 +4,266 @@
   pageNav: 3
 ---
 
-# AB-3 User Guide
+## CareBook User Guide
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+Welcome to CareBook! **Your classroom, organized.**
 
-<!-- * Table of Contents -->
-<page-nav-print />
+Designed with daycare teachers in mind, **CareBook** simplifies **daily roster management and parent communication** so you can focus on what matters the most - caring for children.
 
---------------------------------------------------------------------------------------------------------------------
+With CareBook, you can:
+- Instantly access **students’ and parents’ contacts**
+- Streamline **daily attendance tracking** with simple commands
+- Easily maintain **student records** for smooth communication
 
-## Quick start
+This user guide will walk you through:
+- Setting up your CareBook application
+- Navigating the Graphical User Interface (GUI) and Command Line Interface(CLI)
+- Learning essential commands for managing contacts and attendance
 
-1. Ensure you have Java `17` or above installed in your Computer.<br>
-   **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
+By the end of this guide, you’ll be a **CareBook pro**, managing your daycare with ease and precision.
 
-1. Download the latest `.jar` file from [here](https://github.com/se-edu/addressbook-level3/releases).
+<div markdown="block" class="alert alert-info">
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
+**:information_source: Notes about daycare teachers:**<br>
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar addressbook.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+* We assume that the daycare teachers managing daily rosters of 30 to 40 children
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+</div>
 
-   * `list` : Lists all contacts.
+***
+## Table of Contents
+- Quick start
+    - [Installing CareBook](#installation)
+    - [Introducing GUI](#introducing-gui)
+- Features
+    - [Adding a student:](#adding-a-student) `add`
+    - [Listing all students:](#listing-all-students) `list`
+    - [Editing a student:](#editing-a-student) `edit`
+    - [Deleting a student:](#deleting-a-student) `delete`
+    - [Exiting the program:](#exiting-the-program) `exit`
+    - [Finding a student’s contact:](#finding-a-student-s-contact)`find`
+    - [Viewing help:](#viewing-help) `help`
+    - [Marking a student’s attendance:](#marking-a-student-s-attendance) `mark`
+    - [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
+    - [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
+    - [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
+    - [Exporting attendance summary:](#exporting-attendance-summary) `export`
+- [FAQ](#faq)
+- [Command Summary](#command-summary)
+***
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+## Quick Start
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+#### Installation
+1. Ensure you have Java `17` or above installed in your computer.
+   <br>**Mac Users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html)
+   <panel header="How to check your java version">
+   <markdown>
+   In your command terminal, type `java -version`
+   </markdown>
+   </panel>
 
-   * `clear` : Deletes all contacts.
+2. Download `.jar` file with the latest release [here](https://github.com/AY2425S2-CS2103T-T11-2/tp/releases/tag/v1.3).
 
-   * `exit` : Exits the app.
+3. Move the `.jar` file to the folder you want to use as the home folder for your CareBook
 
-1. Refer to the [Features](#features) below for details of each command.
+4. Open a command terminal, `cd` into the folder you placed your .jar file and type `java -jar carebook.jar` and press enter to run CareBook application.
+   <panel header="Changing directory">
+   <markdown>
+   If your folder is under `/home/user/CareBook`, simply type `cd /home/user/CareBook` and hit enter
+   </markdown>
+   </panel>
 
---------------------------------------------------------------------------------------------------------------------
+#### Introducing GUI
+After successfully running CareBook application, a GUI similar to below should be displayed.
+
+<img src="images/Ui.png" width="600">
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5;">
+  💡 <strong>Tip:</strong> CareBook provides sample data in the first run.
+</div>
+
+***
 
 ## Features
 
-<box type="info" seamless>
+#### Adding a student
+Adds a student to CareBook.
 
-**Notes about the command format:**<br>
+**Command format:** `add <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>`
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+**Additional Information:**
+* Parameters can be added in _any order_, but all are compulsory.
+* No restrictions to StudentName, ParentName and Address.
+* Student ID should be **4 characters** beginning with A followed by 2 digits and ending with an alphabet.
+* Phone number should be from 80000000 to 99999999.
+* Email address should have an @ domain.
 
-* Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+**Examples:**
+* `add sn/Tom Hank id/A10A pn/Thomas Hank p/98122012 e/thomashank@hotmail.com a/Bukit View 9`
+* `add sn/Jane Cena id/A99Z pn/John Cena p/91029322 e/janeCena@hotmail.com a/Canberra Drive 9`
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+<p>&nbsp;</p>
 
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+#### Listing all students
+Lists all students in CareBook.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+**Command format:** `list`
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-</box>
+<p>&nbsp;</p>
 
-### Viewing help : `help`
+#### Editing a student
+Edits an existing student in CareBook.
 
-Shows a message explaning how to access the help page.
+**Command format:** `edit <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>`
 
-![help message](images/helpMessage.png)
+**Additional Information:**
+* No restrictions to StudentName, ParentName and Address.
+* Student ID should be **4 characters** beginning with A followed by 2 digits and ending with an alphabet.
+* Edited Student ID should be a new Student ID that has not been assigned to any students.
+* Phone number should be from 80000000 to 99999999.
+* Email address should have an @ domain.
 
-Format: `help`
+**Examples:**
+* `edit sn/Tom Hank id/A10A pn/Thomas Hank p/98122012 e/thomashank@hotmail.com a/Bukit View 9`
+* `edit sn/Jane Cena id/A99Z pn/John Cena p/91029322 e/johnnyCena@gmail.com a/Canberra Drive 9`
 
+<p>&nbsp;</p>
 
-### Adding a person: `add`
+#### Deleting a student
+Deletes a student from CareBook.
 
-Adds a person to the address book.
+**Command format:** `delete <StudentId>`
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+**Additional Information:**
+* Student ID should be one that already exists in CareBook.
 
-<box type="tip" seamless>
+**Examples:**
+* `delete A10A`
+* `delete A09B`
 
-**Tip:** A person can have any number of tags (including 0)
-</box>
+<p>&nbsp;</p>
 
-Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
-
-### Listing all persons : `list`
-
-Shows a list of all persons in the address book.
-
-Format: `list`
-
-### Editing a person : `edit`
-
-Edits an existing person in the address book.
-
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
-
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
-
-Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-
-### Locating persons by name: `find`
-
-Finds persons whose names contain any of the given keywords.
-
-Format: `find KEYWORD [MORE_KEYWORDS]`
-
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
-
-### Deleting a person : `delete`
-
-Deletes the specified person from the address book.
-
-Format: `delete INDEX`
-
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-
-### Clearing all entries : `clear`
-
-Clears all entries from the address book.
-
-Format: `clear`
-
-### Exiting the program : `exit`
-
+#### Exiting the program
 Exits the program.
 
-Format: `exit`
+**Command format:** `exit`
 
-### Saving the data
+<p>&nbsp;</p>
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+#### Finding a student’s contact
+Finds a specific student with matching Student ID.
 
-### Editing the data file
+**Command format:** `find <StudentId>`
 
-AddressBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+**Additional Information:**
+* Student ID is case-sensitive (e.g. “a01a” will not match “A01A”).
+* Student ID must be one that already exists in CareBook.
 
-<box type="warning" seamless>
+**Examples:**
+* `find A03A`
+* `find A99Z`
 
-**Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
-Furthermore, certain edits can cause the AddressBook to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
-</box>
+<p>&nbsp;</p>
 
-### Archiving data files `[coming in v2.0]`
+#### Viewing help
+Opens a help window that redirects users to CareBook user guide website.
 
-_Details coming soon ..._
+**Command format:** `help`
 
---------------------------------------------------------------------------------------------------------------------
+<p>&nbsp;</p>
+
+#### Marking a student’s attendance
+Marks a student in CareBook as present.
+
+**Command format:** `mark <StudentId>`
+
+**Additional Information:**
+* Student ID is case-sensitive (e.g. “a01a” will not match “A01A”).
+* Student ID must be one that already exists in CareBook.
+
+**Examples:**
+* `mark A10A`
+* `mark A99Z`
+
+<p>&nbsp;</p>
+
+#### Marking all students’ attendance
+Marks all students in CareBook as present.
+
+**Command format:** `markall`
+
+**Additional Information:**
+* The command only works if there is at least one recorded student in CareBook.
+
+<p>&nbsp;</p>
+
+#### Unmarking a student’s attendance
+Marks a student in CareBook as absent.
+
+**Command format:** `unmark <StudentId>`
+
+**Additional Information:**
+* Student ID is case-sensitive (e.g. “a01a” will not match “A01A”).
+* Student ID must be one that already exists in CareBook.
+
+**Examples:**
+* `unmark A10A`
+* `unmark A99Z`
+
+<p>&nbsp;</p>
+
+#### Unmarking all students’ attendance
+Marks all students in CareBook as absent.
+
+**Command format:** `unmarkall`
+
+**Additional Information:**
+* The command only works if there is at least one recorded student in CareBook.
+
+<p>&nbsp;</p>
+
+#### Exporting attendance summary
+Exports student ID, student name, parent’s email, and attendance history of students recorded in CareBook. 
+Attendance summary is exported to the current directory where CareBook application is stored in.
+
+**Command format:** `export <fileName>`
+
+**Additional Information:**
+
+* File name should only consist of alphanumeric characters and underscores (_). Special characters including 
+but not limited to * . / ‘ are invalid.
+
+**Examples**
+* `export attendance_sheet`
+* `export student_records`
+
+<p>&nbsp;</p>
+
+***
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+**1. Do I need an internet connection to use CareBook?**   
+No, CareBook works **fully offline**. All data is stored locally on your device.
 
---------------------------------------------------------------------------------------------------------------------
+**2. Is my data automatically saved?**   
+Yes, CareBook **automatically saves** all changes after each command. No need to manually save!
 
-## Known issues
+***
 
-1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
-2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
-
---------------------------------------------------------------------------------------------------------------------
-
-## Command summary
-
-Action     | Format, Examples
------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear**  | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List**   | `list`
-**Help**   | `help`
+## Command Summary
+| Action        | Command Format                                                                         |
+|---------------|----------------------------------------------------------------------------------------|
+| **Add**       | `add <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>`  |
+| **Clear**     | `clear`                                                                                |
+| **Delete**    | `delete <StudentId>`                                                                   |
+| **Edit**      | `edit <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>` |
+| **Exit**      | `exit`                                                                                 |
+| **Find**      | `find <StudentId>`                                                                     |
+| **Help**      | `help`                                                                                 |
+| **List**      | `list`                                                                                 |
+| **Mark**      | `mark <StudentId>`                                                                     |
+| **Markall**   | `markall`                                                                              |
+| **Unmark**    | `unmark <StudentId>`                                                                   |
+| **Unmarkall** | `unmarkall`                                                                            |
