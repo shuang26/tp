@@ -7,12 +7,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PARENT_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NAME;
 
-import java.util.Set;
-
 import seedu.address.logic.commands.AddStudentCommand;
 import seedu.address.logic.commands.EditStudentCommand.EditStudentDescriptor;
 import seedu.address.model.student.Student;
-import seedu.address.model.tag.Tag;
 
 /**
  * A utility class for Person.
