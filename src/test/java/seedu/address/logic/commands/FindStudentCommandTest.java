@@ -18,6 +18,10 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.student.StudentId;
 import seedu.address.model.student.StudentIdEqualsPredicate;
 
+/**
+ * Contains tests for
+ * {@code FindStudentCommand}.
+ */
 public class FindStudentCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
