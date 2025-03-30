@@ -16,15 +16,15 @@ import seedu.address.model.Model;
 import seedu.address.model.student.Student;
 
 /**
- * Exports the student ID, student name, parent email and attendance history
+ * Exports the student ID, student name, parent name, parent email, parent number and attendance history
  * of students currently recorded in Care Book into a .csv file whose file name is specified by user
  */
 public class ExportCommand extends Command {
 
     public static final String COMMAND_WORD = "export";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Exports the student ID, student name, parent email and attendance history of students "
-            + "\nto the current directory of where this app is saved as a .csv file.\n"
+            + ": Exports the student ID, student name, parent name, parent email, parent number"
+            + "\n attendance history of students to the current directory of where this app is saved as a .csv file.\n"
             + "Parameters: fileName\n"
             + "Example: " + COMMAND_WORD + " attendance_summary";
     public static final String MESSAGE_SUCCESS = "Exported attendance summary to \n";
@@ -49,18 +49,21 @@ public class ExportCommand extends Command {
 
         try {
             FileWriter fileWriter = new FileWriter(fileName);
-            fileWriter.write("Student ID, Student Name, Parent's Email, Attendance History (Present Dates)\n");
+            fileWriter.write("Student ID, Student Name, Parent Name, Parent's Email, "
+                    + "Parent's Number, Attendance History (Present Dates)\n");
             for (Student student : studentList) {
                 String studentId = student.getStudentId().toString();
                 String studentName = student.getStudentName().toString();
+                String parentName = student.getParentName().toString();
                 String parentEmail = student.getEmail().toString();
+                String phoneNumber = student.getPhone().toString();
                 Set<LocalDate> attendanceDates = student.getAttendance().getAttendance();
                 String attendanceToString = attendanceDates.stream()
                         .map(LocalDate::toString)
                         .collect(Collectors.joining("\n"));
 
-                fileWriter.write(String.format("\"%s\",\"%s\",\"%s\",\"%s\"\n",
-                        studentId, studentName, parentEmail, attendanceToString));
+                fileWriter.write(String.format("\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
+                        studentId, studentName, parentName, parentEmail, phoneNumber, attendanceToString));
             }
             fileWriter.close();
         } catch (IOException e) {

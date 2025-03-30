@@ -224,8 +224,8 @@ Marks all students in CareBook as absent.
 <p>&nbsp;</p>
 
 #### Exporting attendance summary
-Exports student ID, student name, parent’s email, and attendance history of students recorded in CareBook. 
-Attendance summary is exported to the current directory where CareBook application is stored in.
+Exports student ID, student name, parent name, parent’s email, parent number and attendance history of students recorded 
+in CareBook. Attendance summary is exported to the current directory where CareBook application is stored in.
 
 **Command format:** `export <fileName>`
 
@@ -253,17 +253,18 @@ Yes, CareBook **automatically saves** all changes after each command. No need to
 ***
 
 ## Command Summary
-| Action        | Command Format                                                                         |
-|---------------|----------------------------------------------------------------------------------------|
-| **Add**       | `add <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>`  |
-| **Clear**     | `clear`                                                                                |
-| **Delete**    | `delete <StudentId>`                                                                   |
+| Action        | Command Format                                                                        |
+|---------------|---------------------------------------------------------------------------------------|
+| **Add**       | `add <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>` |
+| **Clear**     | `clear`                                                                               |
+| **Delete**    | `delete <StudentId>`                                                                  |
 | **Edit**      | `edit <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>` |
-| **Exit**      | `exit`                                                                                 |
-| **Find**      | `find <StudentId>`                                                                     |
-| **Help**      | `help`                                                                                 |
-| **List**      | `list`                                                                                 |
-| **Mark**      | `mark <StudentId>`                                                                     |
-| **Markall**   | `markall`                                                                              |
-| **Unmark**    | `unmark <StudentId>`                                                                   |
-| **Unmarkall** | `unmarkall`                                                                            |
+| **Exit**      | `exit`                                                                                |
+| **Find**      | `find <StudentId>`                                                                    |
+| **Help**      | `help`                                                                                |
+| **List**      | `list`                                                                                |
+| **Mark**      | `mark <StudentId>`                                                                    |
+| **Markall**   | `markall`                                                                             |
+| **Unmark**    | `unmark <StudentId>`                                                                  |
+| **Unmarkall** | `unmarkall`                                                                           |
+| **Export** | `export <fileName>` |
