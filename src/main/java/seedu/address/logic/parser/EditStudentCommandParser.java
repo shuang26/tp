@@ -32,7 +32,7 @@ public class EditStudentCommandParser implements Parser<EditStudentCommand> {
         Index index;
 
         try {
-            index = ParserUtil.parseIndex(argMultimap.getPreamble());
+            index = ParserStudentUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     EditStudentCommand.MESSAGE_USAGE), pe);

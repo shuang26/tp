@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
@@ -65,7 +65,7 @@ public class DeleteStudentCommandTest {
      * Updates {@code model}'s filtered list to show no one.
      */
     private void showNoStudent(Model model) {
-        model.updateFilteredPersonList(Student -> false);
+        model.updateFilteredStudentList(Student -> false);
 
         assertTrue(model.getFilteredStudentList().isEmpty());
     }

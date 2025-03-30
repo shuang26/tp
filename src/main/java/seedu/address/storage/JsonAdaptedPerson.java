@@ -1,10 +1,8 @@
 package seedu.address.storage;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,7 +15,6 @@ import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentId;
-import seedu.address.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Student}.
@@ -33,7 +30,6 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final List<LocalDate> attendance;
-    private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -42,7 +38,6 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String studentName, @JsonProperty("parentName") String parentName,
                              @JsonProperty("studentId") String studentId, @JsonProperty("phone") String phone,
                              @JsonProperty("email") String email, @JsonProperty("address") String address,
-                             @JsonProperty("tags") List<JsonAdaptedTag> tags,
                              @JsonProperty("attendance") List<LocalDate> attendance) {
         this.studentName = studentName;
         this.parentName = parentName;
@@ -51,9 +46,6 @@ class JsonAdaptedPerson {
         this.email = email;
         this.address = address;
         this.attendance = attendance;
-        if (tags != null) {
-            this.tags.addAll(tags);
-        }
     }
 
     /**
@@ -75,11 +67,6 @@ class JsonAdaptedPerson {
      * @throws IllegalValueException if there were any data constraints violated in the adapted person.
      */
     public Student toModelType() throws IllegalValueException {
-        final List<Tag> personTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tags) {
-            personTags.add(tag.toModelType());
-        }
-
         if (studentName == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
@@ -131,7 +118,6 @@ class JsonAdaptedPerson {
 
         final Attendance modelAttendance = new Attendance(new HashSet<>(attendance));
 
-        final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Student(modelStudentName, modelStudentId, modelParentName,
                 modelPhone, modelEmail, modelAddress, modelAttendance);
     }

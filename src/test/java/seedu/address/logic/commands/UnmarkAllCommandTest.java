@@ -1,7 +1,8 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.logic.Messages.MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ import seedu.address.model.student.Student;
 
 public class UnmarkAllCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model expectedModel = model;
+    // edit expectedModel
+
 
 
     @Test
@@ -25,7 +29,7 @@ public class UnmarkAllCommandTest {
             student.setAbsent();
         }
 
-        assertCommandFailure(unmarkAllCommand, model, "No students found in the student list.");
+        assertCommandSuccess(unmarkAllCommand, model, MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED, expectedModel);
     }
 }
 
