@@ -8,8 +8,8 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.student.exceptions.DuplicatePersonException;
-import seedu.address.model.student.exceptions.PersonNotFoundException;
+import seedu.address.model.student.exceptions.DuplicateStudentException;
+import seedu.address.model.student.exceptions.StudentNotFoundException;
 
 /**
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.
@@ -20,7 +20,7 @@ import seedu.address.model.student.exceptions.PersonNotFoundException;
  *
  * Supports a minimal set of list operations.
  *
- * @see Student#isSamePerson(Student)
+ * @see Student#isSameStudent(Student)
  */
 public class UniqueStudentList implements Iterable<Student> {
 
@@ -33,7 +33,7 @@ public class UniqueStudentList implements Iterable<Student> {
      */
     public boolean contains(Student toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isSamePerson);
+        return internalList.stream().anyMatch(toCheck::isSameStudent);
     }
 
     /**
@@ -43,7 +43,7 @@ public class UniqueStudentList implements Iterable<Student> {
     public void add(Student toAdd) {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
-            throw new DuplicatePersonException();
+            throw new DuplicateStudentException();
         }
         internalList.add(toAdd);
     }
@@ -58,11 +58,11 @@ public class UniqueStudentList implements Iterable<Student> {
 
         int index = internalList.indexOf(target);
         if (index == -1) {
-            throw new PersonNotFoundException();
+            throw new StudentNotFoundException();
         }
 
-        if (!target.isSamePerson(editedStudent) && contains(editedStudent)) {
-            throw new DuplicatePersonException();
+        if (!target.isSameStudent(editedStudent) && contains(editedStudent)) {
+            throw new DuplicateStudentException();
         }
 
         internalList.set(index, editedStudent);
@@ -75,7 +75,7 @@ public class UniqueStudentList implements Iterable<Student> {
     public void remove(Student toRemove) {
         requireNonNull(toRemove);
         if (!internalList.remove(toRemove)) {
-            throw new PersonNotFoundException();
+            throw new StudentNotFoundException();
         }
     }
 
@@ -91,7 +91,7 @@ public class UniqueStudentList implements Iterable<Student> {
     public void setStudents(List<Student> persons) {
         requireAllNonNull(persons);
         if (!personsAreUnique(persons)) {
-            throw new DuplicatePersonException();
+            throw new DuplicateStudentException();
         }
 
         internalList.setAll(persons);
@@ -140,7 +140,7 @@ public class UniqueStudentList implements Iterable<Student> {
     private boolean personsAreUnique(List<Student> persons) {
         for (int i = 0; i < persons.size() - 1; i++) {
             for (int j = i + 1; j < persons.size(); j++) {
-                if (persons.get(i).isSamePerson(persons.get(j))) {
+                if (persons.get(i).isSameStudent(persons.get(j))) {
                     return false;
                 }
             }

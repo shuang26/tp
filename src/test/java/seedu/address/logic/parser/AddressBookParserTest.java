@@ -13,6 +13,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 import org.junit.jupiter.api.Test;
 
 //import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.AddStudentCommand;
 import seedu.address.logic.commands.ClearCommand;
 //import seedu.address.logic.commands.DeleteCommand;
 //import seedu.address.logic.commands.EditCommand;
@@ -25,10 +26,11 @@ import seedu.address.logic.commands.MarkCommand;
 import seedu.address.logic.commands.UnmarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 //import seedu.address.model.person.NameContainsKeywordsPredicate;
-import seedu.address.model.person.Person;
+import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentId;
 //import seedu.address.testutil.EditPersonDescriptorBuilder;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.StudentBuilder;
+import seedu.address.testutil.StudentUtil;
 //import seedu.address.testutil.PersonUtil;
 
 public class AddressBookParserTest {
@@ -37,9 +39,9 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_add() throws Exception {
-        Person person = new PersonBuilder().build();
-        //AddCommand command = (AddCommand) parser.parseCommand(PersonUtil.getAddCommand(person));
-        //assertEquals(new AddCommand(person), command);
+        Student student = new StudentBuilder().build();
+        AddStudentCommand command = (AddStudentCommand) parser.parseCommand(StudentUtil.getAddCommand(student));
+        assertEquals(new AddStudentCommand(student), command);
     }
 
     @Test
@@ -59,7 +61,7 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_edit() throws Exception {
-        Person person = new PersonBuilder().build();
+        Student student = new StudentBuilder().build();
         //EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(person).build();
         //EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
         //        + INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
