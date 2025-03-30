@@ -116,7 +116,7 @@ public class StudentBuilder {
     }
 
     public Student build() {
-        return new Student(studentName,studentId, parentName, phone, email, address, new Attendance(new HashSet<>()));
+        return new Student(studentName, studentId, parentName, phone, email, address, new Attendance(new HashSet<>()));
     }
 
 }

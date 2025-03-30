@@ -117,7 +117,7 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Attendance modelAttendance = new Attendance(new HashSet<>(attendance));
-        
+
         return new Student(modelStudentName, modelStudentId, modelParentName,
                 modelPhone, modelEmail, modelAddress, modelAttendance);
     }

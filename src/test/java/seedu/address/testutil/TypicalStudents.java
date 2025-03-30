@@ -2,14 +2,14 @@ package seedu.address.testutil;
 
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ATTENDANCE_MIN;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ATTENDANCE_TODAY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ATTENDANCE_TODAY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ATTENDANCE_MIN;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -43,7 +43,8 @@ public class TypicalStudents {
             .withPhone("95352563")
             .withEmail("heinz@example.com").withAddress("wall street")
             .withAttendance(new HashSet<>(Collections.singleton(LocalDate.now()))).build();
-    public static final Student DANIEL = new StudentBuilder().withStudentName("Daniel Meier").withParentName("Danielle Lee")
+    public static final Student DANIEL = new StudentBuilder().withStudentName("Daniel Meier")
+            .withParentName("Danielle Lee")
             .withSId("A79Z")
             .withPhone("87652533")
             .withEmail("cornelia@example.com").withAddress("10th street")
@@ -56,7 +57,8 @@ public class TypicalStudents {
             .withSId("A99W")
             .withPhone("94824274")
             .withEmail("lydia@example.com").withAddress("little tokyo").build();
-    public static final Student GEORGE = new StudentBuilder().withStudentName("George Best").withParentName("Gerogia Bester")
+    public static final Student GEORGE = new StudentBuilder().withStudentName("George Best")
+            .withParentName("Gerogia Bester")
             .withSId("A99L")
             .withPhone("94824424")
             .withEmail("anna@example.com").withAddress("4th street")
