@@ -98,20 +98,13 @@ public class EditStudentCommand extends Command {
     private static Student createEditedstudent(Student studentToEdit, EditStudentDescriptor editStudentDescriptor) {
         assert studentToEdit != null;
 
-        seedu.address.model.student.Name updatedStudentName =
-                editStudentDescriptor.getStudentName().orElse(studentToEdit.getStudentName());
-        seedu.address.model.student.Name updatedParentName =
-                editStudentDescriptor.getParentName().orElse(studentToEdit.getParentName());
-        seedu.address.model.student.StudentId updatedSId =
-                editStudentDescriptor.getStudentId().orElse(studentToEdit.getStudentId());
-        seedu.address.model.student.Phone updatedPhone =
-                editStudentDescriptor.getPhone().orElse(studentToEdit.getPhone());
-        seedu.address.model.student.Email updatedEmail =
-                editStudentDescriptor.getEmail().orElse(studentToEdit.getEmail());
-        seedu.address.model.student.Address updatedAddress =
-                editStudentDescriptor.getAddress().orElse(studentToEdit.getAddress());
-        seedu.address.model.student.Attendance updatedAttendance =
-                editStudentDescriptor.getAttendance().orElse(studentToEdit.getAttendance());
+        Name updatedStudentName = editStudentDescriptor.getStudentName().orElse(studentToEdit.getStudentName());
+        Name updatedParentName = editStudentDescriptor.getParentName().orElse(studentToEdit.getParentName());
+        StudentId updatedSId = editStudentDescriptor.getStudentId().orElse(studentToEdit.getStudentId());
+        Phone updatedPhone = editStudentDescriptor.getPhone().orElse(studentToEdit.getPhone());
+        Email updatedEmail = editStudentDescriptor.getEmail().orElse(studentToEdit.getEmail());
+        Address updatedAddress = editStudentDescriptor.getAddress().orElse(studentToEdit.getAddress());
+        Attendance updatedAttendance = editStudentDescriptor.getAttendance().orElse(studentToEdit.getAttendance());
 
         return new Student(updatedStudentName, updatedSId, updatedParentName,
                 updatedPhone, updatedEmail, updatedAddress, updatedAttendance);
@@ -146,13 +139,13 @@ public class EditStudentCommand extends Command {
      * corresponding field value of the student.
      */
     public static class EditStudentDescriptor {
-        private seedu.address.model.student.Name studentName;
-        private seedu.address.model.student.Name parentName;
-        private seedu.address.model.student.StudentId studentId;
-        private seedu.address.model.student.Phone phone;
-        private seedu.address.model.student.Email email;
-        private seedu.address.model.student.Address address;
-        private seedu.address.model.student.Attendance attendance;
+        private Name studentName;
+        private Name parentName;
+        private StudentId studentId;
+        private Phone phone;
+        private Email email;
+        private Address address;
+        private Attendance attendance;
 
         public EditStudentDescriptor() {}
 
