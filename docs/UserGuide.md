@@ -346,7 +346,9 @@ Opens a help window with a link to CareBook user guide website.
 <img src="images/helpcommandinput.png" width="500">
 
 **Expected Output:** <br>
-<img src="images/helpcommandoutput.png" width="500">
+<img src="images/helpcommandoutput.png" width="500"> <br>
+
+A [command summary](#command-summary) will also be displayed below the guide link.
 
 <p>&nbsp;</p>
 
@@ -362,6 +364,8 @@ Lists all students in CareBook.
 
 **Expected Output:** <br>
 <img src="images/listcommandoutput.png" width="500">
+
+
 
 <p>&nbsp;</p>
 
