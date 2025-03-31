@@ -41,7 +41,7 @@
           <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
         </padding>
       </HBox>
-      <ImageView fx:id="commandSummaryImageView" fitWidth="700" preserveRatio="true">
+      <ImageView fx:id="commandSummaryImageView" fitWidth="730" preserveRatio="true">
         <image>
           <Image url="@/images/command_summary.png" />
         </image>
