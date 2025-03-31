@@ -300,7 +300,7 @@ Finds a specific student with matching Student ID.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
   💡 <strong>Tip:</strong> A find window will open upon executing this command. Full contact information (from top to bottom order:
-student name, student ID, parent name, parent's phone number, address, parent's email,) of the student with a matching ID will be shown.
+student name, student ID, parent name, parent's phone number, address, parent's email) of the student with a matching ID will be shown.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
