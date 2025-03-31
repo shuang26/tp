@@ -56,7 +56,7 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
 
 ## Quick Start
 
-#### Installation
+#### Installing CareBook
 1. Ensure you have Java `17` or above installed in your computer.
    <br>**Mac Users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html)
    <panel header="How to check your java version">
