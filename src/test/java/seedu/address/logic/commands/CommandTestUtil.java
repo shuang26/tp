@@ -47,7 +47,10 @@ public class CommandTestUtil {
 
     public static final String STUDENT_NAME_DESC_AMY = " " + PREFIX_STUDENT_NAME + VALID_NAME_AMY;
     public static final String PARENT_NAME_DESC_AMY = " " + PREFIX_PARENT_NAME + "Amy Jackson";
+    public static final String STUDENT_NAME_DESC_BOB = " " + PREFIX_STUDENT_NAME + VALID_NAME_BOB;
+    public static final String PARENT_NAME_DESC_BOB = " " + PREFIX_PARENT_NAME + "Bob Builder";
     public static final String ID_DESC_AMY = " " + PREFIX_ID + VALID_SID_AMY;
+    public static final String ID_DESC_BOB = " " + PREFIX_ID + VALID_SID_BOB;
     public static final String NAME_DESC_BOB = " " + PREFIX_STUDENT_NAME + VALID_NAME_BOB;
     public static final String PHONE_DESC_AMY = " " + PREFIX_PHONE + VALID_PHONE_AMY;
     public static final String PHONE_DESC_BOB = " " + PREFIX_PHONE + VALID_PHONE_BOB;
@@ -60,6 +63,7 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
+    public static final String INVALID_ID_DESC = " " + PREFIX_ID + "891b";
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
