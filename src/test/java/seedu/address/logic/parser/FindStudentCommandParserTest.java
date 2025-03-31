@@ -11,6 +11,10 @@ import seedu.address.logic.commands.FindStudentCommand;
 import seedu.address.model.student.StudentId;
 import seedu.address.model.student.StudentIdEqualsPredicate;
 
+/**
+ * Contains tests for
+ * {@code FindStudentCommandParser}.
+ */
 public class FindStudentCommandParserTest {
 
     private FindStudentCommandParser parser = new FindStudentCommandParser();
