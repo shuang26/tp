@@ -356,7 +356,7 @@ A [command summary](#command-summary) will also be displayed below the guide lin
 Lists all students in CareBook.
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
-  <strong>Command Format:</strong> <code>list;</code>
+  <strong>Command Format:</strong> <code>list</code>
 </div>
 
 **Input:** <br>
