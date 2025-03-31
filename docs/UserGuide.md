@@ -89,7 +89,7 @@ margin-top: 20px">
 </div>
 
 #### CLI Tutorial
-1. **Type Command:** Enter your command into the command box, highlihgted with a yellow circle in the image below. <br>
+1. **Type Command:** Enter your command into the command box, highlighted with a yellow circle in the image below. <br>
 <img src="images/clitutorial.png" width="500">
 
 2. **Execute Command:** Press `Enter` to run your command.
@@ -267,7 +267,7 @@ The attendance summary will be saved in the directory where the CareBook applica
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
-  <strong>Command Format:</strong> <code>export &lt;fileName&gt;</code>
+  <strong>Command Format:</strong> <code>export &lt;FileName&gt;</code>
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
