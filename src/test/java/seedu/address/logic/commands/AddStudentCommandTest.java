@@ -169,6 +169,21 @@ public class AddStudentCommandTest {
         public void updateFilteredStudentList(Predicate<Student> predicate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public boolean isStudentListEmpty() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void markAllStudents() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void unmarkAllStudents() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
