@@ -20,7 +20,7 @@ public class UnmarkAllCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        List<Student> students = model.getFilteredStudentList();
+        List<Student> students = model.getAddressBook().getStudentList();
 
         if (students.isEmpty()) {
             throw new CommandException("No students found in the student list.");
