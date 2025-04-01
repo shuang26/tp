@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.logic.Messages.MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+//
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
