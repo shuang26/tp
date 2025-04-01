@@ -41,7 +41,7 @@ public class ExportCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         requireNonNull(fileName);
-        ObservableList<Student> studentList = model.getFilteredStudentList();
+        ObservableList<Student> studentList = model.getAddressBook().getStudentList();
 
         if (studentList.isEmpty()) {
             return new CommandResult(MESSAGE_NO_STUDENT_FOUND);
