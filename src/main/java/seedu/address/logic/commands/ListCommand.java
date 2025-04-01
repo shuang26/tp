@@ -23,9 +23,7 @@ public class ListCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        List<Student> students = model.getFilteredStudentList();
-
-        if (students.isEmpty()) {
+        if (model.isStudentListEmpty()) {
             throw new CommandException(MESSAGE_EMPTY_LIST);
         }
 
