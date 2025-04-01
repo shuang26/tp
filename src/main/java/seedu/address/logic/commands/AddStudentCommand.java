@@ -21,7 +21,7 @@ public class AddStudentCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a student to the address book. "
             + "Parameters: "
             + PREFIX_STUDENT_NAME + "STUDENT NAME "
             + PREFIX_ID + "STUDENT ID "
@@ -38,13 +38,13 @@ public class AddStudentCommand extends Command {
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 ";
 
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_SUCCESS = "New student added: %1$s";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book";
 
     private final Student toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates an AddCommand to add the specified {@code Student}
      */
     public AddStudentCommand(Student student) {
         requireNonNull(student);
@@ -56,7 +56,7 @@ public class AddStudentCommand extends Command {
         requireNonNull(model);
 
         if (model.hasStudent(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            throw new CommandException(MESSAGE_DUPLICATE_STUDENT);
         }
 
         model.addStudent(toAdd);
