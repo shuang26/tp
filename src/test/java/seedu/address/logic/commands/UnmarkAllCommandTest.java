@@ -5,8 +5,6 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
@@ -20,13 +18,15 @@ public class UnmarkAllCommandTest {
 
     @Test
     public void execute_unmarkall_success() {
-        UnmarkAllCommand unmarkAllCommand = new UnmarkAllCommand();
-        List<Student> students = model.getFilteredStudentList();
-
-        for (Student student : students) {
+        for (Student student : model.getFilteredStudentList()) {
             student.setPresent();
         }
 
+        for (Student student : expectedModel.getFilteredStudentList()) {
+            student.setAbsent();
+        }
+
+        UnmarkAllCommand unmarkAllCommand = new UnmarkAllCommand();
         assertCommandSuccess(unmarkAllCommand, model, MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED, expectedModel);
     }
 
@@ -36,6 +36,7 @@ public class UnmarkAllCommandTest {
         UnmarkAllCommand unmarkAllCommand = new UnmarkAllCommand();
 
         model = new ModelManager();
+
         assertCommandFailure(unmarkAllCommand, model, UnmarkAllCommand.MESSAGE_EMPTY_STUDENT_LIST);
     }
 }

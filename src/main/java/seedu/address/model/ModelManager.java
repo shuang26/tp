@@ -150,14 +150,22 @@ public class ModelManager implements Model {
 
     @Override
     public void markAllStudents() {
-        getFilteredStudentList().forEach(Student::setPresent);
-        updateFilteredStudentList(student -> true);
+        List<Student> students = getFilteredStudentList();
+        for (Student s : students) {
+            s.setPresent();
+        }
+
+        updateFilteredStudentList(student -> false);
         updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
     }
 
     @Override
     public void unmarkAllStudents() {
-        getFilteredStudentList().forEach(Student::setAbsent);
+        List<Student> students = getFilteredStudentList();
+        for (Student s : students) {
+            s.setAbsent();
+        }
+
         updateFilteredStudentList(student -> false);
         updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
     }
