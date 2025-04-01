@@ -144,6 +144,33 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean isStudentListEmpty() {
+        return getFilteredStudentList().isEmpty();
+    }
+
+    @Override
+    public void markAllStudents() {
+        List<Student> students = getFilteredStudentList();
+        for (Student s : students) {
+            s.setPresent();
+        }
+
+        updateFilteredStudentList(student -> false);
+        updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+    }
+
+    @Override
+    public void unmarkAllStudents() {
+        List<Student> students = getFilteredStudentList();
+        for (Student s : students) {
+            s.setAbsent();
+        }
+
+        updateFilteredStudentList(student -> false);
+        updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+    }
+
+    @Override
     public boolean equals(Object other) {
         if (other == this) {
             return true;
