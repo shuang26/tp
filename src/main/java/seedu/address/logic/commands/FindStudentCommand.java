@@ -31,8 +31,15 @@ public class FindStudentCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.updateFilteredStudentList(predicate);
-        return new CommandResult(
-                String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredStudentList().size()), true);
+
+        if (!model.getFilteredStudentList().isEmpty()) {
+            return new CommandResult(
+                    String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW,
+                            model.getFilteredStudentList().size()), true);
+        } else {
+            return new CommandResult(Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND
+                    + ". Please type \"list\" to search for a student ID that already exists");
+        }
     }
 
     @Override
