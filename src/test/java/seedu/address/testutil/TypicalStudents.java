@@ -100,6 +100,23 @@ public class TypicalStudents {
         return ab;
     }
 
+    /**
+     * Returns an {@code AddressBook} with all the typical persons.
+     */
+    public static AddressBook getTypicalAddressBook_onePresent() {
+        AddressBook ab = new AddressBook();
+        boolean marked = false;
+        for (Student student : getTypicalStudents()) {
+            if (!marked) {
+                student.setPresent();
+                marked = true;
+            }
+            ab.addStudent(student);
+        }
+        ALICE.setAbsent();
+        return ab;
+    }
+
     public static List<Student> getTypicalStudents() {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
     }
