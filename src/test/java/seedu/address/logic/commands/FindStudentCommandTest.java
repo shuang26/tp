@@ -29,10 +29,10 @@ public class FindStudentCommandTest {
 
     @Test
     public void equals() {
-        StudentIdEqualsPredicate firstPredicate =
-                new StudentIdEqualsPredicate(new StudentId("A01A"));
-        StudentIdEqualsPredicate secondPredicate =
-                new StudentIdEqualsPredicate(new StudentId("A99B"));
+        StudentId firstPredicate =
+                new StudentId("A01A");
+        StudentId secondPredicate =
+                new StudentId("A99B");
 
         FindStudentCommand findFirstCommand = new FindStudentCommand(firstPredicate);
         FindStudentCommand findSecondCommand = new FindStudentCommand(secondPredicate);
@@ -46,7 +46,7 @@ public class FindStudentCommandTest {
 
         // same string -> returns true
         assertTrue(findFirstCommand.equals(new FindStudentCommand(
-                new StudentIdEqualsPredicate(new StudentId("A01A")))));
+                new StudentId("A01A"))));
 
         // null -> returns false
         assertFalse(findFirstCommand.equals(null));
@@ -60,7 +60,7 @@ public class FindStudentCommandTest {
         String expectedMessage = MESSAGE_INVALID_STUDENT_NOT_FOUND
                 + MESSAGE_FIND_LIST;
         StudentIdEqualsPredicate predicate = preparePredicate("A97B");
-        FindStudentCommand command = new FindStudentCommand(predicate);
+        FindStudentCommand command = new FindStudentCommand(new StudentId("A97B"));
         expectedModel.updateFilteredStudentList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Collections.emptyList(), model.getFilteredStudentList());
@@ -68,8 +68,8 @@ public class FindStudentCommandTest {
 
     @Test
     public void toStringMethod() {
-        StudentIdEqualsPredicate predicate = new StudentIdEqualsPredicate(new StudentId("A01A"));
-        FindStudentCommand findStudentCommand = new FindStudentCommand(predicate);
+        StudentIdEqualsPredicate predicate = preparePredicate("A01A");
+        FindStudentCommand findStudentCommand = new FindStudentCommand(new StudentId("A01A"));
         String expected = FindStudentCommand.class.getCanonicalName() + "{predicate=" + predicate + "}";
         assertEquals(expected, findStudentCommand.toString());
     }

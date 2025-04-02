@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FindStudentCommand;
 import seedu.address.model.student.StudentId;
-import seedu.address.model.student.StudentIdEqualsPredicate;
 
 /**
  * Contains tests for
@@ -37,6 +36,6 @@ public class FindStudentCommandParserTest {
     public void parse_validFormat_success() {
         String studentId = "A01A";
         StudentId sId = new StudentId(studentId);
-        assertParseSuccess(parser, studentId, new FindStudentCommand(new StudentIdEqualsPredicate(sId)));
+        assertParseSuccess(parser, studentId, new FindStudentCommand(sId));
     }
 }

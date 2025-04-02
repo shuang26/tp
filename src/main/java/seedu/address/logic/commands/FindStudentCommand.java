@@ -4,9 +4,11 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_FIND_LIST;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.Model;
+import seedu.address.model.student.StudentId;
 import seedu.address.model.student.StudentIdEqualsPredicate;
 
 /**
@@ -24,10 +26,14 @@ public class FindStudentCommand extends Command {
             + "Example: " + COMMAND_WORD + " A01A";
 
     private final StudentIdEqualsPredicate predicate;
+    private final StudentId studentId;
 
-    public FindStudentCommand(StudentIdEqualsPredicate predicate) {
-        this.predicate = predicate;
+    public FindStudentCommand(StudentId studentId) {
+        this.studentId = studentId;
+        this.predicate = new StudentIdEqualsPredicate(studentId);
     }
+
+
 
     @Override
     public CommandResult execute(Model model) {
@@ -39,7 +45,7 @@ public class FindStudentCommand extends Command {
                     String.format(MESSAGE_PERSONS_LISTED_OVERVIEW,
                             model.getFilteredStudentList().size()), true);
         } else {
-            return new CommandResult(MESSAGE_INVALID_STUDENT_NOT_FOUND
+            return new CommandResult(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId)
                     + MESSAGE_FIND_LIST);
         }
     }
