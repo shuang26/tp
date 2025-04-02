@@ -30,6 +30,9 @@ public class Messages {
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present!";
 
 
+    public static final String ADDRESS_MESSAGE_CONSTRAINTS = "Addresses can take any values, and it should not be blank";
+    public static final String NAME_MESSAGE_CONSTRAINTS =
+            "Names should only contain alphanumeric characters and spaces, and it should not be blank";
     public static final String STUDENT_ID_MESSAGE_CONSTRAINTS =
             "Student ID should be 4 characters beginning with A followed by 2 digits and ending with an alphabet in UPPERCASE";
     public static final String PHONE_MESSAGE_CONSTRAINTS =

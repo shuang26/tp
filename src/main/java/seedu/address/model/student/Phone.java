@@ -10,8 +10,6 @@ import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
  */
 public class Phone {
 
-
-
     public static final String VALIDATION_REGEX = "[89][0-9]{7}";
     public final String value;
 
