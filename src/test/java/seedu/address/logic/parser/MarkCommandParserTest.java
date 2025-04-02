@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.model.student.StudentId.MESSAGE_CONSTRAINTS;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +28,15 @@ public class MarkCommandParserTest {
 
         // no parameters
         assertParseFailure(parser, "", expectedMessage);
+
+    }
+
+    @Test
+    public void parse_invalidStudentID_failure() {
+        String expectedMessage = MESSAGE_CONSTRAINTS + '\n' + MarkCommand.MESSAGE_USAGE;
+
+        // no parameters
+        assertParseFailure(parser, "A000", expectedMessage);
 
     }
 
