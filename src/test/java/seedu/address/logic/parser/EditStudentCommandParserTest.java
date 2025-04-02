@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.STUDENT_NAME_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_SID_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_ID_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NAME_AMY;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,11 +19,11 @@ public class EditStudentCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsEditStudentCommand() throws Exception {
-        String input = VALID_SID_AMY + STUDENT_NAME_DESC_AMY;
+        String input = VALID_STUDENT_ID_AMY + STUDENT_NAME_DESC_AMY;
         EditStudentCommand.EditStudentDescriptor descriptor = new EditStudentCommand.EditStudentDescriptor();
-        descriptor.setStudentName(new Name(VALID_NAME_AMY));
+        descriptor.setStudentName(new Name(VALID_STUDENT_NAME_AMY));
 
-        EditStudentCommand expectedCommand = new EditStudentCommand(new StudentId(VALID_SID_AMY), descriptor);
+        EditStudentCommand expectedCommand = new EditStudentCommand(new StudentId(VALID_STUDENT_ID_AMY), descriptor);
         assertEquals(expectedCommand, parser.parse(input));
     }
 
