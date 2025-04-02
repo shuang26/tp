@@ -27,6 +27,8 @@ public class Messages {
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED = "All students marked as absent!";
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present!";
 
+    // Used by markall and unmarkall
+    public static final String MESSAGE_EMPTY_STUDENT_LIST = "No students found in the student list";
 
     /**
      * Returns an error message indicating the duplicate prefixes.
