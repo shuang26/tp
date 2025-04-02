@@ -14,7 +14,7 @@ public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
 
     public static final String MESSAGE_SUCCESS = "Listed all students";
-    public static final String MESSAGE_EMPTY_LIST = "There are no students to list";
+    public static final String MESSAGE_EMPTY_LIST = "There are no students to list.";
 
     @Override
     public CommandResult execute(Model model) throws CommandException {

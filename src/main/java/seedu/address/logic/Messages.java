@@ -29,6 +29,8 @@ public class Messages {
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED = "All students marked as absent!";
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present!";
 
+    // Used by markall and unmarkall
+    public static final String MESSAGE_EMPTY_STUDENT_LIST = "No students found in the student list";
 
     public static final String ADDRESS_MESSAGE_CONSTRAINTS =
             "Addresses can take any values, and it should not be blank";
