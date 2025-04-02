@@ -33,6 +33,13 @@ public class Messages {
     public static final String MESSAGE_DELETE_SUCCESS = "Deleted Student: %1$s ";
     public static final String MESSAGE_STUDENT_ID_NOT_FOUND = "No student with student ID: %1$s found.";
 
+    // used by export
+    public static final String MESSAGE_EXPORT_SUCCESS = "Exported attendance summary to \n";
+    public static final String MESSAGE_NO_STUDENT_FOUND = "No student found";
+    public static final String FILE_WRITE_ERROR = "Unable to export attendance summary due to I/O error";
+    public static final String EXPORT_FILE_HEADER = "Student ID, Student Name, Parent Name, Parent's Email, "
+            + "Parent's Number, Attendance History (Present Dates)\n";
+
     // used by find
     public static final String MESSAGE_FIND_LIST = " Please type \"list\" to search for a "
             + "student ID that already exists";
