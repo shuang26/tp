@@ -66,7 +66,7 @@ public class FindStudentCommandTest {
     }
 
     @Test
-    public void execute_StudentFound() {
+    public void execute_studentFound() {
         String expectedMessage = String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, 1);
         StudentIdEqualsPredicate predicate = preparePredicate("A98L");
         FindStudentCommand command = new FindStudentCommand(predicate);
