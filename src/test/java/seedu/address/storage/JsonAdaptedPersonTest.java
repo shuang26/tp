@@ -1,5 +1,7 @@
 package seedu.address.storage;
 
+import static seedu.address.logic.Messages.EMAIL_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 import static seedu.address.storage.JsonAdaptedPerson.MISSING_FIELD_MESSAGE_FORMAT;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -81,7 +83,7 @@ public class JsonAdaptedPersonTest {
         JsonAdaptedPerson person =
                 new JsonAdaptedPerson(VALID_NAME, VALID_NAME, VALID_STUDENT_ID, INVALID_PHONE,
                         VALID_EMAIL, VALID_ADDRESS, VALID_ATTENDANCE);
-        String expectedMessage = Phone.MESSAGE_CONSTRAINTS;
+        String expectedMessage = PHONE_MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
@@ -99,7 +101,7 @@ public class JsonAdaptedPersonTest {
         JsonAdaptedPerson person =
                 new JsonAdaptedPerson(VALID_NAME, VALID_NAME, VALID_STUDENT_ID, VALID_PHONE,
                         INVALID_EMAIL, VALID_ADDRESS, VALID_ATTENDANCE);
-        String expectedMessage = Email.MESSAGE_CONSTRAINTS;
+        String expectedMessage = EMAIL_MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 

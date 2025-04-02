@@ -1,6 +1,8 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.EMAIL_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 
 import java.io.File;
@@ -77,7 +79,7 @@ public class ParserStudentUtil {
         requireNonNull(phone);
         String trimmedPhone = phone.trim();
         if (!Phone.isValidPhone(trimmedPhone)) {
-            throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
+            throw new ParseException(PHONE_MESSAGE_CONSTRAINTS);
         }
         return new Phone(trimmedPhone);
     }
@@ -107,7 +109,7 @@ public class ParserStudentUtil {
         requireNonNull(email);
         String trimmedEmail = email.trim();
         if (!Email.isValidEmail(trimmedEmail)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+            throw new ParseException(EMAIL_MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
     }
