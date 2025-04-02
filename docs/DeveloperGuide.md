@@ -324,166 +324,226 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | daycare teacher                      | print a list of students with their emergency contacts as a PDF                            | have a copy for quick reference in case of a power outage |
 
 ### Use cases
+(For all use cases below, the **System** is the `CareBook` and the **Actor** is the `Daycare Teacher`, unless specified otherwise.)<br>
 
-(For all use cases below, the **System** is the `CareBook` and the **Actor** is the `Daycare Teacher`, unless specified otherwise)
-
-**Use case: UC1 - Add a New Student Record**
-
+#### Use case: UC1 - Add a New Student 
 **MSS**
-
-1.  User enters the add command with student details.
-2.  System validates student details.
-3.  System adds the new student record.
-4.  System confirms successful addition.
-
+1. User requests to add a student. 
+2. CareBook validates student details (student name, parent name, student ID, phone number, email address and address). 
+3. CareBook adds the new student. 
+4. CareBook confirms successful addition.
+    
     Use case ends.
 
 **Extensions**
+* 2a. CareBook detects an invalid  student name, parent name, student ID, phone number, email address, or address.
+    * 2a1. CareBook displays an error message.
+  
+      Use case resumes from step 1.
 
-* 2a. System detects an invalid student ID,
-  * 2a1. System displays “Please enter a valid student ID”
+* 2b. CareBook detects a duplicate student ID.
+    * 2b1. CareBook displays an error message.
+    
+      Use case resumes from step 1.
 
-    Use case ends.
+* 2c. CareBook detects an incorrect command format or unknown command.
+  * 2c1. CareBook displays an error message.
+    
+    Use case resumes from step 1.
 
-* 2b. System detects an invalid contact number
-  * 2b1. System displays “Please enter a valid contact number”
-
-    Use case ends.
-
-* 2c. System detects a duplicate student ID
-  * 2c1. System displays “Please enter a student ID that has not been assigned to another  student”
-
-    Use case ends.
-
-* 2d. System detects an incorrect command format
-  * 2d1. System displays “Command should be in the format: “add sn/StudentName pn/ParentName p/ParentPhoneNumber id/StudentID”
-
-    Use case ends.
-
-* 2e. System detects an invalid command
-  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
-
-    Use case ends.
-
-**Use case: UC2 - View the Instruction Guide**
-
+#### Use case: UC2 - Edit a Student 
 **MSS**
-
-1. User enters the command help.
-2. System displays a list of all commands, their respective parameters, and an example of usage.
+1. User requests to edit a student with new details by using student ID.
+2. CareBook verifies that the student exists.
+3. CareBook updates the student with the new details.
+4. CareBook confirms successful edit.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid command
-  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
 
-    Use case ends.
+      Use case resumes at step 1.
 
-**Use case: UC3 - Display All Student Records**
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC3 - Delete a Student 
 
 **MSS**
 
-1. User enters the command list.
-2. System displays a list of all students.
+1. User requests to delete a student by student ID.
+2. CareBook verifies that the student exists.
+3. CareBook removes the student.
+4. CareBook confirms successful removal.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid command
-  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
 
-    Use case ends.
+      Use case resumes at step 1.
 
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
 
-**Use case: UC4 - Remove a Student Record**
+      Use case resumes at step 1.
 
-**MSS**
-
-1. User enters the command remove <studentID>
-2. System verifies that the student ID exists.
-3. System removes the student record.
-4. System confirms successful removal.
-
-    Use case ends.
-
-**Extensions**
-
-* 2a. System detects an invalid student ID
-  * 2a1. System displays “Please enter a valid student ID”
-
-    Use case ends.
-
-* 2b. System detects an incorrect command format
-  * 2b1. System displays “Command should be in the format: “remove <studentId>””
-
-    Use case ends.
-
-* 2c. System detects an invalid command
-  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
-
-    Use case ends.
-
-
-**Use case: UC5 - View Details of a Specific Student**
+#### Use case: UC4 - View All Students
 
 **MSS**
 
-1. User enters command view <studentID>.
-2. System verifies that the student ID exists.
-3. System retrieves the student’s details.
-4. System displays the student’s information.
+1. User requests to list all students.
+2. CareBook displays a list of all students.
 
    Use case ends.
 
-* 2a. System detects an invalid student ID
-  * 2a1. System displays “Please enter a valid student ID”
+**Extensions**
 
-    Use case ends.
+* 2a. CareBook detects an empty list of students.
+    * 2a1. CareBook displays an error message.
 
-* 2b. System detects an incorrect command format
-  * 2b1. System displays “Command should be in the format: “remove <studentId>””
+      Use case ends.
 
-    Use case ends.
-
-* 2c. System detects an invalid command
-  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
-
-    Use case ends.
-
-**Use case: UC6 - Mark Student Attendance**
+#### Use case: UC5 - Find a Student by Student ID
 
 **MSS**
 
-1. User enters the command mark <studentID>.
-2. System verifies that the student exists.
-3. System updates the attendance record for that student.
-4. System confirms that the student has been marked present.
+1. User requests to find a student by student ID.
+2. CareBook verifies that the student exists.
+3. CareBook retrieves the student’s details.
+4. CareBook displays the student’s information.
+
+   Use case ends.
+
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC6 - Mark a Student Attendance as Present
+
+**MSS**
+
+1. User requests to mark a student as present by student ID.
+2. CareBook verifies that the student exists.
+3. CareBook updates the attendance record for that student.
+4. CareBook confirms that the student has been marked present.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid student ID
-  * 2a1. System displays “Please enter a valid student ID”.
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
 
-    Use case ends.
+      Use case resumes at step 1.
 
-* 2b. System detects an incorrect command format
-  * 2b1. System displays “Command should be in the format: “remove <studentId>””
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
 
-    Use case ends.
+      Use case resumes at step 1.
 
-* 2c. System detects an invalid command
-  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
+#### Use case: UC7 - Mark a Student Attendance as Absent
 
-    Use case ends.
+**MSS**
 
+1. User requests to mark a student as absent by student ID.
+2. CareBook verifies that the student exists.
+3. CareBook updates the attendance record for that student.
+4. CareBook confirms that the student has been marked absent.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC8 - Clear All Students
+
+**MSS**
+
+1. User requests to clear all students.
+2. CareBook clears all students.
+
+   Use case ends.
+
+#### Use case: UC9 - View the Instruction Guide
+
+**MSS**
+
+1. User requests for help.
+2. CareBook displays a list of all commands, their respective parameters, and an example of usage.
+
+   Use case ends.
+
+#### Use case: UC10 - Mark All Students Attendance as Present
+
+**MSS**
+
+1. User requests to mark all students as present.
+2. CareBook updates the attendance record for every student as present.
+3. CareBook confirms that all students have been marked present.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. CareBook detects an empty list of students.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC11 - Mark All Students Attendance as Absent
+
+**MSS**
+
+1. User requests to mark all students as absent by student ID.
+2. CareBook updates the attendance record for every student as absent.
+3. CareBook confirms that all students have been marked absent.
+
+* 2a. CareBook detects an empty list of students.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC12 - Export All Students Information
+
+**MSS**
+
+1. User requests to export all students information with a filename.
+2. CareBook saves all students information into the directory where the CareBook application is located.
+
+* 2a. CareBook detects an invalid filename.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+* 2b. CareBook detects an empty list of students.
+    * 2b1. CareBook displays an error message.
+
+      Use case resumes at step 1.
 
 ### Non-Functional Requirements
-
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2.  Should be able to hold up to 50 students without a noticeable sluggishness in performance for typical usage.
 3.  System does not take more than 1s to load all data from files when launching.
@@ -495,9 +555,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 9.  The app should not require complex installation steps.
 10. It should be a lightweight application (<100MB) and not require additional dependencies beyond Java.
 
-
 ### Glossary
-
 * **Command**: An instruction entered by the Daycare Teacher into the CareBook system to perform a specific action (e.g., "add", "remove", "view", "list", "mark", "help").
 * **Command Format**: The required structure and syntax for a command, including any necessary parameters (e.g., "add sn/StudentName pn/ParentName p/ParentPhoneNumber id/StudentID" for adding a student).
 * **Daycare Teacher**: The primary user of the CareBook application, responsible for managing student records and attendance.
@@ -518,7 +576,7 @@ testers are expected to do more *exploratory* testing.
 
 </box>
 
-### Launch and shutdown
+#### Launch and shutdown
 
 1. **Initial launch**
    1. Download the `CareBook.jar` file and copy into an empty folder
@@ -541,9 +599,9 @@ testers are expected to do more *exploratory* testing.
       * Logs should be displayed with appropriate timestamps.
       * Warnings about JavaFX configuration may appear but should not affect functionality. 
 
-### Deleting a student
+#### Deleting a student
 
-1. **Deleting a student while all student are being shown**
+1. **Deleting a student while all students are being shown**
    1. Prerequisites: List all students using the `list` command. Multiple students in the list.
    1. Test case: `delete A10A`<br>
       **Expected**: 
@@ -562,7 +620,7 @@ testers are expected to do more *exploratory* testing.
        * No student is deleted. Error details shown in the status message. Status bar remains the same.
 
 
-### Saving data
+#### Saving data
 
 1. **Dealing with missing data files**
    1. Navigate to the application's `data` directory.
@@ -612,9 +670,6 @@ testers are expected to do more *exploratory* testing.
 ## **Appendix: Planned Enhancements**
 1. **Clearing attendance records**
 
-   Currently, attendance records accumulate over time, which can make it difficult for users to manage large amounts of data. We plan to introduce a bulk clearance feature that allows users to clear all of the attendance records in CareBook.
-
-
-
+   Currently, attendance records accumulate over time, which can make it difficult for users to manage large amounts of data. We plan to introduce a bulk clearance feature that allows users to clear all the attendance records in CareBook.
 
 _{ more enhancement features to be added …​ }_
