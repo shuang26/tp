@@ -52,6 +52,8 @@ public class Messages {
             + "    - end with a domain label at least 2 characters long\n"
             + "    - have each domain label start and end with alphanumeric characters\n"
             + "    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.";
+    public static final String ATTENDANCE_DATE_CONSTRAINTS = "Attendance can only be marked for today or any day in "
+            + "the past. It cannot be marked for future dates.";
 
     /**
      * Returns an error message indicating the duplicate prefixes.
