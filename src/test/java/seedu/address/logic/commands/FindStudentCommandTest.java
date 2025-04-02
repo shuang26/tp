@@ -66,6 +66,17 @@ public class FindStudentCommandTest {
     }
 
     @Test
+    public void execute_StudentFound() {
+        String expectedMessage = String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, 1);
+        StudentIdEqualsPredicate predicate = preparePredicate("A98L");
+        FindStudentCommand command = new FindStudentCommand(predicate);
+        expectedModel.updateFilteredStudentList(predicate);
+        assertCommandSuccess(command, model, expectedMessage, expectedModel);
+        assertEquals(1, model.getFilteredStudentList().size());
+        assertEquals("A98L", model.getFilteredStudentList().get(0).getStudentId().toString());
+    }
+
+    @Test
     public void toStringMethod() {
         StudentIdEqualsPredicate predicate = new StudentIdEqualsPredicate(new StudentId("A01A"));
         FindStudentCommand findStudentCommand = new FindStudentCommand(predicate);
