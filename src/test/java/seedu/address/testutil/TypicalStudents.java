@@ -103,7 +103,7 @@ public class TypicalStudents {
     /**
      * Returns an {@code AddressBook} with all the typical persons.
      */
-    public static AddressBook getTypicalAddressBook_OnePresent() {
+    public static AddressBook getTypicalAddressBook_onePresent() {
         AddressBook ab = new AddressBook();
         boolean marked = false;
         for (Student student : getTypicalStudents()) {

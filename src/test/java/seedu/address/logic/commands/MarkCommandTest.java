@@ -8,8 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
-import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook_OnePresent;
-
+import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook_onePresent;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +24,7 @@ import seedu.address.model.student.StudentId;
  */
 public class MarkCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook_OnePresent(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalAddressBook_onePresent(), new UserPrefs());
 
     @Test
     public void execute_studentIdNotFound_throwsCommandException() {
