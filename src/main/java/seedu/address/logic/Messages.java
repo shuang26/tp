@@ -28,6 +28,11 @@ public class Messages {
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present!";
 
 
+    public static final String STUDENT_ID_MESSAGE_CONSTRAINTS =
+            "Student ID should be 4 characters beginning with A followed by 2 digits and ending with an alphabet in UPPERCASE";
+    public static final String PHONE_MESSAGE_CONSTRAINTS =
+            "Phone numbers should only contain numbers, and should be between 80000000 and 99999999";
+
     /**
      * Returns an error message indicating the duplicate prefixes.
      */

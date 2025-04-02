@@ -1,5 +1,7 @@
 package seedu.address.storage;
 
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
+
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
@@ -88,7 +90,7 @@ class JsonAdaptedPerson {
                     StudentId.class.getSimpleName()));
         }
         if (!StudentId.isValidId(studentId)) {
-            throw new IllegalValueException(StudentId.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(STUDENT_ID_MESSAGE_CONSTRAINTS);
         }
         final StudentId modelStudentId = new StudentId(studentId);
 

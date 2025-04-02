@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -46,7 +47,7 @@ public class ParserStudentUtil {
         requireNonNull(id);
         String trimmedId = id.trim();
         if (!StudentId.isValidId(id)) {
-            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS);
+            throw new ParseException(STUDENT_ID_MESSAGE_CONSTRAINTS);
         }
         return new StudentId(trimmedId);
     }
