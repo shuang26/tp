@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_UNMARKED;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
@@ -29,7 +30,7 @@ public class UnmarkCommandTest {
         final StudentId testId = new StudentId("A01A");
 
         assertCommandFailure(new UnmarkCommand(testId), model,
-                "Requested student was not found in the student list.");
+                MESSAGE_INVALID_STUDENT_NOT_FOUND);
     }
 
     @Test
