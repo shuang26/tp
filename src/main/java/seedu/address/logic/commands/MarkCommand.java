@@ -21,7 +21,7 @@ public class MarkCommand extends Command {
     public static final String COMMAND_WORD = "mark";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Marks the student identified as present by the "
-            + "student id as present.\nParameters: [STUDENT_ID]\n"
+            + "student id as present.\nParameters: STUDENT_ID\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
     private final StudentId id;
