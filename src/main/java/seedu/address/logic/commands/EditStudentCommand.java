@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ID;
@@ -77,7 +78,7 @@ public class EditStudentCommand extends Command {
         try {
             studentToEdit = model.getStudentById(studentId, lastShownList);
         } catch (NoSuchElementException e) {
-            throw new CommandException(Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND);
+            throw new CommandException(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId));
         }
 
         Student editedstudent = createEditedstudent(studentToEdit, editStudentDescriptor);

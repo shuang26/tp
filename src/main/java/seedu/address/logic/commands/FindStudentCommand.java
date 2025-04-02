@@ -2,7 +2,6 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_FIND_LIST;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 
@@ -28,6 +27,10 @@ public class FindStudentCommand extends Command {
     private final StudentIdEqualsPredicate predicate;
     private final StudentId studentId;
 
+    /**
+     * Initialises FindStudentCommand with given student id.
+     * @param studentId ID of student to find.
+     */
     public FindStudentCommand(StudentId studentId) {
         this.studentId = studentId;
         this.predicate = new StudentIdEqualsPredicate(studentId);
