@@ -1,7 +1,6 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
-import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -81,7 +80,7 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Student> getFilteredStudentList();
 
-    Student getStudentById(StudentId studentId, List<Student> studentList);
+    Student getStudentById(StudentId studentId);
 
     /**
      * Updates the filter of the filtered student list to filter by the given {@code predicate}.
