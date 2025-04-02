@@ -1,11 +1,13 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.student.Student;
+import seedu.address.model.student.StudentId;
 
 /**
  * The API of the Model component.
@@ -79,9 +81,31 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Student> getFilteredStudentList();
 
+    Student getStudentById(StudentId studentId, List<Student> studentList);
+
     /**
      * Updates the filter of the filtered student list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredStudentList(Predicate<Student> predicate);
+
+    /**
+     * Checks if the filtered student list is empty.
+     *
+     * @return true if there are no students in the filtered list, false otherwise.
+     */
+    boolean isStudentListEmpty();
+
+    /**
+     * Marks all students in the filtered list as present and refreshes the list.
+     * This method updates the attendance status of all students and then refreshes the filtered list.
+     */
+    void markAllStudents();
+
+    /**
+     * Marks all students in the filtered list as absent and refreshes the list.
+     * This method updates the attendance status of all students and then refreshes the filtered list.
+     */
+    void unmarkAllStudents();
+
 }

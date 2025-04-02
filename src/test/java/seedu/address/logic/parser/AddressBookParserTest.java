@@ -5,33 +5,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.testutil.Assert.assertThrows;
-//import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
-//import java.util.Arrays;
-//import java.util.List;
-//import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
-//import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddStudentCommand;
 import seedu.address.logic.commands.ClearCommand;
-//import seedu.address.logic.commands.DeleteCommand;
-//import seedu.address.logic.commands.EditCommand;
-//import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
+import seedu.address.logic.commands.DeleteStudentCommand;
+// import seedu.address.logic.commands.EditStudentCommand;
 import seedu.address.logic.commands.ExitCommand;
-//import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.ExportCommand;
+import seedu.address.logic.commands.FindStudentCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.MarkCommand;
 import seedu.address.logic.commands.UnmarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-//import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentId;
-//import seedu.address.testutil.EditPersonDescriptorBuilder;
+import seedu.address.model.student.StudentIdEqualsPredicate;
 import seedu.address.testutil.StudentBuilder;
 import seedu.address.testutil.StudentUtil;
-//import seedu.address.testutil.PersonUtil;
 
 public class AddressBookParserTest {
 
@@ -52,11 +45,10 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_delete() throws Exception {
-        /*
-        DeleteCommand command = (DeleteCommand) parser.parseCommand(
-                DeleteCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
-        assertEquals(new DeleteCommand(INDEX_FIRST_PERSON), command);
-         */
+        String validStudentId = "A98L";
+        DeleteStudentCommand command = (DeleteStudentCommand) parser.parseCommand(
+                DeleteStudentCommand.COMMAND_WORD + " " + validStudentId);
+        assertEquals(new DeleteStudentCommand(new StudentId(validStudentId)), command);
     }
 
     @Test
@@ -74,15 +66,13 @@ public class AddressBookParserTest {
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD + " 3") instanceof ExitCommand);
     }
 
-
     @Test
     public void parseCommand_find() throws Exception {
-        /*
-        List<String> keywords = Arrays.asList("foo", "bar", "baz");
-        FindCommand command = (FindCommand) parser.parseCommand(
-                FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-          assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords)), command);
-         */
+        String validStudentId = "A01A";
+        FindStudentCommand command = (FindStudentCommand) parser.parseCommand(
+                FindStudentCommand.COMMAND_WORD + " " + validStudentId);
+        assertEquals(new FindStudentCommand(
+                new StudentIdEqualsPredicate(new StudentId(validStudentId))), command);
     }
 
     @Test
@@ -109,6 +99,20 @@ public class AddressBookParserTest {
         MarkCommand command = (MarkCommand) parser.parseCommand(
                 MarkCommand.COMMAND_WORD + " " + "A01A");
         assertEquals(new MarkCommand(new StudentId("A01A")), command);
+    }
+
+    @Test
+    public void parseCommand_export() throws Exception {
+        String validFileName = "attendance_summary";
+        ExportCommand command = (ExportCommand) parser.parseCommand(
+                ExportCommand.COMMAND_WORD + " " + validFileName);
+
+        // slice the file name since timestamp cannot be used
+        String exportedFileName = command.toString().split("fileName=")
+                [1].replace("}", "").trim();
+        // check for valid file name and file type
+        assertTrue(exportedFileName.startsWith(validFileName));
+        assertTrue(exportedFileName.endsWith(".csv"));
     }
 
     @Test

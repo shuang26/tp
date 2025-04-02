@@ -4,13 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentId;
 
 /**
@@ -31,6 +34,21 @@ public class DeleteStudentCommandTest {
     }
 
     @Test
+    public void execute_deleteStudent_success() {
+        Student studentToDelete = model.getFilteredStudentList().get(0);
+        StudentId studentId = studentToDelete.getStudentId();
+        DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(studentId);
+
+        String expectedMessage = String.format(DeleteStudentCommand.MESSAGE_DELETE_PERSON_SUCCESS,
+                Messages.format(studentToDelete));
+
+        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        expectedModel.deleteStudent(studentToDelete);
+
+        assertCommandSuccess(deleteStudentCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
     public void equals() {
         DeleteStudentCommand deleteFirstCommand = new DeleteStudentCommand(new StudentId("A99Z"));
         DeleteStudentCommand deleteSecondCommand = new DeleteStudentCommand(new StudentId("A98Z"));
@@ -38,7 +56,7 @@ public class DeleteStudentCommandTest {
         // same object -> returns true
         assertTrue(deleteFirstCommand.equals(deleteFirstCommand));
 
-        // same values -> returns true
+        // same student id -> returns true
         DeleteStudentCommand deleteFirstCommandCopy = new DeleteStudentCommand(new StudentId("A99Z"));
         assertTrue(deleteFirstCommand.equals(deleteFirstCommandCopy));
 
@@ -48,7 +66,7 @@ public class DeleteStudentCommandTest {
         // null -> returns false
         assertFalse(deleteFirstCommand.equals(null));
 
-        // different person -> returns false
+        // different student id -> returns false
         assertFalse(deleteFirstCommand.equals(deleteSecondCommand));
     }
 

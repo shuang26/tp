@@ -162,20 +162,13 @@ public class MainWindow extends UiPart<Stage> {
      * @param studentList a list of students.
      */
     public void handleFind(ObservableList<Student> studentList) {
-        if (studentList.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Student Not Found");
-            alert.setHeaderText(null);
-            alert.setContentText("No student with the given student ID!");
-            alert.showAndWait();
-            return;
-        }
-
-        findWindow.fillInnerParts(logic.getFilteredStudentList());
-        if (!findWindow.isShowing()) {
-            findWindow.show();
-        } else {
-            findWindow.focus();
+        if (!studentList.isEmpty()) {
+            findWindow.fillInnerParts(logic.getFilteredStudentList());
+            if (!findWindow.isShowing()) {
+                findWindow.show();
+            } else {
+                findWindow.focus();
+            }
         }
     }
 
@@ -217,6 +210,16 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isExit()) {
                 handleExit();
+            }
+
+            if (!commandText.trim().toLowerCase().startsWith("find") && findWindow.isShowing()) {
+                findWindow.hide();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Find Window Closed");
+                alert.setHeaderText(null);
+                alert.setContentText("Find Window is automatically closed when"
+                        + " another command is executed");
+                alert.showAndWait();
             }
 
             return commandResult;
