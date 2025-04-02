@@ -9,8 +9,8 @@ import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.STUDENT_NAME_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NAME_BOB;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,8 @@ public class AddStudentCommandParserTest {
                 + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessage);
 
         // missing student id prefix
-        assertParseFailure(parser, STUDENT_NAME_DESC_BOB + PARENT_NAME_DESC_BOB + VALID_STUDENT_NAME_BOB + PHONE_DESC_BOB
+        assertParseFailure(parser, STUDENT_NAME_DESC_BOB + PARENT_NAME_DESC_BOB + VALID_STUDENT_NAME_BOB
+                + PHONE_DESC_BOB
                 + EMAIL_DESC_BOB + ADDRESS_DESC_BOB, expectedMessage);
 
         // missing phone prefix
