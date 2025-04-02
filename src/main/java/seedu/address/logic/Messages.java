@@ -22,7 +22,7 @@ public class Messages {
     public static final String MESSAGE_PERSONS_LISTED_OVERVIEW = "%1$d student listed!";
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Multiple values specified for the following single-valued field(s): ";
-    public static final String MESSAGE_INVALID_STUDENT_NOT_FOUND = "Student with this ID not found";
+    public static final String MESSAGE_INVALID_STUDENT_NOT_FOUND = "Student with this ID not found.";
     public static final String MESSAGE_STUDENT_ATTENDANCE_MARKED = "Student %1$s marked as present!";
     public static final String MESSAGE_STUDENT_ATTENDANCE_UNMARKED = "Student %1$s marked as absent!";
 
@@ -32,6 +32,10 @@ public class Messages {
     // used by delete
     public static final String MESSAGE_DELETE_SUCCESS = "Deleted Student: %1$s ";
     public static final String MESSAGE_STUDENT_ID_NOT_FOUND = "No student with student ID: %1$s found.";
+
+    // used by find
+    public static final String MESSAGE_FIND_LIST = " Please type \"list\" to search for a "
+            + "student ID that already exists";
 
     // used by list
     public static final String MESSAGE_LIST_SUCCESS = "Listed all students";

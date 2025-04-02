@@ -1,9 +1,11 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_FIND_LIST;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.logic.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.student.StudentIdEqualsPredicate;
 
@@ -34,11 +36,11 @@ public class FindStudentCommand extends Command {
 
         if (!model.getFilteredStudentList().isEmpty()) {
             return new CommandResult(
-                    String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW,
+                    String.format(MESSAGE_PERSONS_LISTED_OVERVIEW,
                             model.getFilteredStudentList().size()), true);
         } else {
-            return new CommandResult(Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND
-                    + ". Please type \"list\" to search for a student ID that already exists");
+            return new CommandResult(MESSAGE_INVALID_STUDENT_NOT_FOUND
+                    + MESSAGE_FIND_LIST);
         }
     }
 

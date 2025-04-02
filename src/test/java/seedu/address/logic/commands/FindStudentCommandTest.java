@@ -4,6 +4,8 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.Messages.MESSAGE_FIND_LIST;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
@@ -56,8 +58,8 @@ public class FindStudentCommandTest {
 
     @Test
     public void execute_zeroKeywords_noStudentFound() {
-        String expectedMessage = Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND
-                + ". Please type \"list\" to search for a student ID that already exists";
+        String expectedMessage = MESSAGE_INVALID_STUDENT_NOT_FOUND
+                + MESSAGE_FIND_LIST;
         StudentIdEqualsPredicate predicate = preparePredicate("A97B");
         FindStudentCommand command = new FindStudentCommand(predicate);
         expectedModel.updateFilteredStudentList(predicate);
