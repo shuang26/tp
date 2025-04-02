@@ -35,7 +35,7 @@ public class DeleteStudentCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Student> lastShownList = model.getFilteredStudentList();
+        List<Student> lastShownList = model.getAddressBook().getStudentList();
 
         Student studentToDelete = null;
         for (Student student : lastShownList) {
@@ -49,6 +49,7 @@ public class DeleteStudentCommand extends Command {
         }
 
         model.deleteStudent(studentToDelete);
+        model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, Messages.format(studentToDelete)));
     }
 
