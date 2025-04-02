@@ -113,6 +113,7 @@ public class TypicalStudents {
             }
             ab.addStudent(student);
         }
+        ALICE.setAbsent();
         return ab;
     }
 
