@@ -8,11 +8,11 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 import java.util.List;
 
+import java.util.NoSuchElementException;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentId;
-import seedu.address.model.student.StudentIdEqualsPredicate;
 
 /**
  * Marks a student identified using their student id as present.
@@ -24,36 +24,35 @@ public class MarkCommand extends Command {
             + "student id as present.\nParameters: [STUDENT_ID]\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
-    private final StudentId id;
+    private final StudentId studentId;
 
     /**
      * Initialises MarkCommand with given student id.
-     * @param id ID of student to mark attendance.
+     * @param studentId ID of student to mark attendance.
      */
-    public MarkCommand(StudentId id) {
-        requireAllNonNull(id);
+    public MarkCommand(StudentId studentId) {
+        requireAllNonNull(studentId);
 
-        this.id = id;
+        this.studentId = studentId;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        assert (id != null);
+        assert (studentId != null);
 
-        model.updateFilteredStudentList(new StudentIdEqualsPredicate(id));
-        List<Student> students = model.getFilteredStudentList();
+        model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+        List<Student> lastShownList = model.getFilteredStudentList();
 
-        if (students.isEmpty()) {
-            model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+        try {
+            Student studentToMark = model.getStudentById(studentId, lastShownList);
+            studentToMark.setPresent();
+        } catch (NoSuchElementException e) {
             throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
         }
 
-        Student studentToMark = students.get(0);
-        studentToMark.setPresent();
-
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
-        return new CommandResult(String.format(MESSAGE_STUDENT_ATTENDANCE_MARKED, id));
+        return new CommandResult(String.format(MESSAGE_STUDENT_ATTENDANCE_MARKED, studentId));
     }
 
     @Override
@@ -68,6 +67,6 @@ public class MarkCommand extends Command {
         }
 
         MarkCommand e = (MarkCommand) other;
-        return id.equals(e.id);
+        return studentId.equals(e.studentId);
     }
 }
