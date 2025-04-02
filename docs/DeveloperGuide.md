@@ -610,4 +610,11 @@ testers are expected to do more *exploratory* testing.
     * Refactored the codebase effectively, improving maintainability and extensibility.
 
 ## **Appendix: Planned Enhancements**
+1. **Clearing attendance records**
+
+   Currently, attendance records accumulate over time, which can make it difficult for users to manage large amounts of data. We plan to introduce a bulk clearance feature that allows users to clear all of the attendance records in CareBook.
+
+
+
+
 _{ more enhancement features to be added …​ }_
