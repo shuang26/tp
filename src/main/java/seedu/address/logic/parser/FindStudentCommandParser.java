@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 
 import seedu.address.logic.commands.FindStudentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -28,7 +29,7 @@ public class FindStudentCommandParser implements Parser<FindStudentCommand> {
             StudentId studentId = new StudentId(trimmedArgs);
             return new FindStudentCommand(new StudentIdEqualsPredicate(studentId));
         } catch (IllegalArgumentException e) {
-            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS + "\n" + FindStudentCommand.MESSAGE_USAGE);
+            throw new ParseException(STUDENT_ID_MESSAGE_CONSTRAINTS + "\n" + FindStudentCommand.MESSAGE_USAGE);
         }
     }
 
