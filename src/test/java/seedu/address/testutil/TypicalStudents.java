@@ -6,8 +6,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ATTENDANCE_MIN;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ATTENDANCE_TODAY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NAME_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 
@@ -77,10 +77,10 @@ public class TypicalStudents {
             .withAttendance(new HashSet<>(Collections.singleton(LocalDate.EPOCH))).build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
-    public static final Student AMY = new StudentBuilder().withStudentName(VALID_NAME_AMY).withParentName("Amy Jackson")
+    public static final Student AMY = new StudentBuilder().withStudentName(VALID_STUDENT_NAME_AMY).withParentName("Amy Jackson")
             .withSId("A01A").withPhone(VALID_PHONE_AMY)
             .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withAttendance(VALID_ATTENDANCE_TODAY).build();
-    public static final Student BOB = new StudentBuilder().withStudentName(VALID_NAME_BOB).withParentName("Bob Marley")
+    public static final Student BOB = new StudentBuilder().withStudentName(VALID_STUDENT_NAME_BOB).withParentName("Bob Marley")
             .withSId("A02A").withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withAttendance(VALID_ATTENDANCE_MIN)
             .build();

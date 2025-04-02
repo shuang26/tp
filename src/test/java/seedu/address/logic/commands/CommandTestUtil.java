@@ -32,10 +32,12 @@ import seedu.address.testutil.EditStudentDescriptorBuilder;
  */
 public class CommandTestUtil {
 
-    public static final String VALID_NAME_AMY = "Amy Bee";
-    public static final String VALID_NAME_BOB = "Bob Choo";
-    public static final String VALID_SID_AMY = "A01A";
-    public static final String VALID_SID_BOB = "A00P";
+    public static final String VALID_STUDENT_NAME_AMY = "Amy Bee";
+    public static final String VALID_STUDENT_NAME_BOB = "Bob Choo";
+    public static final String VALID_PARENT_NAME_AMY = "Amy Jackson";
+    public static final String VALID_PARENT_NAME_BOB = "Bob Builder";
+    public static final String VALID_STUDENT_ID_AMY = "A01A";
+    public static final String VALID_STUDENT_ID_BOB = "A00P";
     public static final String VALID_PHONE_AMY = "88888888";
     public static final String VALID_PHONE_BOB = "99999999";
     public static final String VALID_EMAIL_AMY = "amy@example.com";
@@ -45,13 +47,12 @@ public class CommandTestUtil {
     public static final Set<LocalDate> VALID_ATTENDANCE_TODAY = new HashSet<>(Collections.singleton(LocalDate.now()));
     public static final Set<LocalDate> VALID_ATTENDANCE_MIN = new HashSet<>(Collections.singleton(LocalDate.MIN));
 
-    public static final String STUDENT_NAME_DESC_AMY = " " + PREFIX_STUDENT_NAME + VALID_NAME_AMY;
-    public static final String PARENT_NAME_DESC_AMY = " " + PREFIX_PARENT_NAME + "Amy Jackson";
-    public static final String STUDENT_NAME_DESC_BOB = " " + PREFIX_STUDENT_NAME + VALID_NAME_BOB;
-    public static final String PARENT_NAME_DESC_BOB = " " + PREFIX_PARENT_NAME + "Bob Builder";
-    public static final String ID_DESC_AMY = " " + PREFIX_ID + VALID_SID_AMY;
-    public static final String ID_DESC_BOB = " " + PREFIX_ID + VALID_SID_BOB;
-    public static final String NAME_DESC_BOB = " " + PREFIX_STUDENT_NAME + VALID_NAME_BOB;
+    public static final String STUDENT_NAME_DESC_AMY = " " + PREFIX_STUDENT_NAME + VALID_STUDENT_NAME_AMY;
+    public static final String STUDENT_NAME_DESC_BOB = " " + PREFIX_STUDENT_NAME + VALID_STUDENT_NAME_BOB;
+    public static final String PARENT_NAME_DESC_AMY = " " + PREFIX_PARENT_NAME + VALID_PARENT_NAME_AMY;
+    public static final String PARENT_NAME_DESC_BOB = " " + PREFIX_PARENT_NAME + VALID_PARENT_NAME_BOB;
+    public static final String ID_DESC_AMY = " " + PREFIX_ID + VALID_STUDENT_ID_AMY;
+    public static final String ID_DESC_BOB = " " + PREFIX_ID + VALID_STUDENT_ID_BOB;
     public static final String PHONE_DESC_AMY = " " + PREFIX_PHONE + VALID_PHONE_AMY;
     public static final String PHONE_DESC_BOB = " " + PREFIX_PHONE + VALID_PHONE_BOB;
     public static final String EMAIL_DESC_AMY = " " + PREFIX_EMAIL + VALID_EMAIL_AMY;
@@ -60,6 +61,7 @@ public class CommandTestUtil {
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
+    public static final String INVALID_STUDENT_ID = " " + PREFIX_NAME + "s12d";
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
@@ -72,12 +74,12 @@ public class CommandTestUtil {
     public static final EditStudentCommand.EditStudentDescriptor DESC_BOB;
 
     static {
-        DESC_AMY = new EditStudentDescriptorBuilder().withSName(VALID_NAME_AMY)
-                .withPName(VALID_NAME_BOB).withSId(VALID_SID_AMY)
+        DESC_AMY = new EditStudentDescriptorBuilder().withSName(VALID_STUDENT_NAME_AMY)
+                .withPName(VALID_STUDENT_NAME_BOB).withSId(VALID_STUDENT_ID_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
                 .withAttendance(VALID_ATTENDANCE_TODAY).build();
-        DESC_BOB = new EditStudentDescriptorBuilder().withSName(VALID_NAME_BOB)
-                .withPName(VALID_NAME_AMY).withSId(VALID_SID_BOB)
+        DESC_BOB = new EditStudentDescriptorBuilder().withSName(VALID_STUDENT_NAME_BOB)
+                .withPName(VALID_STUDENT_NAME_AMY).withSId(VALID_STUDENT_ID_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withAttendance(VALID_ATTENDANCE_MIN).build();
     }
@@ -124,6 +126,7 @@ public class CommandTestUtil {
         assertEquals(expectedAddressBook, actualModel.getAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredStudentList());
     }
+
     /**
      * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
      * {@code model}'s address book.
