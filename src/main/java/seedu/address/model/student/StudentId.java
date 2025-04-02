@@ -2,15 +2,13 @@ package seedu.address.model.student;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 
 /**
  * Represents a Person's Student ID in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidId(String)}
  */
 public class StudentId {
-
-    public static final String MESSAGE_CONSTRAINTS =
-            "Student ID should be 4 characters beginning with A followed by 2 digits and ending with an alphabet";
 
     /*
      * The first character of the id must be A,
@@ -27,7 +25,7 @@ public class StudentId {
      */
     public StudentId(String id) {
         requireNonNull(id);
-        checkArgument(isValidId(id), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidId(id), STUDENT_ID_MESSAGE_CONSTRAINTS);
         studentId = id;
     }
 

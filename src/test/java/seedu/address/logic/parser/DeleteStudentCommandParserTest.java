@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -29,6 +30,6 @@ public class DeleteStudentCommandParserTest {
     @Test
     public void parse_invalidArgs_throwsParseException() {
         assertParseFailure(parser, "a",
-                StudentId.MESSAGE_CONSTRAINTS + "\n" + DeleteStudentCommand.MESSAGE_USAGE);
+                STUDENT_ID_MESSAGE_CONSTRAINTS + "\n" + DeleteStudentCommand.MESSAGE_USAGE);
     }
 }

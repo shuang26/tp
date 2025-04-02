@@ -1,5 +1,7 @@
 package seedu.address.logic;
 
+import static seedu.address.model.student.Email.SPECIAL_CHARACTERS;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -27,6 +29,27 @@ public class Messages {
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED = "All students marked as absent!";
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present!";
 
+
+    public static final String ADDRESS_MESSAGE_CONSTRAINTS =
+            "Addresses can take any values, and it should not be blank";
+    public static final String NAME_MESSAGE_CONSTRAINTS =
+            "Names should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String STUDENT_ID_MESSAGE_CONSTRAINTS =
+            "Student ID should be 4 characters beginning with A followed by 2 digits "
+                    + "and ending with an alphabet in UPPERCASE";
+    public static final String PHONE_MESSAGE_CONSTRAINTS =
+            "Phone numbers should only contain numbers, and should be between 80000000 and 99999999";
+    public static final String EMAIL_MESSAGE_CONSTRAINTS = "Emails should be of the format local-part@domain "
+            + "and adhere to the following constraints:\n"
+            + "1. The local-part should only contain alphanumeric characters and these special characters, excluding "
+            + "the parentheses, (" + SPECIAL_CHARACTERS + "). The local-part may not start or end with any special "
+            + "characters.\n"
+            + "2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels "
+            + "separated by periods.\n"
+            + "The domain name must:\n"
+            + "    - end with a domain label at least 2 characters long\n"
+            + "    - have each domain label start and end with alphanumeric characters\n"
+            + "    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.";
 
     /**
      * Returns an error message indicating the duplicate prefixes.

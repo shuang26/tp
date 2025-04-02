@@ -1,6 +1,11 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.ADDRESS_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.EMAIL_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.NAME_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -46,7 +51,7 @@ public class ParserStudentUtil {
         requireNonNull(id);
         String trimmedId = id.trim();
         if (!StudentId.isValidId(id)) {
-            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS);
+            throw new ParseException(STUDENT_ID_MESSAGE_CONSTRAINTS);
         }
         return new StudentId(trimmedId);
     }
@@ -61,7 +66,7 @@ public class ParserStudentUtil {
         requireNonNull(name);
         String trimmedName = name.trim();
         if (!Name.isValidName(trimmedName)) {
-            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+            throw new ParseException(NAME_MESSAGE_CONSTRAINTS);
         }
         return new Name(trimmedName);
     }
@@ -76,7 +81,7 @@ public class ParserStudentUtil {
         requireNonNull(phone);
         String trimmedPhone = phone.trim();
         if (!Phone.isValidPhone(trimmedPhone)) {
-            throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
+            throw new ParseException(PHONE_MESSAGE_CONSTRAINTS);
         }
         return new Phone(trimmedPhone);
     }
@@ -91,7 +96,7 @@ public class ParserStudentUtil {
         requireNonNull(address);
         String trimmedAddress = address.trim();
         if (!Address.isValidAddress(trimmedAddress)) {
-            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
+            throw new ParseException(ADDRESS_MESSAGE_CONSTRAINTS);
         }
         return new Address(trimmedAddress);
     }
@@ -106,7 +111,7 @@ public class ParserStudentUtil {
         requireNonNull(email);
         String trimmedEmail = email.trim();
         if (!Email.isValidEmail(trimmedEmail)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+            throw new ParseException(EMAIL_MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
     }
