@@ -125,10 +125,31 @@ public class ModelManager implements Model {
                 .orElseThrow(NoSuchElementException::new);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
+    @Override
+    public boolean isStudentListEmpty() {
+        return addressBook.getStudentList().isEmpty();
+    }
+
+    @Override
+    public void markAllStudents() {
+        List<Student> students = addressBook.getStudentList();
+        for (Student s : students) {
+            s.setPresent();
+        }
+    }
+
+    @Override
+    public void unmarkAllStudents() {
+        List<Student> students = addressBook.getStudentList();
+        for (Student s : students) {
+            s.setAbsent();
+        }
+    }
+
+    //=========== Filtered Student List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * Returns an unmodifiable view of the list of {@code Student} backed by the internal list of
      * {@code versionedAddressBook}
      */
 

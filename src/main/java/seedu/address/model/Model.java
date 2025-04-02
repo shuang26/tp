@@ -88,4 +88,24 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredStudentList(Predicate<Student> predicate);
+
+    /**
+     * Checks if the filtered student list is empty.
+     *
+     * @return true if there are no students in the filtered list, false otherwise.
+     */
+    boolean isStudentListEmpty();
+
+    /**
+     * Marks all students in the filtered list as present and refreshes the list.
+     * This method updates the attendance status of all students and then refreshes the filtered list.
+     */
+    void markAllStudents();
+
+    /**
+     * Marks all students in the filtered list as absent and refreshes the list.
+     * This method updates the attendance status of all students and then refreshes the filtered list.
+     */
+    void unmarkAllStudents();
+
 }

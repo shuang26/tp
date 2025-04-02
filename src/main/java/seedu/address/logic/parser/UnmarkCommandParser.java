@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 
 import seedu.address.logic.commands.UnmarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -27,7 +28,7 @@ public class UnmarkCommandParser implements Parser<UnmarkCommand> {
             StudentId studentId = new StudentId(id);
             return new UnmarkCommand(studentId);
         } catch (IllegalArgumentException e) {
-            throw new ParseException(StudentId.MESSAGE_CONSTRAINTS + "\n" + UnmarkCommand.MESSAGE_USAGE);
+            throw new ParseException(STUDENT_ID_MESSAGE_CONSTRAINTS + "\n" + UnmarkCommand.MESSAGE_USAGE);
         }
     }
 

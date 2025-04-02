@@ -1,5 +1,11 @@
 package seedu.address.storage;
 
+import static seedu.address.logic.Messages.ADDRESS_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.EMAIL_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.NAME_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
+
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
@@ -71,7 +77,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
         if (!Name.isValidName(studentName)) {
-            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(NAME_MESSAGE_CONSTRAINTS);
         }
         final Name modelStudentName = new Name(studentName);
 
@@ -79,7 +85,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
         if (!Name.isValidName(parentName)) {
-            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(NAME_MESSAGE_CONSTRAINTS);
         }
         final Name modelParentName = new Name(parentName);
 
@@ -88,7 +94,7 @@ class JsonAdaptedPerson {
                     StudentId.class.getSimpleName()));
         }
         if (!StudentId.isValidId(studentId)) {
-            throw new IllegalValueException(StudentId.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(STUDENT_ID_MESSAGE_CONSTRAINTS);
         }
         final StudentId modelStudentId = new StudentId(studentId);
 
@@ -96,7 +102,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
         }
         if (!Phone.isValidPhone(phone)) {
-            throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(PHONE_MESSAGE_CONSTRAINTS);
         }
         final Phone modelPhone = new Phone(phone);
 
@@ -104,7 +110,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
         }
         if (!Email.isValidEmail(email)) {
-            throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(EMAIL_MESSAGE_CONSTRAINTS);
         }
         final Email modelEmail = new Email(email);
 
@@ -112,7 +118,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
         }
         if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(ADDRESS_MESSAGE_CONSTRAINTS);
         }
         final Address modelAddress = new Address(address);
 
