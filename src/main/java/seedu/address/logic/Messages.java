@@ -29,6 +29,10 @@ public class Messages {
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED = "All students marked as absent!";
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present!";
 
+    // used by delete
+    public static final String MESSAGE_DELETE_SUCCESS = "Deleted Student: %1$s ";
+    public static final String MESSAGE_STUDENT_ID_NOT_FOUND = "No student with student ID: %1$s found.";
+
     // used by list
     public static final String MESSAGE_LIST_SUCCESS = "Listed all students";
     public static final String MESSAGE_EMPTY_LIST = "There are no students to list.";

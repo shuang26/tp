@@ -1,6 +1,8 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_DELETE_SUCCESS;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 
 import java.util.List;
 
@@ -22,9 +24,6 @@ public class DeleteStudentCommand extends Command {
             + ": Deletes a specific student by their exact (case sensitive) STUDENT ID.\n"
             + "Parameters: STUDENT_ID (must be in uppercase)\n"
             + "Example: " + COMMAND_WORD + " A01A";
-
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Student: %1$s ";
-    public static final String MESSAGE_STUDENT_ID_NOT_FOUND = "No student with student ID: %1$s found.";
 
     private final StudentId targetStudentId;
 
@@ -50,7 +49,7 @@ public class DeleteStudentCommand extends Command {
 
         model.deleteStudent(studentToDelete);
         model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, Messages.format(studentToDelete)));
+        return new CommandResult(String.format(MESSAGE_DELETE_SUCCESS, Messages.format(studentToDelete)));
     }
 
     @Override

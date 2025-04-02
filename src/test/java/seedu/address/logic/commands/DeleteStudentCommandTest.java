@@ -3,6 +3,8 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.Messages.MESSAGE_DELETE_SUCCESS;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
@@ -29,7 +31,7 @@ public class DeleteStudentCommandTest {
         StudentId nonExistentId = new StudentId("A99Z");
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(nonExistentId);
 
-        String expectedMessage = String.format(DeleteStudentCommand.MESSAGE_STUDENT_ID_NOT_FOUND, nonExistentId);
+        String expectedMessage = String.format(MESSAGE_STUDENT_ID_NOT_FOUND, nonExistentId);
         assertCommandFailure(deleteStudentCommand, model, expectedMessage);
     }
 
@@ -39,7 +41,7 @@ public class DeleteStudentCommandTest {
         StudentId studentId = studentToDelete.getStudentId();
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(studentId);
 
-        String expectedMessage = String.format(DeleteStudentCommand.MESSAGE_DELETE_PERSON_SUCCESS,
+        String expectedMessage = String.format(MESSAGE_DELETE_SUCCESS,
                 Messages.format(studentToDelete));
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());

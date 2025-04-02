@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_LIST;
 import static seedu.address.logic.Messages.MESSAGE_LIST_SUCCESS;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
@@ -42,6 +43,6 @@ public class ListCommandTest {
     @Test
     public void execute_emptyStudentList_throwsCommandException() {
         model = new ModelManager(); // Creates an empty model with no students
-        assertCommandFailure(new ListCommand(), model, MESSAGE_LIST_SUCCESS);
+        assertCommandFailure(new ListCommand(), model, MESSAGE_EMPTY_LIST);
     }
 }
