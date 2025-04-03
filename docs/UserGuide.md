@@ -10,6 +10,15 @@ Welcome to CareBook! **Your classroom, organized.**
 
 Designed with daycare teachers in mind, **CareBook** simplifies **daily roster management and parent communication** so you can focus on what matters the most - caring for children.
 
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about daycare teachers:**<br>
+
+* We assume that the daycare teachers managing daily rosters of 30 to 40 children
+* We assume that the daycare teachers using this product are tech-savvy and fast typers
+
+</div>
+
 With CareBook, you can:
 - Instantly access **students’ and parents’ contacts**
 - Streamline **daily attendance tracking** with simple commands
@@ -21,14 +30,6 @@ This user guide will walk you through:
 - Learning essential commands for managing contacts and attendance
 
 By the end of this guide, you’ll be a **CareBook pro**, managing your daycare with ease and precision.
-
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Notes about daycare teachers:**<br>
-
-* We assume that the daycare teachers managing daily rosters of 30 to 40 children
-
-</div>
 
 ***
 ## Table of Contents
@@ -119,7 +120,7 @@ it into the application.
 
 
 #### Adding a student
-Adds a student to CareBook.
+You can add a student to CareBook.
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
   <strong>Command Format:</strong> <code>add &lt;sn/StudentName&gt; &lt;id/StudentId&gt; &lt;pn/ParentName&gt; &lt;p/Phone&gt; &lt;e/Email&gt; &lt;a/Address&gt;</code>
@@ -154,12 +155,15 @@ Adds a student to CareBook.
 <p>&nbsp;</p>
 
 #### Clearing CareBook
-Clears all student records in CareBook.
+You can clear all student records in CareBook.
 
 <div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
   ❗<strong>Warning:</strong> You cannot retrieve any cleared data. This action is <strong>IRREVERSIBLE</strong>
 </div>
 
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+</div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
   <strong>Command Format:</strong> <code>clear</code>
@@ -174,7 +178,7 @@ Clears all student records in CareBook.
 <p>&nbsp;</p>
 
 #### Deleting a student
-Deletes a student from CareBook.
+you can delete a student from CareBook.
 
 <div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
   ❗<strong>Warning:</strong> You cannot retrieve any deleted student data. This action is <strong>IRREVERSIBLE</strong>
@@ -208,7 +212,7 @@ Deletes a student from CareBook.
 <p>&nbsp;</p>
 
 #### Editing a student
-Edits a student's details in CareBook.
+You can edit a student's details in CareBook.
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
   <strong>Command Format:</strong> <code>edit &lt;StudentId&gt; &lt;sn/StudentName&gt; &lt;id/StudentId&gt; &lt;pn/ParentName&gt; &lt;p/Phone&gt; &lt;e/Email&gt; &lt;a/Address&gt;</code>
@@ -246,7 +250,11 @@ Edits a student's details in CareBook.
 <p>&nbsp;</p>
 
 #### Exiting the program
-Exits the program.
+You can exit the program.
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+</div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
   💡 <strong>Tip:</strong> Upon exiting, any data you have updated will automatically be saved.
@@ -259,7 +267,7 @@ Exits the program.
 <p>&nbsp;</p>
 
 #### Exporting attendance summary
-Exports an attendance summary including student ID, student name, parent name, parent's email, parent's phone number, and students' attendance history from CareBook. 
+You can export an attendance summary including student ID, student name, parent name, parent's email, parent's phone number, and students' attendance history from CareBook. 
 The attendance summary will be saved in the directory where the CareBook application is located.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
@@ -297,7 +305,7 @@ The attendance summary will be saved in the directory where the CareBook applica
 <p>&nbsp;</p>
 
 #### Finding a student’s contact
-Finds a specific student with matching Student ID.
+You can find a specific student with matching Student ID.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
   💡 <strong>Tip:</strong> A find window will open upon executing this command. Full contact information (from top to bottom order:
@@ -333,7 +341,11 @@ student name, student ID, parent name, parent's phone number, address, parent's 
 <p>&nbsp;</p>
 
 #### Viewing help
-Opens a help window with a link to CareBook user guide website.
+you can open a help window with a link to CareBook user guide website.
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+</div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
   💡 <strong>Tip:</strong> The help window also displays a summary of commands below the guide link.
@@ -354,7 +366,11 @@ A [command summary](#command-summary) will also be displayed below the guide lin
 <p>&nbsp;</p>
 
 #### Listing all students
-Lists all students in CareBook.
+You can list all students in CareBook.
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+</div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
   <strong>Command Format:</strong> <code>list</code>
@@ -371,7 +387,7 @@ Lists all students in CareBook.
 <p>&nbsp;</p>
 
 #### Marking a student’s attendance
-Marks a student in CareBook as present.
+You can mark a student in CareBook as present.
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
   <strong>Command Format:</strong> <code>mark &lt;StudentId&gt;</code>
@@ -402,7 +418,11 @@ Marks a student in CareBook as present.
 <p>&nbsp;</p>
 
 #### Marking all students’ attendance
-Marks all students in CareBook as present.
+You can mark all students in CareBook as present.
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+</div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
   <strong>Command Format:</strong> <code>markall</code>
@@ -424,7 +444,7 @@ Marks all students in CareBook as present.
 <p>&nbsp;</p>
 
 #### Unmarking a student’s attendance
-Marks a student in CareBook as absent.
+You can mark a student in CareBook as absent.
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
   <strong>Command Format:</strong> <code>unmark &lt;StudentId&gt;</code>
@@ -455,7 +475,11 @@ Marks a student in CareBook as absent.
 <p>&nbsp;</p>
 
 #### Unmarking all students’ attendance
-Marks all students in CareBook as absent.
+You can mark all students in CareBook as absent.
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+</div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
   <strong>Command Format:</strong> <code>unmarkall</code>
