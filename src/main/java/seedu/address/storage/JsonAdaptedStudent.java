@@ -26,7 +26,7 @@ import seedu.address.model.student.StudentId;
 /**
  * Jackson-friendly version of {@link Student}.
  */
-class JsonAdaptedPerson {
+class JsonAdaptedStudent {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Student's %s field is missing!";
 
@@ -42,10 +42,10 @@ class JsonAdaptedPerson {
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String studentName, @JsonProperty("parentName") String parentName,
-                             @JsonProperty("studentId") String studentId, @JsonProperty("phone") String phone,
-                             @JsonProperty("email") String email, @JsonProperty("address") String address,
-                             @JsonProperty("attendance") List<LocalDate> attendance) {
+    public JsonAdaptedStudent(@JsonProperty("name") String studentName, @JsonProperty("parentName") String parentName,
+                              @JsonProperty("studentId") String studentId, @JsonProperty("phone") String phone,
+                              @JsonProperty("email") String email, @JsonProperty("address") String address,
+                              @JsonProperty("attendance") List<LocalDate> attendance) {
         this.studentName = studentName;
         this.parentName = parentName;
         this.studentId = studentId;
@@ -58,7 +58,7 @@ class JsonAdaptedPerson {
     /**
      * Converts a given {@code Person} into this class for Jackson use.
      */
-    public JsonAdaptedPerson(Student source) {
+    public JsonAdaptedStudent(Student source) {
         studentName = source.getStudentName().fullName;
         parentName = source.getParentName().fullName;
         studentId = source.getStudentId().studentId;
