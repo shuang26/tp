@@ -38,19 +38,19 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
   - [Introducing GUI](#introducing-gui)
   - [CLI Tutorial](#cli-tutorial)
 - Features
- - [Adding a student:](#adding-a-student) `add`
- - [Clearing CareBook:](#clearing-carebook) `clear`
- - [Deleting a student:](#deleting-a-student) `delete`
- - [Editing a student:](#editing-a-student) `edit`
- - [Exiting the program:](#exiting-the-program) `exit`
- - [Exporting attendance summary:](#exporting-attendance-summary) `export`
- - [Finding a student’s contact:](#finding-a-student-s-contact)`find`
- - [Viewing help:](#viewing-help) `help`
- - [Listing all students:](#listing-all-students) `list`
- - [Marking a student’s attendance:](#marking-a-student-s-attendance) `mark`
- - [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
- - [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
- - [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
+  - [Adding a student:](#adding-a-student) `add`
+  - [Clearing CareBook:](#clearing-carebook) `clear`
+  - [Deleting a student:](#deleting-a-student) `delete`
+  - [Editing a student:](#editing-a-student) `edit`
+  - [Exiting the program:](#exiting-the-program) `exit`
+  - [Exporting attendance summary:](#exporting-attendance-summary) `export`
+  - [Finding a student’s contact:](#finding-a-student-s-contact)`find`
+  - [Viewing help:](#viewing-help) `help`
+  - [Listing all students:](#listing-all-students) `list`
+  - [Marking a student’s attendance:](#marking-a-student-s-attendance) `mark`
+  - [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
+  - [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
+  - [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
 - [FAQ](#faq)
 - [Command Summary](#command-summary)
 ***
