@@ -51,7 +51,7 @@ public class ParserStudentUtil {
     public static StudentId parseStudentId(String id) throws ParseException {
         requireNonNull(id);
         String trimmedId = id.trim();
-        if (trimmedId.isBlank() || trimmedId.indexOf(' ')>=0){
+        if (trimmedId.isBlank() || trimmedId.indexOf(' ') >= 0) {
             throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT);
         }
         if (!StudentId.isValidId(trimmedId)) {

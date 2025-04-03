@@ -1,8 +1,6 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.parser.ParserStudentUtil.parseStudentId;
 
 import seedu.address.logic.commands.MarkCommand;
