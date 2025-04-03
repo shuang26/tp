@@ -41,7 +41,7 @@ public class ExportCommandTest {
         File exportFile = exportPath.toFile();
 
         ExportCommand command = new ExportCommand(exportFile);
-        String expectedMessage = MESSAGE_EXPORT_SUCCESS + exportFile.getAbsolutePath();
+        String expectedMessage = String.format(MESSAGE_EXPORT_SUCCESS, exportFile.getAbsolutePath());
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
 

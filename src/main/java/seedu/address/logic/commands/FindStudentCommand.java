@@ -21,7 +21,7 @@ public class FindStudentCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Finds a specific student by their exact "
-            + "student id and displays their full details.\n"
+            + "student ID and displays their full details.\n"
             + "PARAMETERS: " + "STUDENT_ID\n"
             + "Example: " + COMMAND_WORD + " A01A";
 

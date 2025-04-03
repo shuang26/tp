@@ -29,7 +29,7 @@ public class ExportCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Exports the student ID, student name, parent name, parent email, parent number"
             + "\n attendance history of students to the current directory of where this app is saved as a .csv file.\n"
-            + "Parameters: fileName\n"
+            + "Parameters: FILE_NAME\n"
             + "Example: " + COMMAND_WORD + " attendance_summary";
 
     private final File fileName;
