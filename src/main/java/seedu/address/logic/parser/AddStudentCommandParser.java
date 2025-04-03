@@ -46,16 +46,18 @@ public class AddStudentCommandParser implements Parser<AddStudentCommand> {
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_STUDENT_NAME, PREFIX_ID,
                 PREFIX_PARENT_NAME , PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS);
         Name studetName = ParserStudentUtil.parseName(argMultimap.getValue(PREFIX_STUDENT_NAME).get());
-        StudentId studentId = ParserStudentUtil.parseStudentId(argMultimap.getValue(PREFIX_ID).get());
         Name parentName = ParserStudentUtil.parseName(argMultimap.getValue(PREFIX_PARENT_NAME).get());
         Phone phone = ParserStudentUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserStudentUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserStudentUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
-
-        Student student = new Student(studetName, studentId, parentName, phone, email, address,
-                new Attendance(new HashSet<LocalDate>()));
-
-        return new AddStudentCommand(student);
+        try {
+            StudentId studentId = ParserStudentUtil.parseStudentId(argMultimap.getValue(PREFIX_ID).get());
+            Student student = new Student(studetName, studentId, parentName, phone, email, address,
+                    new Attendance(new HashSet<LocalDate>()));
+            return new AddStudentCommand(student);
+        } catch (ParseException e) {
+            throw new ParseException(String.format(e.getMessage(), AddStudentCommand.MESSAGE_USAGE));
+        }
     }
 
     /**
