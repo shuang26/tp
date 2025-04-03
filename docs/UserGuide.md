@@ -27,7 +27,7 @@ With CareBook, you can:
 This user guide will walk you through:
 - Setting up your CareBook application
 - Navigating the Graphical User Interface (GUI) and Command Line Interface(CLI)
-- Learning essential commands for managing contacts and attendance
+- Learning essential commands to help you manage contacts and attendance
 
 By the end of this guide, you’ll be a **CareBook pro**, managing your daycare with ease and precision.
 
@@ -178,7 +178,7 @@ You can clear all student records in CareBook.
 <p>&nbsp;</p>
 
 #### Deleting a student
-you can delete a student from CareBook.
+You can delete a student from CareBook.
 
 <div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
   ❗<strong>Warning:</strong> You cannot retrieve any deleted student data. This action is <strong>IRREVERSIBLE</strong>
@@ -221,8 +221,9 @@ You can edit a student's details in CareBook.
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
   <strong>Remark:</strong>
   <ul>
-    <li>There are no restrictions to StudentName, ParentName, and Address.</li>
+    <li>There are no restrictions to Address.</li>
     <li>Parameters can be edited in <em>any order</em>.</li>
+    <li>For names instead of "S/O" and "D/O" please use SO or DO.</li>
     <li>Student ID should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
     <li>Edited Student ID should be a new Student ID that has not been assigned to any students.</li>
     <li>Phone number should be from 80000000 to 99999999.</li>

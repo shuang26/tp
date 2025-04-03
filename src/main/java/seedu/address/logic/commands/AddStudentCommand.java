@@ -21,14 +21,14 @@ public class AddStudentCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a student to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a student to the address book.\n"
             + "Parameters: "
-            + PREFIX_STUDENT_NAME + "STUDENT NAME "
-            + PREFIX_ID + "STUDENT ID "
-            + PREFIX_PARENT_NAME + "PARENT NAME "
+            + PREFIX_STUDENT_NAME + "STUDENT_NAME "
+            + PREFIX_ID + "STUDENT_ID "
+            + PREFIX_PARENT_NAME + "PARENT_NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_ADDRESS + "ADDRESS "
+            + PREFIX_ADDRESS + "ADDRESS \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_STUDENT_NAME + "John Doe "
             + PREFIX_ID + "A01A "
