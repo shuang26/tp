@@ -7,9 +7,6 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_ID;
 import static seedu.address.logic.Messages.NAME_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
-import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
-
-
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -55,7 +52,7 @@ public class ParserStudentUtil {
         requireNonNull(id);
         String trimmedId = id.trim();
         if (trimmedId.isBlank() || trimmedId.indexOf(' ') >= 0) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, STUDENT_ID_MESSAGE_CONSTRAINTS));
+            throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT);
         }
         if (!StudentId.isValidId(trimmedId)) {
             throw new ParseException(MESSAGE_INVALID_STUDENT_ID);
