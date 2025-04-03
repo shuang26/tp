@@ -1,6 +1,10 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.EXPORT_FILE_HEADER;
+import static seedu.address.logic.Messages.FILE_WRITE_ERROR;
+import static seedu.address.logic.Messages.MESSAGE_EXPORT_SUCCESS;
+import static seedu.address.logic.Messages.MESSAGE_NO_STUDENT_FOUND;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -27,9 +31,6 @@ public class ExportCommand extends Command {
             + "\n attendance history of students to the current directory of where this app is saved as a .csv file.\n"
             + "Parameters: fileName\n"
             + "Example: " + COMMAND_WORD + " attendance_summary";
-    public static final String MESSAGE_SUCCESS = "Exported attendance summary to \n";
-    public static final String MESSAGE_NO_STUDENT_FOUND = "No student found";
-    public static final String FILE_WRITE_ERROR = "Unable to export attendance summary due to I/O error";
 
     private final File fileName;
 
@@ -49,8 +50,7 @@ public class ExportCommand extends Command {
 
         try {
             FileWriter fileWriter = new FileWriter(fileName);
-            fileWriter.write("Student ID, Student Name, Parent Name, Parent's Email, "
-                    + "Parent's Number, Attendance History (Present Dates)\n");
+            fileWriter.write(EXPORT_FILE_HEADER);
             for (Student student : studentList) {
                 String studentId = student.getStudentId().toString();
                 String studentName = student.getStudentName().toString();
@@ -69,7 +69,7 @@ public class ExportCommand extends Command {
         } catch (IOException e) {
             throw new CommandException(FILE_WRITE_ERROR);
         }
-        return new CommandResult(MESSAGE_SUCCESS + fileName.getAbsolutePath());
+        return new CommandResult(MESSAGE_EXPORT_SUCCESS + fileName.getAbsolutePath());
     }
 
     @Override

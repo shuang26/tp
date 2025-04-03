@@ -25,6 +25,7 @@ public class StudentId {
      */
     public StudentId(String id) {
         requireNonNull(id);
+        id = id.toUpperCase();
         checkArgument(isValidId(id), STUDENT_ID_MESSAGE_CONSTRAINTS);
         studentId = id;
     }
@@ -33,6 +34,7 @@ public class StudentId {
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidId(String test) {
+        test = test.toUpperCase();
         return test.matches(VALIDATION_REGEX);
     }
 

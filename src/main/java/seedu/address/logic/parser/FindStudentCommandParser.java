@@ -6,7 +6,6 @@ import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 import seedu.address.logic.commands.FindStudentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.StudentId;
-import seedu.address.model.student.StudentIdEqualsPredicate;
 
 /**
  * Parses input arguments and creates a new FindCommand object
@@ -27,7 +26,7 @@ public class FindStudentCommandParser implements Parser<FindStudentCommand> {
 
         try {
             StudentId studentId = new StudentId(trimmedArgs);
-            return new FindStudentCommand(new StudentIdEqualsPredicate(studentId));
+            return new FindStudentCommand(studentId);
         } catch (IllegalArgumentException e) {
             throw new ParseException(STUDENT_ID_MESSAGE_CONSTRAINTS + "\n" + FindStudentCommand.MESSAGE_USAGE);
         }

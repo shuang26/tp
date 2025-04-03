@@ -1,6 +1,7 @@
 package seedu.address.storage;
 
 import static seedu.address.logic.Messages.ADDRESS_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.ATTENDANCE_DATE_CONSTRAINTS;
 import static seedu.address.logic.Messages.EMAIL_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.NAME_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
@@ -27,7 +28,7 @@ import seedu.address.model.student.StudentId;
  */
 class JsonAdaptedPerson {
 
-    public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
+    public static final String MISSING_FIELD_MESSAGE_FORMAT = "Student's %s field is missing!";
 
     private final String studentName;
     private final String parentName;
@@ -122,6 +123,15 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
+        if (attendance == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Attendance.class.getSimpleName()));
+        }
+        for (LocalDate date : attendance) {
+            if (date.isAfter(LocalDate.now())) {
+                throw new IllegalValueException(ATTENDANCE_DATE_CONSTRAINTS);
+            }
+        }
         final Attendance modelAttendance = new Attendance(new HashSet<>(attendance));
 
         return new Student(modelStudentName, modelStudentId, modelParentName,

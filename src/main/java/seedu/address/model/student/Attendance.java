@@ -1,5 +1,7 @@
 package seedu.address.model.student;
 
+import static java.util.Objects.requireNonNull;
+
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +19,7 @@ public class Attendance {
      * @param attendance Set of dates where student was present.
      */
     public Attendance(Set<LocalDate> attendance) {
+        requireNonNull(attendance);
         this.attendance.addAll(attendance);
         this.isPresentToday = this.attendance.contains(LocalDate.now());
     }
