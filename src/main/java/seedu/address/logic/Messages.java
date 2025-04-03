@@ -42,32 +42,47 @@ public class Messages {
             + "the available commands.";
     public static final String MESSAGE_INVALID_COMMAND_FORMAT = "Invalid command format! \n%1$s";
     public static final String MESSAGE_INVALID_STUDENT_ID = "The Student ID provided is invalid!\n"
-            + STUDENT_ID_MESSAGE_CONSTRAINTS + "\n%1$s";
+            + STUDENT_ID_MESSAGE_CONSTRAINTS;
     public static final String MESSAGE_STUDENT_FOUND = "Student with this student ID found.";
     public static final String MESSAGE_DUPLICATE_FIELDS =
-                "Multiple values specified for the following single-valued field(s): ";
-    public static final String MESSAGE_INVALID_STUDENT_NOT_FOUND = "Student with this ID not found.";
+                "Multiple values specified for the following single-valued field(s): %1$s.";
     public static final String MESSAGE_STUDENT_ATTENDANCE_MARKED = "Student %1$s marked as present.";
     public static final String MESSAGE_STUDENT_ATTENDANCE_UNMARKED = "Student %1$s marked as absent.";
 
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED = "All students marked as absent.";
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present.";
 
+    //used by add
+    public static final String MESSAGE_ADD_SUCCESS = "New student added: %1$s";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the CareBook.";
+
+    // used by clear
+    public static final String MESSAGE_CLEAR_SUCCESS = "CareBook has been cleared!";
+
     // used by delete
     public static final String MESSAGE_DELETE_SUCCESS = "Deleted Student: %1$s.";
     public static final String MESSAGE_STUDENT_ID_NOT_FOUND = "No student with student ID: %1$s found.";
 
+    // used by edit
+    public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited student: %1$s";
+    public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
+
+    //used by exit
+    public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting Address Book as requested ...";
+
     // used by export
     public static final String MESSAGE_EXPORT_SUCCESS = "Exported attendance summary to \n%1$s.";
-    public static final String MESSAGE_NO_STUDENT_FOUND = "No student found";
     public static final String FILE_WRITE_ERROR = "Unable to export attendance summary due to I/O error.";
     public static final String EXPORT_FILE_HEADER = "Student ID, Student Name, Parent Name, Parent's Email, "
             + "Parent's Number, Attendance History (Present Dates)\n";
 
+    // used by help
+    public static final String SHOWING_HELP_MESSAGE = "Opened help window.";
+
     // used by list
     public static final String MESSAGE_LIST_SUCCESS = "Listed all students.";
 
-    // Used by markall and unmarkall
+    // Used for empty list
     public static final String MESSAGE_EMPTY_STUDENT_LIST = "There are no students in the student list.";
 
     /**
@@ -79,7 +94,7 @@ public class Messages {
         Set<String> duplicateFields =
                 Stream.of(duplicatePrefixes).map(Prefix::toString).collect(Collectors.toSet());
 
-        return MESSAGE_DUPLICATE_FIELDS + String.join(" ", duplicateFields);
+        return String.format(MESSAGE_DUPLICATE_FIELDS, duplicateFields);
     }
 
     /**
