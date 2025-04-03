@@ -3,6 +3,10 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.Messages.EXPORT_FILE_HEADER;
+import static seedu.address.logic.Messages.FILE_WRITE_ERROR;
+import static seedu.address.logic.Messages.MESSAGE_EXPORT_SUCCESS;
+import static seedu.address.logic.Messages.MESSAGE_NO_STUDENT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 
@@ -37,17 +41,15 @@ public class ExportCommandTest {
         File exportFile = exportPath.toFile();
 
         ExportCommand command = new ExportCommand(exportFile);
-        String expectedMessage = ExportCommand.MESSAGE_SUCCESS + exportFile.getAbsolutePath();
+        String expectedMessage = MESSAGE_EXPORT_SUCCESS + exportFile.getAbsolutePath();
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
 
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
 
         assertTrue(exportFile.exists());
-        String exportedFile = Files.readString(exportPath);
-        String expectedHeaders = "Student ID, Student Name, Parent Name, Parent's Email"
-                + ", Parent's Number, Attendance History (Present Dates)";
-        assertTrue(exportedFile.contains(expectedHeaders));
+        String exportedFile = Files.readString(exportPath);;
+        assertTrue(exportedFile.contains(EXPORT_FILE_HEADER));
     }
 
     @Test
@@ -57,7 +59,7 @@ public class ExportCommandTest {
         File exportedFile = exportPath.toFile();
         ExportCommand command = new ExportCommand(exportedFile);
 
-        assertCommandSuccess(command, emptyModel, ExportCommand.MESSAGE_NO_STUDENT_FOUND, emptyModel);
+        assertCommandSuccess(command, emptyModel, MESSAGE_NO_STUDENT_FOUND, emptyModel);
     }
 
     @Test
@@ -65,7 +67,7 @@ public class ExportCommandTest {
         File invalidFileName = new File("../summary_sheet/attendance_sheet.csv");
         ExportCommand command = new ExportCommand(invalidFileName);
 
-        assertCommandFailure(command, model, ExportCommand.FILE_WRITE_ERROR);
+        assertCommandFailure(command, model, FILE_WRITE_ERROR);
     }
 
     @Test

@@ -22,7 +22,6 @@ import seedu.address.logic.commands.UnmarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentId;
-import seedu.address.model.student.StudentIdEqualsPredicate;
 import seedu.address.testutil.StudentBuilder;
 import seedu.address.testutil.StudentUtil;
 
@@ -72,7 +71,7 @@ public class AddressBookParserTest {
         FindStudentCommand command = (FindStudentCommand) parser.parseCommand(
                 FindStudentCommand.COMMAND_WORD + " " + validStudentId);
         assertEquals(new FindStudentCommand(
-                new StudentIdEqualsPredicate(new StudentId(validStudentId))), command);
+                new StudentId(validStudentId)), command);
     }
 
     @Test
