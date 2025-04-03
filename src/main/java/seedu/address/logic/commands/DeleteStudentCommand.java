@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_DELETE_SUCCESS;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 import java.util.NoSuchElementException;
@@ -21,7 +21,7 @@ public class DeleteStudentCommand extends Command {
     public static final String COMMAND_WORD = "delete";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes a specific student by their exact (case sensitive) STUDENT ID.\n"
+            + ": Deletes a specific student by their exact student id.\n"
             + "Parameters: STUDENT_ID\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
@@ -40,7 +40,7 @@ public class DeleteStudentCommand extends Command {
             Student studentToDelete = model.getStudentById(studentId);
             model.deleteStudent(studentToDelete);
         } catch (NoSuchElementException e) {
-            throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
+            throw new CommandException(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId));
         }
 
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);

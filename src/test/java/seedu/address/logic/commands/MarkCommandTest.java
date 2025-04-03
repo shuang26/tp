@@ -2,8 +2,8 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_MARKED;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -29,8 +29,8 @@ public class MarkCommandTest {
     @Test
     public void execute_studentIdNotFound_throwsCommandException() {
         final StudentId testId = new StudentId("A01A");
-
-        assertCommandFailure(new MarkCommand(testId), model, MESSAGE_INVALID_STUDENT_NOT_FOUND);
+        String expectedMessage = String.format(MESSAGE_STUDENT_ID_NOT_FOUND, testId);
+        assertCommandFailure(new MarkCommand(testId), model, expectedMessage);
     }
 
     @Test

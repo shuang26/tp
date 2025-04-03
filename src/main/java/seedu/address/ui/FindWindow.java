@@ -31,9 +31,9 @@ public class FindWindow extends UiPart<Stage> {
     public FindWindow(Stage root) {
         super(FXML, root);
         getRoot().setTitle("Find Window");
-        getRoot().setMinWidth(700);
+        getRoot().setMinWidth(900);
         getRoot().setMinHeight(300);
-        getRoot().setResizable(false);
+        getRoot().setMaxHeight(400);
     }
 
     /**
