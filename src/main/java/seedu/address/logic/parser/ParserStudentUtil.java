@@ -3,9 +3,10 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.ADDRESS_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.EMAIL_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_ID;
 import static seedu.address.logic.Messages.NAME_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
-import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -50,8 +51,11 @@ public class ParserStudentUtil {
     public static StudentId parseStudentId(String id) throws ParseException {
         requireNonNull(id);
         String trimmedId = id.trim();
-        if (!StudentId.isValidId(id)) {
-            throw new ParseException(STUDENT_ID_MESSAGE_CONSTRAINTS);
+        if (trimmedId.isBlank() || trimmedId.indexOf(' ')>=0){
+            throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT);
+        }
+        if (!StudentId.isValidId(trimmedId)) {
+            throw new ParseException(MESSAGE_INVALID_STUDENT_ID);
         }
         return new StudentId(trimmedId);
     }
