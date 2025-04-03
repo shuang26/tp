@@ -35,9 +35,9 @@ public class EditStudentCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Edits the details of the student identified "
-            + "by the student ID used in the displayed student list. \n"
+            + "by the STUDENT_ID used in the displayed student list. \n"
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: Student ID "
+            + "Parameters: STUDENT_ID "
             + "[" + PREFIX_STUDENT_NAME + "STUDENT_NAME] "
             + "[" + PREFIX_ID + "STUDENT_ID] "
             + "[" + PREFIX_PARENT_NAME + "PARENT_NAME] "
