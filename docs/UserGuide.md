@@ -59,7 +59,7 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
 
 #### Installing CareBook
 1. Ensure you have Java `17` or above installed in your computer.
-   <br>**Mac Users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html)
+   <br>**Mac Users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
    <panel header="How to check your java version">
    <markdown>
    In your command terminal, type `java -version`
@@ -69,7 +69,7 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
 2. Download your `carebook.jar` file with the latest release [here](https://github.com/AY2425S2-CS2103T-T11-2/tp/releases/tag/v1.4).
 Scroll down all the way until you see **Assets** and click on `carebook.jar` to install.
 
-3. Move the `.jar` file to the folder you want to use as the home folder for your CareBook
+3. Move the `.jar` file to the folder you want to use as the home folder for your CareBook.
 
 4. Open a command terminal, `cd` into the folder you placed your .jar file and type `java -jar carebook.jar` and press enter to run CareBook application.
 Here are detailed information as to how to change directory in [Windows](https://www.youtube.com/watch?v=BfXh11ryBJg) and [MacOS](https://www.youtube.com/watch?v=VRFcEMPES7U).
@@ -158,7 +158,7 @@ You can add a student to CareBook.
 You can clear all student records in CareBook.
 
 <div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
-  ❗<strong>Warning:</strong> You cannot retrieve any cleared data. This action is <strong>IRREVERSIBLE</strong>
+  ❗<strong>Warning:</strong> You cannot retrieve any cleared data. This action is <strong>IRREVERSIBLE</strong>.
 </div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
@@ -181,7 +181,7 @@ You can clear all student records in CareBook.
 You can delete a student from CareBook.
 
 <div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
-  ❗<strong>Warning:</strong> You cannot retrieve any deleted student data. This action is <strong>IRREVERSIBLE</strong>
+  ❗<strong>Warning:</strong> You cannot retrieve any deleted student data. This action is <strong>IRREVERSIBLE</strong>.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
@@ -319,7 +319,6 @@ student name, student ID, parent name, parent's phone number, address, parent's 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
   <strong>Remarks:</strong>
   <ul>
-    <li>Student ID is case-sensitive (e.g., "a01a" will not match "A01A").</li>
     <li>Student ID must be one that already exists in CareBook.</li>
   </ul>
 </div>
@@ -352,7 +351,7 @@ you can open a help window with a link to CareBook user guide website.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
-  <strong>Command Format:</strong> <code>help;</code>
+  <strong>Command Format:</strong> <code>help</code>
 </div>
 
 **Input:** <br>
@@ -396,7 +395,6 @@ You can mark a student in CareBook as present.
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
   <strong>Remarks:</strong>
   <ul>
-    <li>Student ID is case-sensitive (e.g., "a01a" will not match "A01A").</li>
     <li>Student ID must be one that already exists in CareBook.</li>
   </ul>
 </div>
@@ -453,7 +451,6 @@ You can mark a student in CareBook as absent.
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
   <strong>Remarks:</strong>
   <ul>
-    <li>Student ID is case-sensitive (e.g., "a01a" will not match "A01A").</li>
     <li>Student ID must be one that already exists in CareBook.</li>
   </ul>
 </div>
