@@ -33,26 +33,26 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
 
 ***
 ## Table of Contents
-- Quick start
-  - [Installing CareBook](#installation)
-  - [Introducing GUI](#introducing-gui)
-  - [CLI Tutorial](#cli-tutorial)
-- Features
-  - [Adding a student:](#adding-a-student) `add`
-  - [Clearing CareBook:](#clearing-carebook) `clear`
-  - [Deleting a student:](#deleting-a-student) `delete`
-  - [Editing a student:](#editing-a-student) `edit`
-  - [Exiting the program:](#exiting-the-program) `exit`
-  - [Exporting attendance summary:](#exporting-attendance-summary) `export`
-  - [Finding a student’s contact:](#finding-a-student-s-contact)`find`
-  - [Viewing help:](#viewing-help) `help`
-  - [Listing all students:](#listing-all-students) `list`
-  - [Marking a student’s attendance:](#marking-a-student-s-attendance) `mark`
-  - [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
-  - [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
-  - [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
-- [FAQ](#faq)
-- [Command Summary](#command-summary)
+1. Quick start
+   - [Installing CareBook](#installation)
+   - [Introducing GUI](#introducing-gui)
+   - [CLI Tutorial](#cli-tutorial)
+1. Features
+   - [Adding a student:](#adding-a-student) `add`
+   - [Clearing CareBook:](#clearing-carebook) `clear`
+   - [Deleting a student:](#deleting-a-student) `delete`
+   - [Editing a student:](#editing-a-student) `edit`
+   - [Exiting the program:](#exiting-the-program) `exit`
+   - [Exporting attendance summary:](#exporting-attendance-summary) `export`
+   - [Finding a student’s contact:](#finding-a-student-s-contact)`find`
+   - [Viewing help:](#viewing-help) `help`
+   - [Listing all students:](#listing-all-students) `list`
+   - [Marking a student’s attendance:](#marking-a-student-s-attendance) `mark`
+   - [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
+   - [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
+   - [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
+1. [FAQ](#faq)
+1. [Command Summary](#command-summary)
 ***
 
 ## Quick Start
@@ -127,7 +127,7 @@ You can add a student to CareBook.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>Parameters can be added in <em>any order</em>, but all are compulsory.</li>
     <li>For names instead of "S/O" and "D/O" please use SO or DO.</li>
@@ -189,7 +189,7 @@ You can delete a student from CareBook.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>Student ID should be one that already exists in CareBook.</li>
   </ul>
@@ -219,7 +219,7 @@ You can edit a student's details in CareBook.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>There are no restrictions to Address.</li>
     <li>Parameters can be edited in <em>any order</em>.</li>
@@ -267,12 +267,12 @@ You can exit the program.
 <p>&nbsp;</p>
 
 #### Exporting attendance summary
-You can export an attendance summary including student ID, student name, parent name, parent's email, parent's phone number, and students' attendance history from CareBook. 
-The attendance summary will be saved in the directory where the CareBook application is located.
+You can export an attendance summary.  
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
   💡 <strong>Tip:</strong> The exported file will be automatically saved in .csv format, with a timestamp next 
-        to the file name to help identify when it was created.
+        to the file name to help identify when it was created. It includes student ID, student name, parent name, 
+parent's email, parent's phone number, and students' attendance history from CareBook.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
@@ -280,7 +280,7 @@ The attendance summary will be saved in the directory where the CareBook applica
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>File name should only consist of alphanumeric characters and underscores.</li>
     <li>Special characters including but not limited to * . / ‘ are invalid.</li>
@@ -317,7 +317,7 @@ student name, student ID, parent name, parent's phone number, address, parent's 
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>Student ID is case-sensitive (e.g., "a01a" will not match "A01A").</li>
     <li>Student ID must be one that already exists in CareBook.</li>
@@ -369,7 +369,7 @@ A [command summary](#command-summary) will also be displayed below the guide lin
 You can list all students in CareBook.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+    <strong>ℹ  Information:</strong> This command ignores any additional parameters received.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
@@ -394,7 +394,7 @@ You can mark a student in CareBook as present.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>Student ID is case-sensitive (e.g., "a01a" will not match "A01A").</li>
     <li>Student ID must be one that already exists in CareBook.</li>
@@ -429,7 +429,7 @@ You can mark all students in CareBook as present.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>The command only works if there is at least one recorded student in CareBook.</li>
   </ul>
@@ -451,7 +451,7 @@ You can mark a student in CareBook as absent.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>Student ID is case-sensitive (e.g., "a01a" will not match "A01A").</li>
     <li>Student ID must be one that already exists in CareBook.</li>
@@ -486,7 +486,7 @@ You can mark all students in CareBook as absent.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
-  <strong>Remark:</strong>
+  <strong>Remarks:</strong>
   <ul>
     <li>The command only works if there is at least one recorded student in CareBook.</li>
   </ul>
