@@ -1,8 +1,8 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 
 import java.util.NoSuchElementException;
 
@@ -14,7 +14,6 @@ import seedu.address.model.student.StudentIdEqualsPredicate;
 
 /**
  * Finds and lists a student in CareBook whose student ID matches.
- * Student ID matching is case-sensitive (must be in uppercase).
  */
 public class FindStudentCommand extends Command {
 
@@ -22,8 +21,8 @@ public class FindStudentCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Finds a specific student by their exact "
-            + "STUDENT ID and displays their full details.\n"
-            + "PARAMETERS: " + "STUDENT ID\n"
+            + "student id and displays their full details.\n"
+            + "PARAMETERS: " + "STUDENT_ID\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
     private final StudentIdEqualsPredicate predicate;
@@ -44,12 +43,22 @@ public class FindStudentCommand extends Command {
         assert (studentId != null);
 
         try {
-            model.updateFilteredStudentList(predicate);
+            model.getStudentById(studentId);
         } catch (NoSuchElementException e) {
-            throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
+            throw new CommandException(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId));
         }
 
-        return new CommandResult(MESSAGE_STUDENT_FOUND, false, false, true);
+        model.updateFilteredStudentList(predicate);
+
+        if (model.getFilteredStudentList().isEmpty()) {
+            return new CommandResult(
+                    String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId),
+                    false, false, true);
+        }
+
+        return new CommandResult(
+                String.format(MESSAGE_STUDENT_FOUND, studentId),
+                false, false, true);
     }
 
     @Override

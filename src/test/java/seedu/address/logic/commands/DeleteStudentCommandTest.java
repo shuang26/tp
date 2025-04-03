@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_DELETE_SUCCESS;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
@@ -29,7 +29,7 @@ public class DeleteStudentCommandTest {
     public void execute_studentIdNotFound_throwsCommandException() {
         StudentId nonExistentId = new StudentId("A99Z");
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(nonExistentId);
-        String expectedMessage = MESSAGE_INVALID_STUDENT_NOT_FOUND;
+        String expectedMessage = String.format(MESSAGE_STUDENT_ID_NOT_FOUND, nonExistentId);
         assertCommandFailure(deleteStudentCommand, model, expectedMessage);
     }
 

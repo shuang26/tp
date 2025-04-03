@@ -2,8 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_MARKED;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 import java.util.NoSuchElementException;
@@ -44,7 +44,7 @@ public class MarkCommand extends Command {
             Student studentToMark = model.getStudentById(studentId);
             studentToMark.setPresent();
         } catch (NoSuchElementException e) {
-            throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
+            throw new CommandException(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId));
         }
 
         model.updateFilteredStudentList(student -> false);
