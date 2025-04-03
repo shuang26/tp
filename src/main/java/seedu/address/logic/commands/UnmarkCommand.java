@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_UNMARKED;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
@@ -23,11 +24,6 @@ public class UnmarkCommand extends Command {
             + "student id as present.\nParameters: [STUDENT_ID]\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
-    public static final String MESSAGE_NOT_IMPLEMENTED_YET =
-            "Unmark command not implemented yet";
-
-    public static final String MESSAGE_ARGUMENTS = "Student ID: %1$s";
-
     private final StudentId id;
 
     /**
@@ -43,13 +39,14 @@ public class UnmarkCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+        assert id != null;
 
         model.updateFilteredStudentList(new StudentIdEqualsPredicate(id));
         List<Student> students = model.getFilteredStudentList();
 
         if (students.isEmpty()) {
             model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
-            throw new CommandException("Requested student was not found in the student list.");
+            throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
         }
 
         Student studentToMark = students.get(0);

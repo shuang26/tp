@@ -4,7 +4,7 @@
   pageNav: 3
 ---
 
-# AB-3 Developer Guide
+# CareBook Developer Guide
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -13,7 +13,10 @@
 
 ## **Acknowledgements**
 
-_{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
+Some of CareBook features are adapted from the AddressBook-Level2 project created by the [SE-EDU initiative](https://se-education.org).
+As such, CareBook contains some of the code and documentation from AddressBook-Level3. 
+
+The list of third-party libraries used are: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -71,7 +74,7 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 <puml src="diagrams/UiClassDiagram.puml" alt="Structure of the UI Component"/>
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -80,7 +83,7 @@ The `UI` component,
 * executes user commands using the `Logic` component.
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
-* depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+* depends on some classes in the `Model` component, as it displays `Student` object residing in the `Model`.
 
 ### Logic component
 
@@ -123,8 +126,8 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
-* stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the CareBook data i.e., all `Student` objects (which are contained in a `UniqueStudentList` object).
+* stores the currently 'selected' `Student` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Student>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
@@ -144,7 +147,7 @@ The `Model` component,
 <puml src="diagrams/StorageClassDiagram.puml" width="550" />
 
 The `Storage` component,
-* can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
+* can save both CareBook data and user preference data in JSON format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
@@ -286,217 +289,273 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                                                                               | So that I can…​                                                        |
-|----------|--------------------------------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
-| `* * *`  | potential user exploring the product       | see the instruction guide                                                                  | easily know how the app works                                          |
-| `* * *`  | daycare teacher                            | view the students' and parents' contacts                                                   | disseminate information to them                                        |
-| `* * *`  | daycare teacher                            | add student details to the system                                                          | keep records up to date as children enrol or leave                     |
-| `* * *`  | daycare teacher                            | remove student details from the system                                                     | keep records up to date as children enrol or leave                     |
-| `* * *`  | forgetful teacher                          | search for contacts by phone number                                                        | quickly identify who is calling/who to call                            |
-| `* * *`  | daycare teacher                            | mark students as present                                                                   | efficiently take attendance during busy mornings                       |
-| `* *`    | daycare teacher                            | quickly search for a child's emergency contact details                                     | immediately inform parents in case of emergencies                      |
-| `* *`    | daycare teacher                            | generate a summary of daily/monthly attendance                                             | track attendance accurately                                            |
-| `* *`    | new user                                   | copy-paste the parents' contacts from the app                                              | easily send an email to all parents                                    |
-| `* *`    | forgetful user                             | filter the students in my class by subjects                                                | plan the class for the day better                                      |
-| `* *`    | daycare teacher                            | view all classes scheduled for the day                                                     | prepare for my daily routine                                           |
-| `* *`    | daycare teacher                            | make a note of my student (e.g., behaviour, meals, incidents)                              | keep track of important details                                        |
-| `* *`    | daycare teacher                            | edit student details from the system                                                       | keep records up to date as children enrol or leave                     |
-| `* *`    | daycare teacher                            | export student details                                                                     | transfer student details to other systems                              |
-| `* *`    | daycare teacher                            | export parent details                                                                      | transfer parent details to other systems                               |
-| `* *`    | daycare teacher                            | filter students by age group                                                               | access information for age-based activities                            |
-| `* *`    | daycare teacher                            | create a custom group for students                                                         | organise activities for special occasions                              |
-| `* *`    | daycare teacher                            | flag important information (e.g. medical conditions/allergies) about a student             | quickly access important details in times of crisis                    |
-| `* *`    | daycare teacher                            | access an audit log of student information updates                                         | track when and what information was modified                           |
-| `* *`    | daycare teacher                            | record students' absence with their reasons                                                | maintain accurate records and organise makeup lessons                  |
-| `* *`    | daycare teacher                            | see which students share the same emergency contact                                        | coordinate communication for siblings in the class                     |
-| `* *`    | daycare teacher                            | view basic student information (age, name, class) without accessing their complete records | quickly identify students                                              |
-| `* *`    | daycare teacher                            | receive alerts when a student's information is updated                                     | stay informed about important changes                                  |
-| `* *`    | daycare teacher                            | undo previous commands                                                                     | revert any errors                                                      |
-| `*`      | daycare teacher                            | schedule and send pre-set messages to parents                                              | remind them about upcoming events or tasks effortlessly                |
-| `*`      | daycare teacher                            | receive automated alerts if a child is absent for multiple days                            | follow up with parents if needed                                       |
-| `*`      | daycare teacher                            | set reminders for student-specific events (e.g., medication time)                          | avoid missing important occasions                                      |
-| `*`      | expert user                                | sort students' records by various criteria (e.g., name)                                    | find information more efficiently                                      |
-| `*`      | forgetful user                             | set a preferred name for each student                                                      | remember their names and address them properly                         |
-| `*`      | daycare teacher                            | see attendance trends over a certain period                                                | identify students who have been missing classes                        |
-| `*`      | daycare teacher                            | print a list of students with their emergency contacts as a PDF                            | have a copy for quick reference in case of a power outage              |
-
-*{More to be added}*
+| Priority | As a …​                              | I want to …​                                                                               | So that I can…​                                           |
+|----------|--------------------------------------|--------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| `* * *`  | potential user exploring the product | see the instruction guide                                                                  | easily know how the app works                             |
+| `* * *`  | daycare teacher                      | view the students' and parents' contacts                                                   | disseminate information to them                           |
+| `* * *`  | daycare teacher                      | add student details to the system                                                          | keep records up to date as children enrol or leave        |
+| `* * *`  | daycare teacher                      | remove student details from the system                                                     | keep records up to date as children enrol or leave        |
+| `* * *`  | forgetful teacher                    | search for contacts by phone number                                                        | quickly identify who is calling/who to call               |
+| `* * *`  | daycare teacher                      | mark students as present                                                                   | efficiently take attendance during busy mornings          |
+| `* *`    | daycare teacher                      | quickly search for a child's emergency contact details                                     | immediately inform parents in case of emergencies         |
+| `* *`    | daycare teacher                      | generate a summary of daily/monthly attendance                                             | track attendance accurately                               |
+| `* *`    | new user                             | copy-paste the parents' contacts from the app                                              | easily send an email to all parents                       |
+| `* *`    | forgetful user                       | filter the students in my class by subjects                                                | plan the class for the day better                         |
+| `* *`    | daycare teacher                      | view all classes scheduled for the day                                                     | prepare for my daily routine                              |
+| `* *`    | daycare teacher                      | make a note of my student (e.g., behaviour, meals, incidents)                              | keep track of important details                           |
+| `* *`    | daycare teacher                      | edit student details from the system                                                       | keep records up to date as children enrol or leave        |
+| `* *`    | daycare teacher                      | export student details                                                                     | transfer student details to other systems                 |
+| `* *`    | daycare teacher                      | export parent details                                                                      | transfer parent details to other systems                  |
+| `* *`    | daycare teacher                      | filter students by age group                                                               | access information for age-based activities               |
+| `* *`    | daycare teacher                      | create a custom group for students                                                         | organise activities for special occasions                 |
+| `* *`    | daycare teacher                      | flag important information (e.g. medical conditions/allergies) about a student             | quickly access important details in times of crisis       |
+| `* *`    | daycare teacher                      | access an audit log of student information updates                                         | track when and what information was modified              |
+| `* *`    | daycare teacher                      | record students' absence with their reasons                                                | maintain accurate records and organise makeup lessons     |
+| `* *`    | daycare teacher                      | see which students share the same emergency contact                                        | coordinate communication for siblings in the class        |
+| `* *`    | daycare teacher                      | view basic student information (age, name, class) without accessing their complete records | quickly identify students                                 |
+| `* *`    | daycare teacher                      | receive alerts when a student's information is updated                                     | stay informed about important changes                     |
+| `* *`    | daycare teacher                      | undo previous commands                                                                     | revert any errors                                         |
+| `*`      | daycare teacher                      | schedule and send pre-set messages to parents                                              | remind them about upcoming events or tasks effortlessly   |
+| `*`      | daycare teacher                      | receive automated alerts if a child is absent for multiple days                            | follow up with parents if needed                          |
+| `*`      | daycare teacher                      | set reminders for student-specific events (e.g., medication time)                          | avoid missing important occasions                         |
+| `*`      | expert user                          | sort students' records by various criteria (e.g., name)                                    | find information more efficiently                         |
+| `*`      | forgetful user                       | set a preferred name for each student                                                      | remember their names and address them properly            |
+| `*`      | daycare teacher                      | see attendance trends over a certain period                                                | identify students who have been missing classes           |
+| `*`      | daycare teacher                      | print a list of students with their emergency contacts as a PDF                            | have a copy for quick reference in case of a power outage |
 
 ### Use cases
+(For all use cases below, the **System** is the `CareBook` and the **Actor** is the `Daycare Teacher`, unless specified otherwise.)<br>
 
-(For all use cases below, the **System** is the `CareBook` and the **Actor** is the `Daycare Teacher`, unless specified otherwise)
-
-**Use case: UC1 - Add a New Student Record**
-
+#### Use case: UC1 - Add a New Student 
 **MSS**
-
-1.  User enters the add command with student details.
-2.  System validates student details.
-3.  System adds the new student record.
-4.  System confirms successful addition.
-
+1. User requests to add a student. 
+2. CareBook validates student details (student name, parent name, student ID, phone number, email address and address). 
+3. CareBook adds the new student. 
+4. CareBook confirms successful addition.
+    
     Use case ends.
 
 **Extensions**
+* 2a. CareBook detects an invalid  student name, parent name, student ID, phone number, email address, or address.
+    * 2a1. CareBook displays an error message.
+  
+      Use case resumes from step 1.
 
-* 2a. System detects an invalid student ID,
-  * 2a1. System displays “Please enter a valid student ID”
+* 2b. CareBook detects a duplicate student ID.
+    * 2b1. CareBook displays an error message.
+    
+      Use case resumes from step 1.
 
-    Use case ends.
+* 2c. CareBook detects an incorrect command format or unknown command.
+  * 2c1. CareBook displays an error message.
+    
+    Use case resumes from step 1.
 
-* 2b. System detects an invalid contact number
-  * 2b1. System displays “Please enter a valid contact number”
-
-    Use case ends.
-
-* 2c. System detects a duplicate student ID
-  * 2c1. System displays “Please enter a student ID that has not been assigned to another  student”
-
-    Use case ends.
-
-* 2d. System detects an incorrect command format
-  * 2d1. System displays “Command should be in the format: “add sn/StudentName pn/ParentName p/ParentPhoneNumber id/StudentID”
-
-    Use case ends.
-
-* 2e. System detects an invalid command
-  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
-
-    Use case ends.
-
-**Use case: UC2 - View the Instruction Guide**
-
+#### Use case: UC2 - Edit a Student 
 **MSS**
-
-1. User enters the command help.
-2. System displays a list of all commands, their respective parameters, and an example of usage.
+1. User requests to edit a student with new details by using student ID.
+2. CareBook verifies that the student exists.
+3. CareBook updates the student with the new details.
+4. CareBook confirms successful edit.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid command
-  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
 
-    Use case ends.
+      Use case resumes at step 1.
 
-**Use case: UC3 - Display All Student Records**
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC3 - Delete a Student 
 
 **MSS**
 
-1. User enters the command list.
-2. System displays a list of all students.
+1. User requests to delete a student by student ID.
+2. CareBook verifies that the student exists.
+3. CareBook removes the student.
+4. CareBook confirms successful removal.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid command
-  * 2e1. System displays “Unknown command. Please type "help" to see a list of commands”
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
 
-    Use case ends.
+      Use case resumes at step 1.
 
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
 
-**Use case: UC4 - Remove a Student Record**
+      Use case resumes at step 1.
 
-**MSS**
-
-1. User enters the command remove <studentID>
-2. System verifies that the student ID exists.
-3. System removes the student record.
-4. System confirms successful removal.
-
-    Use case ends.
-
-**Extensions**
-
-* 2a. System detects an invalid student ID
-  * 2a1. System displays “Please enter a valid student ID”
-
-    Use case ends.
-
-* 2b. System detects an incorrect command format
-  * 2b1. System displays “Command should be in the format: “remove <studentId>””
-
-    Use case ends.
-
-* 2c. System detects an invalid command
-  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
-
-    Use case ends.
-
-
-**Use case: UC5 - View Details of a Specific Student**
+#### Use case: UC4 - View All Students
 
 **MSS**
 
-1. User enters command view <studentID>.
-2. System verifies that the student ID exists.
-3. System retrieves the student’s details.
-4. System displays the student’s information.
+1. User requests to list all students.
+2. CareBook displays a list of all students.
 
    Use case ends.
 
-* 2a. System detects an invalid student ID
-  * 2a1. System displays “Please enter a valid student ID”
+**Extensions**
 
-    Use case ends.
+* 2a. CareBook detects an empty list of students.
+    * 2a1. CareBook displays an error message.
 
-* 2b. System detects an incorrect command format
-  * 2b1. System displays “Command should be in the format: “remove <studentId>””
+      Use case ends.
 
-    Use case ends.
-
-* 2c. System detects an invalid command
-  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
-
-    Use case ends.
-
-**Use case: UC6 - Mark Student Attendance**
+#### Use case: UC5 - Find a Student by Student ID
 
 **MSS**
 
-1. User enters the command mark <studentID>.
-2. System verifies that the student exists.
-3. System updates the attendance record for that student.
-4. System confirms that the student has been marked present.
+1. User requests to find a student by student ID.
+2. CareBook verifies that the student exists.
+3. CareBook retrieves the student’s details.
+4. CareBook displays the student’s information.
+
+   Use case ends.
+
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC6 - Mark a Student Attendance as Present
+
+**MSS**
+
+1. User requests to mark a student as present by student ID.
+2. CareBook verifies that the student exists.
+3. CareBook updates the attendance record for that student.
+4. CareBook confirms that the student has been marked present.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. System detects an invalid student ID
-  * 2a1. System displays “Please enter a valid student ID”.
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
 
-    Use case ends.
+      Use case resumes at step 1.
 
-* 2b. System detects an incorrect command format
-  * 2b1. System displays “Command should be in the format: “remove <studentId>””
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
 
-    Use case ends.
+      Use case resumes at step 1.
 
-* 2c. System detects an invalid command
-  * 2c1. System displays “Unknown command. Please type "help" to see a list of commands”
+#### Use case: UC7 - Mark a Student Attendance as Absent
 
-    Use case ends.
+**MSS**
 
+1. User requests to mark a student as absent by student ID.
+2. CareBook verifies that the student exists.
+3. CareBook updates the attendance record for that student.
+4. CareBook confirms that the student has been marked absent.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+* 2b. CareBook detects an incorrect command format or unknown command.
+    * 2b1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC8 - Clear All Students
+
+**MSS**
+
+1. User requests to clear all students.
+2. CareBook clears all students.
+
+   Use case ends.
+
+#### Use case: UC9 - View the Instruction Guide
+
+**MSS**
+
+1. User requests for help.
+2. CareBook displays a list of all commands, their respective parameters, and an example of usage.
+
+   Use case ends.
+
+#### Use case: UC10 - Mark All Students Attendance as Present
+
+**MSS**
+
+1. User requests to mark all students as present.
+2. CareBook updates the attendance record for every student as present.
+3. CareBook confirms that all students have been marked present.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. CareBook detects an empty list of students.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC11 - Mark All Students Attendance as Absent
+
+**MSS**
+
+1. User requests to mark all students as absent by student ID.
+2. CareBook updates the attendance record for every student as absent.
+3. CareBook confirms that all students have been marked absent.
+
+* 2a. CareBook detects an empty list of students.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+#### Use case: UC12 - Export All Students Information
+
+**MSS**
+
+1. User requests to export all students information with a filename.
+2. CareBook saves all students information into the directory where the CareBook application is located.
+
+* 2a. CareBook detects an invalid filename.
+    * 2a1. CareBook displays an error message.
+
+      Use case resumes at step 1.
+
+* 2b. CareBook detects an empty list of students.
+    * 2b1. CareBook displays an error message.
+
+      Use case resumes at step 1.
 
 ### Non-Functional Requirements
-
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4.  System does not take more than 1s to load all data from files when launching.
-5.  All commands execute in less than 1s, including saving of data to files.
-6.  Error messages should offer support to user (help user get the right commands).
-7.  Commands should be intuitive and easy to remember.
-8.  Data should be saved after each change-causing command.
+2.  Should be able to hold up to 50 students without a noticeable sluggishness in performance for typical usage.
+3.  System does not take more than 1s to load all data from files when launching.
+4.  All commands execute in less than 1s, including saving of data to files.
+5.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+6.  Commands should be intuitive and easy to remember.
+7.  Data should be saved after each change-causing command.
+8.  Error messages should offer support to user (help user get the right commands).
 9.  The app should not require complex installation steps.
 10. It should be a lightweight application (<100MB) and not require additional dependencies beyond Java.
 
-
 ### Glossary
-
 * **Command**: An instruction entered by the Daycare Teacher into the CareBook system to perform a specific action (e.g., "add", "remove", "view", "list", "mark", "help").
 * **Command Format**: The required structure and syntax for a command, including any necessary parameters (e.g., "add sn/StudentName pn/ParentName p/ParentPhoneNumber id/StudentID" for adding a student).
 * **Daycare Teacher**: The primary user of the CareBook application, responsible for managing student records and attendance.
@@ -517,45 +576,100 @@ testers are expected to do more *exploratory* testing.
 
 </box>
 
-### Launch and shutdown
+#### Launch and shutdown
 
-1. Initial launch
-
-   1. Download the jar file and copy into an empty folder
-
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
-
-1. Saving window preferences
-
+1. **Initial launch**
+   1. Download the `CareBook.jar` file and copy into an empty folder
+   2. Ensure you have `Java 17` or above installed in your computer. 
+   3. Open a command terminal, `cd` into the folder you placed your .jar file and type `java -jar CareBook.jar` and press enter to run CareBook application.<br>
+      **Expected:** 
+      * Shows the GUI with a set of sample students. 
+      * The window size may not be optimum.
+    
+2. **Saving window preferences**
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+   1. Re-launch the app by typing `java -jar CareBook.jar` and pressing enter.<br>
+      **Expected**: 
+      * The most recent window size and location is retained.
+    
+3. **Verifying Logs during launch**
+   1. Launch the app by typing `java -jar CareBook.jar` and pressing enter.
+   2. Observe the logs printed in the terminal during startup.<br>
+      **Expected**: 
+      * Logs should be displayed with appropriate timestamps.
+      * Warnings about JavaFX configuration may appear but should not affect functionality. 
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+#### Deleting a student
 
-1. _{ more test cases …​ }_
-
-### Deleting a student
-
-1. Deleting a student while all student are being shown
-
-
+1. **Deleting a student while all students are being shown**
    1. Prerequisites: List all students using the `list` command. Multiple students in the list.
-
    1. Test case: `delete A10A`<br>
-      Expected: Student with ID A10A is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-
+      **Expected**: 
+      * Student with ID A10A is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
    1. Test case: `delete A99Z`<br>
-      Expected: No student is deleted. Error details shown in the status message. Status bar remains the same.
-
+      **Expected:**
+      * No student is deleted. Error details shown in the status message. Status bar remains the same.
    1. Other incorrect delete commands to try: `delete`, `delete a10a`, `...` (where student ID is not capitalised)<br>
-      Expected: Similar to previous.
+      **Expected:**
+      * Similar to previous.
 
-1. _{ more test cases …​ }_
+2.  **Deleting a Student When No Students Are Displayed**
+    1. Prerequisites: Clear the list using the `clear` command.
+    2. Test case: `delete A99Z`<br>
+       **Expected:**
+       * No student is deleted. Error details shown in the status message. Status bar remains the same.
 
-### Saving data
 
-1. Dealing with missing/corrupted data files
+#### Saving data
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+1. **Dealing with missing data files**
+   1. Navigate to the application's `data` directory.
+   2. Delete or rename the data file (e.g., addressbook.json). 
+   3. Launch the app.
+      **Expected:**
+       * The application should create a new default data file if one does not exist.
+       * The list of students should contain default sample student data.
+       * A warning message (e.g., “Creating a new data file data\addressbook.json populated with a sample AddressBook.”) should be logged.
+   
+2. **Dealing with corrupted data files**
+    1. Navigate to the application's `data` directory and open `addressbook.json` in a text editor.
+    2. Modify the content to be invalid JSON (e.g., remove a closing brace or change a key name to an invalid format).
+    3. Save the file and launch the app.
+       **Expected:**
+        * The application should detect the corruption and handle it.
+        * A warning message (e.g., "WARNING: Error reading from jsonFile file data\addressbook.json: ...") should be logged.
+        * The app will launch with an empty student list.
+        * The application should not crash and should remain functional.
 
-1. _{ more test cases …​ }_
+3. **Ensuring data is saved after adding/deleting a student**
+    1. Launch the app and modify the data by adding/deleting a student.
+    2. Close the application and re-open it.
+       **Expected:**
+        * The added/deleted student should appear/not appear in the list.
+
+## **Appendix: Effort**
+1. **Difficulty Level and Challenges Faced**
+
+   Our project builds on AddressBook Level 3 (AB3) but required significant refactoring to better fit our target users' needs. As a result, the complexity of data management, validation, and UI representation increased.<br>
+    **Key challenges included:**
+    * Extensive refactoring: From `person` model to `student` model.
+    * Editing and updating test cases: Ensuring existing test cases remained valid after structural changes while writing new ones for added functionalities.
+    * Maintaining code consistency: Ensuring that refactored components integrated smoothly without introducing regressions.
+    
+2. **Effort Required**
+
+   The project effort was distributed across key areas:<br>
+   * Feature Development (45%) – Modifying existing commands and implementing new commands (e.g. mark, markall, export).
+   * Testing & Debugging (30%) – Updating test cases, refactoring test structure, and ensuring correctness after modifications.
+   * Data Management & Storage (25%) – Modifying JSON storage to handle new fields in `Student` model.
+    
+3. **Achievements**
+    * Successfully modified AB3 to align with our target users' needs while maintaining its core functionality.
+    * Refactored the codebase effectively, improving maintainability and extensibility.
+
+## **Appendix: Planned Enhancements**
+1. **Clearing attendance records**
+
+   Currently, attendance records accumulate over time, which can make it difficult for users to manage large amounts of data. We plan to introduce a bulk clearance feature that allows users to clear all the attendance records in CareBook.
+
+_{ more enhancement features to be added …​ }_

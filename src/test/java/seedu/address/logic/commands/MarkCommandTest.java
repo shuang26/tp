@@ -2,8 +2,13 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_MARKED;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook_onePresent;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,12 +24,32 @@ import seedu.address.model.student.StudentId;
  */
 public class MarkCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalAddressBook_onePresent(), new UserPrefs());
 
     @Test
-    public void execute() {
+    public void execute_studentIdNotFound_throwsCommandException() {
         final StudentId testId = new StudentId("A01A");
 
-        assertCommandFailure(new MarkCommand(testId), model, "Requested student was not found in the student list.");
+        assertCommandFailure(new MarkCommand(testId), model, MESSAGE_INVALID_STUDENT_NOT_FOUND);
+    }
+
+    @Test
+    public void execute_studentIdNull_throwsCommandException() {
+        assertThrows(NullPointerException.class, null, () -> new MarkCommand(null).execute(model));
+    }
+
+    @Test
+    public void execute_modelNull_throwsCommandException() {
+        assertThrows(NullPointerException.class, null, () -> new MarkCommand(new StudentId("A01A")).execute(null));
+    }
+
+    @Test
+    public void execute_studentIdFound_success() {
+        final StudentId testId = model.getFilteredStudentList().get(0).getStudentId();
+
+        String expectedMessage = String.format(MESSAGE_STUDENT_ATTENDANCE_MARKED, testId);
+
+        assertCommandSuccess(new MarkCommand(testId), model, expectedMessage, expectedModel);
     }
 
     @Test

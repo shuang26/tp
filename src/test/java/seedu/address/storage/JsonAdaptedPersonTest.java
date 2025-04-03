@@ -1,6 +1,7 @@
 package seedu.address.storage;
 
 import static seedu.address.logic.Messages.ADDRESS_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.ATTENDANCE_DATE_CONSTRAINTS;
 import static seedu.address.logic.Messages.EMAIL_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.NAME_MESSAGE_CONSTRAINTS;
 import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
@@ -10,6 +11,8 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalStudents.BENSON;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +20,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.student.Address;
+import seedu.address.model.student.Attendance;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
@@ -28,6 +32,7 @@ public class JsonAdaptedPersonTest {
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
+    private static final List<LocalDate> INVALID_ATTENDANCE = new ArrayList<>(Collections.singleton(LocalDate.MAX));
 
     private static final String VALID_NAME = BENSON.getStudentName().toString();
     private static final String VALID_STUDENT_ID = BENSON.getStudentId().toString();
@@ -132,6 +137,24 @@ public class JsonAdaptedPersonTest {
                 VALID_NAME, VALID_STUDENT_ID, VALID_PHONE, VALID_EMAIL, null,
                 VALID_ATTENDANCE);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName());
+        assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidAttendance_throwsIllegalValueException() {
+        JsonAdaptedPerson person = new JsonAdaptedPerson(VALID_NAME,
+                VALID_NAME, VALID_STUDENT_ID, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
+                INVALID_ATTENDANCE);
+        String expectedMessage = ATTENDANCE_DATE_CONSTRAINTS;
+        assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+    }
+
+    @Test
+    public void toModelType_nullAttendance_throwsIllegalValueException() {
+        JsonAdaptedPerson person = new JsonAdaptedPerson(VALID_NAME,
+                VALID_NAME, VALID_STUDENT_ID, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
+                null);
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Attendance.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 

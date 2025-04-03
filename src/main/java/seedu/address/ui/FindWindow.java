@@ -33,6 +33,7 @@ public class FindWindow extends UiPart<Stage> {
         getRoot().setTitle("Find Window");
         getRoot().setMinWidth(700);
         getRoot().setMinHeight(300);
+        getRoot().setResizable(false);
     }
 
     /**
