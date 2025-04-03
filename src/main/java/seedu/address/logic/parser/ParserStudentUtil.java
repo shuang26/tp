@@ -1,7 +1,15 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.*;
+import static seedu.address.logic.Messages.ADDRESS_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.EMAIL_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_ID;
+import static seedu.address.logic.Messages.NAME_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.PHONE_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
+
+
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -9,7 +17,6 @@ import java.time.format.DateTimeFormatter;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
-import seedu.address.logic.Messages;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
