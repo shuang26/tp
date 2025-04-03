@@ -1,8 +1,7 @@
 package seedu.address.logic.parser;
 
-
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_ID;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -27,9 +26,8 @@ public class FindStudentCommandParserTest {
 
     @Test
     public void parse_invalidIdFormat_throwsParseException() {
-        String studentId = "z99";
-        assertParseFailure(parser, studentId,
-                STUDENT_ID_MESSAGE_CONSTRAINTS + "\n" + FindStudentCommand.MESSAGE_USAGE);
+        String expectedMessage = String.format(MESSAGE_INVALID_STUDENT_ID, FindStudentCommand.MESSAGE_USAGE);
+        assertParseFailure(parser, "A00AB", expectedMessage);
     }
 
     @Test
