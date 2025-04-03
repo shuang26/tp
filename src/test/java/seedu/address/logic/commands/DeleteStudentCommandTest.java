@@ -4,14 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_DELETE_SUCCESS;
-import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -30,8 +29,7 @@ public class DeleteStudentCommandTest {
     public void execute_studentIdNotFound_throwsCommandException() {
         StudentId nonExistentId = new StudentId("A99Z");
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(nonExistentId);
-
-        String expectedMessage = String.format(MESSAGE_STUDENT_ID_NOT_FOUND, nonExistentId);
+        String expectedMessage = MESSAGE_INVALID_STUDENT_NOT_FOUND;
         assertCommandFailure(deleteStudentCommand, model, expectedMessage);
     }
 
@@ -41,8 +39,7 @@ public class DeleteStudentCommandTest {
         StudentId studentId = studentToDelete.getStudentId();
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(studentId);
 
-        String expectedMessage = String.format(MESSAGE_DELETE_SUCCESS,
-                Messages.format(studentToDelete));
+        String expectedMessage = String.format(MESSAGE_DELETE_SUCCESS, studentId);
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.deleteStudent(studentToDelete);
@@ -76,8 +73,7 @@ public class DeleteStudentCommandTest {
     public void toStringMethod() {
         StudentId targetStudentId = new StudentId("A01A");
         DeleteStudentCommand deleteStudentCommand = new DeleteStudentCommand(targetStudentId);
-        String expected = DeleteStudentCommand.class.getCanonicalName()
-                + "{targetStudentId=" + targetStudentId + "}";
+        String expected = DeleteStudentCommand.class.getCanonicalName() + "{studentId=" + targetStudentId + "}";
         assertEquals(expected, deleteStudentCommand.toString());
     }
 
