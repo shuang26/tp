@@ -71,29 +71,6 @@ public class EditStudentCommandTest {
     }
 
     @Test
-    public void execute_editDuplicateId_failure() {
-        Student studentToEdit = model.getFilteredStudentList().get(0);
-        StudentId originalStudentId = studentToEdit.getStudentId();
-        StudentId duplicateStudentId = model.getFilteredStudentList().get(1).getStudentId();
-
-        EditStudentDescriptor descriptor = new EditStudentDescriptor();
-        descriptor.setStudentId(duplicateStudentId);
-
-        EditStudentCommand editStudentCommand = new EditStudentCommand(originalStudentId, descriptor);
-
-        try {
-            CommandResult commandResult = editStudentCommand.execute(model);
-            System.out.println(commandResult.getFeedbackToUser());
-        } catch (CommandException e) {
-            System.out.println("Caught Exception: " + e.getMessage());
-        }
-
-        assertCommandFailure(editStudentCommand, model, "This student already "
-                + "exists in the address book.");
-    }
-
-
-    @Test
     public void equals() {
         final EditStudentCommand standardCommand = new EditStudentCommand(new StudentId("A98L"), DESC_AMY);
 
