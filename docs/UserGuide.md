@@ -129,7 +129,8 @@ Adds a student to CareBook.
   <strong>Remark:</strong>
   <ul>
     <li>Parameters can be added in <em>any order</em>, but all are compulsory.</li>
-    <li>No restrictions to StudentName, ParentName, and Address.</li>
+    <li>For names instead of "S/O" and "D/O" please use SO or DO.</li>
+    <li>No restrictions to Address.</li>
     <li>Student ID should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
     <li>Phone number <strong>must</strong> range from 80000000 to 99999999.</li>
     <li>Email address should have an @ domain.</li>
