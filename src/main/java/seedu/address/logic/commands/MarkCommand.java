@@ -47,6 +47,7 @@ public class MarkCommand extends Command {
             throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
         }
 
+        model.updateFilteredStudentList(student -> false);
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
         return new CommandResult(String.format(MESSAGE_STUDENT_ATTENDANCE_MARKED, studentId));
     }
