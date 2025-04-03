@@ -21,7 +21,7 @@ public class DeleteStudentCommand extends Command {
     public static final String COMMAND_WORD = "delete";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes a specific student by their exact student id.\n"
+            + ": Deletes a specific student by their exact student ID.\n"
             + "Parameters: STUDENT_ID\n"
             + "Example: " + COMMAND_WORD + " A01A";
 

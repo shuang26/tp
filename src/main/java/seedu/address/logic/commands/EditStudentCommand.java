@@ -1,6 +1,8 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_DUPLICATE_STUDENT;
+import static seedu.address.logic.Messages.MESSAGE_EDIT_STUDENT_SUCCESS;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
@@ -47,10 +49,6 @@ public class EditStudentCommand extends Command {
             + "Example: " + COMMAND_WORD + " A01A "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
-
-    public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited student: %1$s";
-    public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book.";
 
     private final StudentId studentId;
     private final EditStudentDescriptor editStudentDescriptor;
