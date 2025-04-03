@@ -6,7 +6,6 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_MARKED;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -41,11 +40,8 @@ public class MarkCommand extends Command {
         requireNonNull(model);
         assert (studentId != null);
 
-        model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
-        List<Student> lastShownList = model.getFilteredStudentList();
-
         try {
-            Student studentToMark = model.getStudentById(studentId, lastShownList);
+            Student studentToMark = model.getStudentById(studentId);
             studentToMark.setPresent();
         } catch (NoSuchElementException e) {
             throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
