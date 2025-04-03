@@ -33,26 +33,26 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
 
 ***
 ## Table of Contents
-1. Quick start
-   (a) [Installing CareBook](#installation)
-   (b) [Introducing GUI](#introducing-gui)
-   (c) [CLI Tutorial](#cli-tutorial)
-2. Features
-   (a) [Adding a student:](#adding-a-student) `add`
-   (b) [Clearing CareBook:](#clearing-carebook) `clear`
-   (c) [Deleting a student:](#deleting-a-student) `delete`
-   (d) [Editing a student:](#editing-a-student) `edit`
-   (e) [Exiting the program:](#exiting-the-program) `exit`
-   (f) [Exporting attendance summary:](#exporting-attendance-summary) `export`
-   (g) [Finding a student’s contact:](#finding-a-student-s-contact)`find`
-   (h) [Viewing help:](#viewing-help) `help`
-   (i) [Listing all students:](#listing-all-students) `list`
-   (j) [Marking a student’s attendance:](#marking-a-student-s-attendance) `mark`
-   (k) [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
-   (l) [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
-   (m) [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
-3. [FAQ](#faq)
-4. [Command Summary](#command-summary)
+- Quick start
+  - [Installing CareBook](#installation)
+  - [Introducing GUI](#introducing-gui)
+  - [CLI Tutorial](#cli-tutorial)
+- Features
+ - [Adding a student:](#adding-a-student) `add`
+ - [Clearing CareBook:](#clearing-carebook) `clear`
+ - [Deleting a student:](#deleting-a-student) `delete`
+ - [Editing a student:](#editing-a-student) `edit`
+ - [Exiting the program:](#exiting-the-program) `exit`
+ - [Exporting attendance summary:](#exporting-attendance-summary) `export`
+ - [Finding a student’s contact:](#finding-a-student-s-contact)`find`
+ - [Viewing help:](#viewing-help) `help`
+ - [Listing all students:](#listing-all-students) `list`
+ - [Marking a student’s attendance:](#marking-a-student-s-attendance) `mark`
+ - [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
+ - [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
+ - [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
+- [FAQ](#faq)
+- [Command Summary](#command-summary)
 ***
 
 ## Quick Start
