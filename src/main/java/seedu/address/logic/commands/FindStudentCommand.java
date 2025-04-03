@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_FIND_LIST;
-import static seedu.address.logic.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
+import static seedu.address.logic.Messages.MESSAGE_STUDENTS_LISTED_OVERVIEW;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 
 import seedu.address.commons.util.ToStringBuilder;
@@ -36,8 +36,6 @@ public class FindStudentCommand extends Command {
         this.predicate = new StudentIdEqualsPredicate(studentId);
     }
 
-
-
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
@@ -45,7 +43,7 @@ public class FindStudentCommand extends Command {
 
         if (!model.getFilteredStudentList().isEmpty()) {
             return new CommandResult(
-                    String.format(MESSAGE_PERSONS_LISTED_OVERVIEW,
+                    String.format(MESSAGE_STUDENTS_LISTED_OVERVIEW,
                             model.getFilteredStudentList().size()), true);
         } else {
             return new CommandResult(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId)
