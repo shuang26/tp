@@ -162,7 +162,7 @@ You can clear all student records in CareBook.
 </div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-    <strong> Information:</strong> This command ignores any additional parameters received.
+  ℹ   <strong> Information:</strong> This command ignores any additional parameters received.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
@@ -253,7 +253,7 @@ You can edit a student's details in CareBook.
 You can exit the program.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+    <strong>ℹ  Information:</strong> This command ignores any additional parameters received.
 </div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
@@ -344,7 +344,7 @@ student name, student ID, parent name, parent's phone number, address, parent's 
 you can open a help window with a link to CareBook user guide website.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+    <strong>ℹ  Information:</strong> This command ignores any additional parameters received.
 </div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
@@ -421,7 +421,7 @@ You can mark a student in CareBook as present.
 You can mark all students in CareBook as present.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+    <strong>ℹ  Information:</strong> This command ignores any additional parameters received.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
@@ -478,7 +478,7 @@ You can mark a student in CareBook as absent.
 You can mark all students in CareBook as absent.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+    <strong>ℹ  Information:</strong> This command ignores any additional parameters received.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
