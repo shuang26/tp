@@ -147,10 +147,10 @@ You can add a student to CareBook.
 </div>
 
 **Input:** <br>
-[To insert image later]
+<img src="images/addcommandinput.png" width="500">
 
 **Expected Output:** <br>
-[To insert image later]
+<img src="images/addcommandoutput.png" width="500">
 
 <p>&nbsp;</p>
 
@@ -162,7 +162,7 @@ You can clear all student records in CareBook.
 </div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-    <strong>:information_source: Information:</strong> This command ignores any additional parameters received.
+    <strong> Information:</strong> This command ignores any additional parameters received.
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
@@ -204,10 +204,10 @@ You can delete a student from CareBook.
 </div>
 
 **Input:** <br>
-[To insert image later]
+<img src="images/deletecommandinput.png" width="500">
 
 **Expected Output:** <br>
-[To insert image later]
+<img src="images/deletecommandoutput.png" width="500">
 
 <p>&nbsp;</p>
 
@@ -243,11 +243,10 @@ You can edit a student's details in CareBook.
 
 
 **Input:** <br>
-[To insert image later]
+<img src="images/editcommandinput.png" width="500">
 
 **Expected Output:** <br>
-[To insert image later]
-
+<img src="images/editcommandoutput.png" width="500">
 <p>&nbsp;</p>
 
 #### Exiting the program
