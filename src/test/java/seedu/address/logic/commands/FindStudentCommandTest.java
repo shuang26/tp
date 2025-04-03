@@ -10,8 +10,6 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
-import java.util.Collections;
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
