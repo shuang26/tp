@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
-import static seedu.address.logic.commands.CommandTestUtil.*;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
@@ -69,7 +71,7 @@ public class EditStudentCommandTest {
     }
 
     @Test
-    public void execute_editIDToSameAsAnotherStudent_failure() {
+    public void execute_editDuplicateId_failure() {
         Student studentToEdit = model.getFilteredStudentList().get(0);
         StudentId originalStudentId = studentToEdit.getStudentId();
         StudentId duplicateStudentId = model.getFilteredStudentList().get(1).getStudentId();
@@ -86,8 +88,8 @@ public class EditStudentCommandTest {
             System.out.println("Caught Exception: " + e.getMessage());
         }
 
-        assertCommandFailure(editStudentCommand, model, "This student already " +
-                "exists in the address book.");
+        assertCommandFailure(editStudentCommand, model, "This student already "
+                + "exists in the address book.");
     }
 
 
