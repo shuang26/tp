@@ -18,9 +18,8 @@ public class FindWindow extends UiPart<Stage> {
     private static final String FXML = "FindWindow.fxml";
 
     @FXML
-    private VBox personListPanelPlaceholder;
+    private VBox studentListPanelPlaceholder;
 
-    // This PersonListPanel will display the PersonCards (the result).
     private StudentFindWindowListPanel studentListPanel;
 
     /**
@@ -50,8 +49,8 @@ public class FindWindow extends UiPart<Stage> {
      */
     public void fillInnerParts(ObservableList<Student> studentList) {
         studentListPanel = new StudentFindWindowListPanel(studentList);
-        personListPanelPlaceholder.getChildren().clear();
-        personListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
+        studentListPanelPlaceholder.getChildren().clear();
+        studentListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
     }
 
     /**
