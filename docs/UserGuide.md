@@ -10,6 +10,15 @@ Welcome to CareBook! **Your classroom, organized.**
 
 Designed with daycare teachers in mind, **CareBook** simplifies **daily roster management and parent communication** so you can focus on what matters the most - caring for children.
 
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about daycare teachers:**<br>
+
+* We assume that the daycare teachers managing daily rosters of 30 to 40 children
+* We assume that the daycare teachers using this product are tech-savvy and fast typers
+
+</div>
+
 With CareBook, you can:
 - Instantly access **students’ and parents’ contacts**
 - Streamline **daily attendance tracking** with simple commands
@@ -21,15 +30,6 @@ This user guide will walk you through:
 - Learning essential commands for managing contacts and attendance
 
 By the end of this guide, you’ll be a **CareBook pro**, managing your daycare with ease and precision.
-
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Notes about daycare teachers:**<br>
-
-* We assume that the daycare teachers managing daily rosters of 30 to 40 children
-* We assume that the daycare teachers using this product are tech-savvy and fast typers
-
-</div>
 
 ***
 ## Table of Contents
