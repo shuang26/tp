@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_EMPTY_LIST;
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_STUDENT_LIST;
 import static seedu.address.logic.Messages.MESSAGE_LIST_SUCCESS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
@@ -20,7 +20,7 @@ public class ListCommand extends Command {
         requireNonNull(model);
 
         if (model.isStudentListEmpty()) {
-            throw new CommandException(MESSAGE_EMPTY_LIST);
+            throw new CommandException(MESSAGE_EMPTY_STUDENT_LIST);
         }
 
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);

@@ -3,8 +3,8 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.EXPORT_FILE_HEADER;
 import static seedu.address.logic.Messages.FILE_WRITE_ERROR;
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_STUDENT_LIST;
 import static seedu.address.logic.Messages.MESSAGE_EXPORT_SUCCESS;
-import static seedu.address.logic.Messages.MESSAGE_NO_STUDENT_FOUND;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -29,7 +29,7 @@ public class ExportCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Exports the student ID, student name, parent name, parent email, parent number"
             + "\n attendance history of students to the current directory of where this app is saved as a .csv file.\n"
-            + "Parameters: fileName\n"
+            + "Parameters: FILE_NAME\n"
             + "Example: " + COMMAND_WORD + " attendance_summary";
 
     private final File fileName;
@@ -45,7 +45,7 @@ public class ExportCommand extends Command {
         ObservableList<Student> studentList = model.getAddressBook().getStudentList();
 
         if (studentList.isEmpty()) {
-            return new CommandResult(MESSAGE_NO_STUDENT_FOUND);
+            return new CommandResult(MESSAGE_EMPTY_STUDENT_LIST);
         }
 
         try {
@@ -69,7 +69,7 @@ public class ExportCommand extends Command {
         } catch (IOException e) {
             throw new CommandException(FILE_WRITE_ERROR);
         }
-        return new CommandResult(MESSAGE_EXPORT_SUCCESS + fileName.getAbsolutePath());
+        return new CommandResult(String.format(MESSAGE_EXPORT_SUCCESS, fileName.getAbsolutePath()));
     }
 
     @Override
