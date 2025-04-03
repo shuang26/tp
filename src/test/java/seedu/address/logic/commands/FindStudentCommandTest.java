@@ -4,7 +4,7 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.Messages.*;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
@@ -12,7 +12,6 @@ import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -57,8 +56,7 @@ public class FindStudentCommandTest {
 
     @Test
     public void execute_zeroKeywords_noStudentFound() {
-        String expectedMessage = String.format(MESSAGE_STUDENT_ID_NOT_FOUND, "A97B")
-                + MESSAGE_FIND_LIST;
+        String expectedMessage = String.format(MESSAGE_STUDENT_FOUND, "A97B");
         StudentIdEqualsPredicate predicate = preparePredicate("A97B");
         FindStudentCommand command = new FindStudentCommand(new StudentId("A97B"));
         expectedModel.updateFilteredStudentList(predicate);
@@ -68,9 +66,9 @@ public class FindStudentCommandTest {
 
     @Test
     public void execute_studentFound() {
-        String expectedMessage = String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, 1);
+        String expectedMessage = String.format(MESSAGE_STUDENT_FOUND);
         StudentIdEqualsPredicate predicate = preparePredicate("A98L");
-        FindStudentCommand command = new FindStudentCommand(predicate);
+        FindStudentCommand command = new FindStudentCommand(new StudentId("A98L"));
         expectedModel.updateFilteredStudentList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(1, model.getFilteredStudentList().size());

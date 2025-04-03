@@ -407,6 +407,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 2a. CareBook detects an empty list of students.
+
     * 2a1. CareBook displays an error message.
 
       Use case ends.
@@ -421,6 +422,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. CareBook displays the student’s information.
 
    Use case ends.
+
+**Extensions**
 
 * 2a. CareBook detects an invalid student ID or is unable to find student ID.
     * 2a1. CareBook displays an error message.
@@ -509,6 +512,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 2a. CareBook detects an empty list of students.
+
     * 2a1. CareBook displays an error message.
 
       Use case resumes at step 1.
@@ -518,10 +522,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to mark all students as absent by student ID.
+
 2. CareBook updates the attendance record for every student as absent.
+
 3. CareBook confirms that all students have been marked absent.
 
 * 2a. CareBook detects an empty list of students.
+
     * 2a1. CareBook displays an error message.
 
       Use case resumes at step 1.
@@ -531,6 +538,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to export all students information with a filename.
+
 2. CareBook saves all students information into the directory where the CareBook application is located.
 
 * 2a. CareBook detects an invalid filename.

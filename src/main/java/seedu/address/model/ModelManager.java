@@ -115,9 +115,9 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Student getStudentById(StudentId studentId, List<Student> studentList) {
+    public Student getStudentById(StudentId studentId) {
+        List<Student> studentList = this.addressBook.getStudentList();
         requireNonNull(studentId);
-        requireNonNull(studentList);
 
         return studentList.stream()
                 .filter(student -> student.getStudentId().equals(studentId))

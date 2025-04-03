@@ -1,11 +1,13 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_FIND_LIST;
-import static seedu.address.logic.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
-import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_FOUND;
+
+import java.util.NoSuchElementException;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.student.StudentId;
 import seedu.address.model.student.StudentIdEqualsPredicate;
@@ -20,8 +22,8 @@ public class FindStudentCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Finds a specific student by their exact "
-            + "(case sensitive) STUDENT ID and displays their full details.\n"
-            + "PARAMETERS: " + "STUDENT ID (must be in uppercase)\n"
+            + "STUDENT ID and displays their full details.\n"
+            + "PARAMETERS: " + "STUDENT ID\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
     private final StudentIdEqualsPredicate predicate;
@@ -36,21 +38,18 @@ public class FindStudentCommand extends Command {
         this.predicate = new StudentIdEqualsPredicate(studentId);
     }
 
-
-
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        model.updateFilteredStudentList(predicate);
+        assert (studentId != null);
 
-        if (!model.getFilteredStudentList().isEmpty()) {
-            return new CommandResult(
-                    String.format(MESSAGE_PERSONS_LISTED_OVERVIEW,
-                            model.getFilteredStudentList().size()), true);
-        } else {
-            return new CommandResult(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId)
-                    + MESSAGE_FIND_LIST);
+        try {
+            model.updateFilteredStudentList(predicate);
+        } catch (NoSuchElementException e) {
+            throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
         }
+
+        return new CommandResult(MESSAGE_STUDENT_FOUND, false, false, true);
     }
 
     @Override

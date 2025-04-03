@@ -10,7 +10,6 @@ import static seedu.address.testutil.TypicalStudents.ALICE;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -158,11 +157,8 @@ public class AddStudentCommandTest {
         }
 
         @Override
-        public Student getStudentById(StudentId studentId, List<Student> studentList) {
-            return studentList.stream()
-                    .filter(student -> student.getStudentId().equals(studentId))
-                    .findFirst()
-                    .orElse(null);
+        public Student getStudentById(StudentId studentId) {
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override

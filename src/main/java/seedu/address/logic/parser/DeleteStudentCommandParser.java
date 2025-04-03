@@ -1,7 +1,7 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.ParserStudentUtil.parseStudentId;
 
 import seedu.address.logic.commands.DeleteStudentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -18,15 +18,16 @@ public class DeleteStudentCommandParser implements Parser<DeleteStudentCommand> 
      * @throws ParseException if the user input does not conform to the expected format.
      */
     public DeleteStudentCommand parse(String args) throws ParseException {
-        String trimmedArgs = args.trim();
-        if (trimmedArgs.isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteStudentCommand.MESSAGE_USAGE));
-        }
+        requireNonNull(args);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args);
+
+        String id = argMultimap.getPreamble();
+
         try {
-            StudentId studentId = new StudentId(trimmedArgs);
+            StudentId studentId = parseStudentId(id);
             return new DeleteStudentCommand(studentId);
-        } catch (IllegalArgumentException e) {
-            throw new ParseException(STUDENT_ID_MESSAGE_CONSTRAINTS + "\n" + DeleteStudentCommand.MESSAGE_USAGE);
+        } catch (ParseException e) {
+            throw new ParseException(String.format(e.getMessage(), DeleteStudentCommand.MESSAGE_USAGE));
         }
     }
 }
