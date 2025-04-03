@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.EXPORT_FILE_HEADER;
 import static seedu.address.logic.Messages.FILE_WRITE_ERROR;
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_STUDENT_LIST;
 import static seedu.address.logic.Messages.MESSAGE_EXPORT_SUCCESS;
-import static seedu.address.logic.Messages.MESSAGE_NO_STUDENT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 
@@ -59,7 +59,7 @@ public class ExportCommandTest {
         File exportedFile = exportPath.toFile();
         ExportCommand command = new ExportCommand(exportedFile);
 
-        assertCommandSuccess(command, emptyModel, MESSAGE_NO_STUDENT_FOUND, emptyModel);
+        assertCommandSuccess(command, emptyModel, MESSAGE_EMPTY_STUDENT_LIST, emptyModel);
     }
 
     @Test
