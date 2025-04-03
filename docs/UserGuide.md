@@ -51,6 +51,7 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
    - [Marking all students’ attendance:](#marking-all-students-attendance) `markall`
    - [Unmarking a student’s attendance:](#unmarking-a-student-s-attendance) `unmark`
    - [Unmarking all students’ attendance:](#unmarking-all-students-attendance) `unmarkall`
+1. [Known Issues](#known-issues)
 1. [FAQ](#faq)
 1. [Command Summary](#command-summary)
 ***
@@ -497,6 +498,13 @@ You can mark all students in CareBook as absent.
 
 <p>&nbsp;</p>
 
+***
+
+## Known Issues
+
+1. **Find window** cannot be maximized fully. However, since it only displays 1 student, you will still be able to view all details needed.
+1. If you **execute another command with the find window open**, you will get a notification. Simply click "ok" to close it.
+1. When **help window is minimized** and you run `help` again, the original window remains minimized. Simply restore the minimized window to view it again.
 ***
 
 ## FAQ
