@@ -2,12 +2,12 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_DELETE_SUCCESS;
-import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_NOT_FOUND;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
-import java.util.List;
+import java.util.NoSuchElementException;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.student.Student;
@@ -22,34 +22,29 @@ public class DeleteStudentCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes a specific student by their exact (case sensitive) STUDENT ID.\n"
-            + "Parameters: STUDENT_ID (must be in uppercase)\n"
+            + "Parameters: STUDENT_ID\n"
             + "Example: " + COMMAND_WORD + " A01A";
 
-    private final StudentId targetStudentId;
+    private final StudentId studentId;
 
-    public DeleteStudentCommand(StudentId targetStudentId) {
-        this.targetStudentId = targetStudentId;
+    public DeleteStudentCommand(StudentId studentId) {
+        this.studentId = studentId;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Student> lastShownList = model.getAddressBook().getStudentList();
+        assert(studentId != null);
 
-        Student studentToDelete = null;
-        for (Student student : lastShownList) {
-            if (student.getStudentId().equals(targetStudentId)) {
-                studentToDelete = student;
-                break;
-            }
-        }
-        if (studentToDelete == null) {
-            throw new CommandException(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, targetStudentId));
+        try {
+            Student studentToDelete = model.getStudentById(studentId);
+            model.deleteStudent(studentToDelete);
+        } catch (NoSuchElementException e) {
+            throw new CommandException(MESSAGE_INVALID_STUDENT_NOT_FOUND);
         }
 
-        model.deleteStudent(studentToDelete);
-        model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
-        return new CommandResult(String.format(MESSAGE_DELETE_SUCCESS, Messages.format(studentToDelete)));
+        model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+        return new CommandResult(String.format(MESSAGE_DELETE_SUCCESS, studentId));
     }
 
     @Override
@@ -63,13 +58,13 @@ public class DeleteStudentCommand extends Command {
         }
 
         DeleteStudentCommand otherDeleteCommand = (DeleteStudentCommand) other;
-        return targetStudentId.equals(otherDeleteCommand.targetStudentId);
+        return studentId.equals(otherDeleteCommand.studentId);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("targetStudentId", targetStudentId)
+                .add("studentId", studentId)
                 .toString();
     }
 }

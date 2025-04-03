@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.logic.Messages.STUDENT_ID_MESSAGE_CONSTRAINTS;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_STUDENT_ID;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -29,7 +29,7 @@ public class DeleteStudentCommandParserTest {
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
-        assertParseFailure(parser, "a",
-                STUDENT_ID_MESSAGE_CONSTRAINTS + "\n" + DeleteStudentCommand.MESSAGE_USAGE);
+        String expectedMessage = String.format(MESSAGE_INVALID_STUDENT_ID, DeleteStudentCommand.MESSAGE_USAGE);
+        assertParseFailure(parser, "A00AA", expectedMessage);
     }
 }
