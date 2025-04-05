@@ -212,16 +212,6 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            if (!commandText.trim().toLowerCase().startsWith("find") && findWindow.isShowing()) {
-                findWindow.hide();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Find Window Closed");
-                alert.setHeaderText(null);
-                alert.setContentText("Find Window is automatically closed when"
-                        + " another command is executed");
-                alert.showAndWait();
-            }
-
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("An error occurred while executing command: " + commandText);
