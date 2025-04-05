@@ -521,7 +521,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to mark all students as absent by student ID.
+1. User requests to mark all students as absent.
 
 2. CareBook updates the attendance record for every student as absent.
 
