@@ -13,7 +13,7 @@
 
 ## **Acknowledgements**
 
-Some of CareBook features are adapted from the AddressBook-Level2 project created by the [SE-EDU initiative](https://se-education.org).
+Some of CareBook features are adapted from the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 As such, CareBook contains some of the code and documentation from AddressBook-Level3. 
 
 The list of third-party libraries used are: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
