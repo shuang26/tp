@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -210,16 +209,6 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isExit()) {
                 handleExit();
-            }
-
-            if (!commandText.trim().toLowerCase().startsWith("find") && findWindow.isShowing()) {
-                findWindow.hide();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Find Window Closed");
-                alert.setHeaderText(null);
-                alert.setContentText("Find Window is automatically closed when"
-                        + " another command is executed");
-                alert.showAndWait();
             }
 
             return commandResult;

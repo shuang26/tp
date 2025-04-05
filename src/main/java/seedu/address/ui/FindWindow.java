@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.student.Student;
@@ -29,10 +30,22 @@ public class FindWindow extends UiPart<Stage> {
      */
     public FindWindow(Stage root) {
         super(FXML, root);
-        getRoot().setTitle("Find Window");
-        getRoot().setMinWidth(900);
-        getRoot().setMinHeight(300);
-        getRoot().setMaxHeight(400);
+        Stage stage = getRoot();
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        stage.setTitle("Find Window (Press ESC to exit and return to Main Window)");
+        stage.setMinWidth(1000);
+        stage.setMinHeight(400);
+        stage.setResizable(false);
+
+        if (stage.getScene() != null) {
+            stage.getScene().addEventFilter(javafx.scene.input.KeyEvent.KEY_PRESSED, event -> {
+                if (event.getCode() == javafx.scene.input.KeyCode.ESCAPE) {
+                    hide();
+                    event.consume();
+                }
+            });
+        }
     }
 
     /**
