@@ -572,7 +572,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 10. It should be a lightweight application (<100MB) and not require additional dependencies beyond Java.
 
 ### Glossary
-* **Command**: An instruction entered by the Daycare Teacher into the CareBook system to perform a specific action (e.g., "add", "remove", "view", "list", "mark", "help").
+* **Command**: An instruction entered by the Daycare Teacher into the CareBook system to perform a specific action (e.g., "add", "delete", "find", "list", "mark", "help").
 * **Command Format**: The required structure and syntax for a command, including any necessary parameters (e.g., "add <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>" for adding a student).
 * **Daycare Teacher**: The primary user of the CareBook application, responsible for managing student records and attendance.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
