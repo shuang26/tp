@@ -527,6 +527,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 3. CareBook confirms that all students have been marked absent.
 
+   Use case ends.
+
+**Extensions**
+
 * 2a. CareBook detects an empty list of students.
 
     * 2a1. CareBook displays an error message.
@@ -540,6 +544,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to export all students information with a filename.
 
 2. CareBook saves all students information into the directory where the CareBook application is located.
+
+   Use case ends.
+
+**Extensions**
 
 * 2a. CareBook detects an invalid filename.
     * 2a1. CareBook displays an error message.
