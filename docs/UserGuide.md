@@ -139,8 +139,10 @@ You can add a student to CareBook.
   <ul>
     <li>Parameters can be added in <em>any order</em>, but all are compulsory.</li>
     <li>For <code>StudentName</code> and <code>ParentName</code>, instead of "S/O" and "D/O" please use SO or DO.</li>
+    <li><code>Name</code> should not have @</li>
     <li>No restrictions to Address.</li>
     <li><code>StudentId</code> must be <strong>unique</strong></li>
+    <li><code>StudentId</code> is <strong>case-insensitive</strong></li>
     <li><code>StudentId</code> should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
     <li><code>Phone</code> is restricted to Singapore numbers so they <strong>must</strong> be exactly 8 digits and begin with 6, 8 or 9.</li>
     <li><code>Email</code> should have an @ domain.</li>
@@ -230,11 +232,13 @@ You can edit a student's details in CareBook.
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #34c759; margin-bottom: 20px;">
   <strong>Remarks:</strong>
   <ul>
-    <li>There are no restrictions to Address.</li>
     <li>Parameters can be edited in <em>any order</em>.</li>
     <li>For <code>StudentName</code> and <code>ParentName</code>, instead of "S/O" and "D/O" please use SO or DO.</li>
-<li><code>StudentId</code> must be <strong>unique</strong></li>
-   <li><code>StudentId</code> should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
+    <li><code>Name</code> should not have @</li>
+    <li>There are no restrictions to Address.</li>
+    <li><code>StudentId</code> must be <strong>unique</strong></li>
+    <li><code>StudentId</code> is <strong>case-insensitive</strong></li>
+    <li><code>StudentId</code> should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
     <li>Edited <code>StudentId</code> should be a new <code>StudentId</code> that has not been assigned to any students.</li>
     <li><code>Phone</code> is restricted to Singapore numbers so they <strong>must</strong> be exactly 8 digits and begin with 6, 8 or 9.</li>
     <li><code>Email</code> should have an @ domain.</li>
