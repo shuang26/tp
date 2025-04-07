@@ -38,7 +38,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** (consisting of classes [`Main`](hhttps://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
+**`Main`** (consisting of classes [`Main`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
 * At app launch, it initializes the other components in the correct sequence, and connects them up with each other.
 * At shut down, it shuts down the other components and invokes cleanup methods where necessary.
 
@@ -239,7 +239,7 @@ find a student from <code>Model</code>
 * Prefers typing to mouse interactions
 * Is reasonably comfortable using CLI apps
 
-**Value proposition**: CareBook helps daycare teachers manage classroom and parent communication by providing instant CLI access to students’ and parents' contacts and streamlining repetitive tasks like daily attendance and maintaining student records.
+**Value proposition**: CareBook helps daycare teachers manage classroom and parent communication by providing instant CLI access to students' information and streamlining repetitive tasks like daily attendance and maintaining student records.
 
 ### User stories
 
@@ -671,3 +671,12 @@ domain part of the email contains at least one period (e.g. example.com) to bett
 7. **Automatically refresh attendance records on a new date**: Currently, users need to trigger a refresh to update the attendance records on a new date.
 When a user is working on this app at late night, past 12am, the date will change, hence they will have to manually refresh the data using commands like `list`.
 For further improvement, we plan to automatically detect a date change while the app is running, and refresh the attendance records without user-triggered actions.
+
+8. **Modify clear command to clear attendance record only**: Currently, attendance records accumulate over time with no option to delete them, 
+making it difficult for users to manage large volumes of data. For future improvements, we would allow users to clear only the attendance records in CareBook.
+
+9. **Modify find command to search using student name**: Currently, the searches for students using their student ID. We plan to modify it to 
+also accept student names, allowing users to quickly locate a student's information by name, which will be useful in emergency situations.
+
+10. **Modify list command to display only present or absent students**: Currently, the list command displays all the students. As a future improvements, 
+we plan to allow users to either list the present or absent students, to make it easier to identify which students are not present.
